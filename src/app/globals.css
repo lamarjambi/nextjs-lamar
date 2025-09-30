@@ -58,3 +58,27 @@ body {
     transform: translateY(0);
   }
 }
+
+/* 2D card transition animation */
+@keyframes card-transition {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(15deg) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(30deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.card-leave {
+  animation: card-transition 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  will-change: transform, opacity;
+  transform-origin: center bottom;
+  pointer-events: none;
+  z-index: 50;
+}

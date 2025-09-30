@@ -1,6 +1,30 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useRef } from "react";
 
 export default function Home() {
+  const router = useRouter();
+  
+  const artistRef = useRef<HTMLDivElement | null>(null);
+  const devRef = useRef<HTMLDivElement | null>(null);
+  const gameRef = useRef<HTMLDivElement | null>(null);
+
+  function animateThenNavigate(ref: React.RefObject<HTMLDivElement | null>, href: string) {
+    const node = ref.current;
+    if (!node) {
+      router.push(href);
+      return;
+    }
+    
+    // Apply the animation
+    node.classList.add("card-leave");
+    
+    // Navigate after animation completes
+    setTimeout(() => {
+      router.push(href);
+    }, 580);
+  }
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-5 bg-[url('/img/background.png')] bg-[length:100%] bg-left-top overflow-hidden">
       {/* title with typewriter effect */}
@@ -16,8 +40,15 @@ export default function Home() {
       {/* fanned stack */}
       <div className="relative w-[240px] h-[340px] [perspective:1200px]">
         {/* left card */}
-        <div className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom left-0 top-0 -translate-x-10 translate-y-6 -rotate-[18deg] hover:scale-110 hover:z-40">
-          <a href="/artistFiles/alBalad.html" className="block w-full h-full relative">
+        <div 
+          ref={artistRef}
+          className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom left-0 top-0 -translate-x-10 translate-y-6 -rotate-[18deg] hover:scale-110 hover:z-40 cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            animateThenNavigate(artistRef, "/artistFiles/alBalad.html");
+          }}
+        >
+          <a href="/artistFiles/alBalad.html" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
             <Image src="/img/ArtistCard.png" alt="Artist Card" fill className="object-cover" />
             <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Artist</p>
@@ -26,8 +57,15 @@ export default function Home() {
         </div>
 
         {/* middle card */}
-        <div className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom -rotate-[6deg] hover:scale-110 hover:z-40">
-          <a href="/artistFiles/banana.html" className="block w-full h-full relative">
+        <div 
+          ref={devRef}
+          className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom -rotate-[6deg] hover:scale-110 hover:z-40 cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            animateThenNavigate(devRef, "/artistFiles/banana.html");
+          }}
+        >
+          <a href="/artistFiles/banana.html" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
             <Image src="/img/DevCard.png" alt="Developer Card" fill className="object-cover" />
             <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Software Developer</p>
@@ -36,8 +74,15 @@ export default function Home() {
         </div>
 
         {/* right/front card */}
-        <div className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom translate-x-10 translate-y-6 rotate-[10deg] hover:scale-110 hover:z-40">
-          <a href="/artistFiles/bloop.html" className="block w-full h-full relative">
+        <div 
+          ref={gameRef}
+          className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom translate-x-10 translate-y-6 rotate-[10deg] hover:scale-110 hover:z-40 cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            animateThenNavigate(gameRef, "/game");
+          }}
+        >
+          <a href="/game" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
             <Image src="/img/GameCard.png" alt="Game Designer Card" fill className="object-cover" />
             <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Game Designer</p>
