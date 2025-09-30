@@ -1,0 +1,215 @@
+/* global styles */
+* {
+    box-sizing: border-box;
+    /* background-color: rgba(253, 210, 59, 1); */
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Press Start 2P", system-ui;
+    font-style: normal;
+    margin: 0;
+    min-height: 105vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    /* background-color: rgba(253, 210, 59, 1); */
+    padding: 20px;
+    background-image: url('../img/background.png');
+    background-size: 100%; 
+    background-position: top left;  
+    overflow: hidden;
+}
+
+.center-text {
+    text-align: center;
+    margin-bottom: 45px; 
+    font-size: 1.5rem;
+}
+
+strong {
+    color: #547dfd;
+    text-shadow: /* the letter frame */
+        0.09em 0 black,
+        0 0.09em black,
+        -0.09em 0 black,
+        0 -0.09em black;
+}
+
+.subtitle-text {
+    text-align: center;
+    font-family: "Dokdo";
+    margin-bottom: 30px;
+    font-size: 1.5rem;
+    color: #333;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+}
+
+/* Responsive adjustments for subtitle */
+@media (max-width: 768px) {
+    .subtitle-text {
+        font-size: 0.6rem;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 414px) {
+    .subtitle-text {
+        font-size: 0.5rem;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+}
+
+.typewriter {
+    color: #547dfd;
+    border-right: .15em solid rgba(225, 225, 225, 0.7);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .15em;
+    overflow: hidden;
+    width: 22ch;
+    margin-bottom: 3%;
+    animation: 
+        typing 3.5s steps(19, end),
+        blink-carat .5s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 } /* zero chars */
+    to { width: 22ch } /* full chars */
+    
+}
+
+@keyframes blink-carat {
+    from, to { border-color: transparent }
+    50% { border-color: rgba(0, 0, 0, 0.7) }
+}
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 20%;
+    height: 40%;
+    border: 2px solid black;
+    border-radius: 5.5%;
+    overflow: hidden; 
+    transition: transform 0.3s ease, margin 0.3s ease;
+    position: relative;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(152, 92, 210, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card-overlay p {
+    color: #000000;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    background-color: transparent;
+}
+
+.card:hover .card-overlay {
+    opacity: 1;
+}
+
+/* Show titles on mobile devices */
+@media (max-width: 768px) {
+    .card-overlay {
+        opacity: 1;
+        background-color: transparent;
+    }
+    
+    .card-overlay p {
+        font-size: 12px;
+        padding: 8px 12px;
+        color: #000000;
+        background-color: rgba(152, 92, 210, 0.9);
+        border-radius: 4px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 414px) {
+    .card-overlay p {
+        font-size: 10px;
+        padding: 6px 10px;
+    }
+}
+
+.card:hover {
+    animation: float 1.5s ease-in-out infinite;
+    z-index: 1;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; 
+}
+
+/* the percenetages are like the timeline for animation, 0% being the start and 100% the end */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    animation: float 1.5s ease-in-out infinite; /* animation: is only available when we use @keyframe */
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: 30%;
+    height: 50%;
+  }
+
+  .center-text {
+    font-size: 1rem;
+  }
+
+}
+
+@media (max-width: 414px) {
+  .card {
+    width: 30%;
+    height: 50%;
+  }
+
+  .center-text {
+    font-size: 0.7rem;
+  }
+}

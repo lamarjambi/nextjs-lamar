@@ -1,0 +1,840 @@
+/* Scripter: Jambo 
+DM 2193 - Midterm Project 1
+anything commenetd is a failed attempt at something :P */
+
+@import url('https://fonts.googleapis.com/css2?family=Dokdo&display=swap');
+
+/* global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: rgba(253, 210, 59, 1); */
+}
+
+html,
+body {
+  font-family: "Press Start 2P", system-ui;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  letter-spacing: 0;
+  kerning: 0;
+  cursor: url('../img/mouse-cursor.png'), auto;
+  /* background-color: #f6d35a; */
+  background-image: url('../img/background.png');
+  background-repeat: repeat;
+  background-size: 100%; 
+  background-position: top left;
+  background-attachment: scroll; /*allows parallax logic*/
+}
+
+a {
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.spacer {
+  height: 80px; 
+}
+
+
+/* ============= NAVBAR STUFF ============= */
+/* :desc: followed a youtube tutorial and tried to 
+give my own spin */
+.vertical-container {
+  top: 100px;
+  left: 5%;
+  height: 70px;
+  width: 70px;
+  background-color: #faf0dd; 
+  border-radius: 50px;
+  position: fixed;
+  transition: 0.4s ease;
+  z-index: 1000;
+  overflow: hidden;
+  cursor: url('../img/mouse-cursor.png'), auto;
+  /* cursor: grab;  */
+}
+
+#drag {
+  cursor: url('../img/mouse-cursor.png'), auto;
+  /* z-index: 10; */
+  /* position: fixed; */
+}
+
+.vertical-container.active {
+  height: 425px;
+  background-color: #faf0dd;
+  /* cursor: grabbing; */
+}
+
+.nav-items {
+  position: absolute;
+  top: 85px; 
+  left: 0;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 35px; 
+  background: #faf0dd;
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+.nav-items li {
+  width: 100%;
+  text-align: center;
+  background: #faf0dd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .nav-items img {
+  width: 40px;  
+  height: auto;
+  background-color: #faf0dd;
+  display: block;
+  margin: 0 auto;  
+} */
+
+.nav-items svg {
+  background-color: #faf0dd;
+  fill: currentColor; 
+  width: 24px;
+  height: 24px;
+  cursor: url('../img/mouse-cursor.png'), auto;
+} 
+
+ul.nav-items {
+  background: #faf0dd;
+  justify-content: space-between;
+}
+
+.vertical-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #faf0dd;
+  z-index: -1;
+}
+
+.nav-items a {
+  color: #ec6ba7;
+  text-decoration: none;
+  font-family: 'Press Start 2P', cursive; 
+  font-size: 9px; 
+  transition: color 0.3s ease;
+  display: flex;
+  padding: 5px 0;
+  background: #faf0dd;
+  justify-content: center;
+  align-items: center;
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+.nav-items a:hover {
+  color: #ec6ba7;
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+.nav-items .social-icon {
+  color: #ec6ba7; 
+  transition: color 0.3s ease;
+}
+
+.nav-items .social-icon:hover {
+  color: #547dfd; 
+}
+
+.vertical-container.active .nav-items {
+  cursor: url('../img/mouse-cursor.png'), auto;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.toggle-box {
+  order: -1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  background-color: #faf0dd;
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+/* horizontal line */
+.icon {
+  position: absolute;
+  height: 4px;
+  width: 35px;
+  background-color: #ec6ba7;
+  border-radius: 50px;
+  top: 35px;
+  left: 35px;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+/* vertical line */
+.icon::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 35px;
+  background-color: #ec6ba7;
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+.toggle-box.active .icon {
+  transform: translate(-50%, -50%) rotate(45deg);
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+.toggle-box.active .icon::before {
+  color: red;
+  transform: translate(-50%, -50%) rotate(0deg); 
+  cursor: url('../img/mouse-cursor.png'), auto;
+}
+
+.toggle-box:hover .icon,
+.toggle-box:hover .icon::before {
+  background-color: #ec6ba7;
+}
+/* ============= END OF NAVBAR ============= */
+
+/* ============= HEADER + INTRO TEXTBOX ============= */
+.hero {
+  width: 100vw;
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.about {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 600px;
+  margin-left: 5%;
+}
+
+.heading {
+  color: #ec6ba7;
+  margin-bottom: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 24px;  
+}
+
+.lead-para {
+  color: #000000;
+  font-family: 'Dokdo', sans-serif; 
+  font-size: 26px; 
+  line-height: 1.5;
+}
+
+/* image */
+.about div:last-child {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 8%;
+}
+
+.introImg {
+  max-width: 60%;
+  height: auto;
+  border-radius: 5.5%;
+}
+/* ============= END OF HEADER + INTRO TEXTBOX ============= */
+
+/* ============= EXPERIENCE SECTION ============= */
+.experience-section {
+  width: 65%;
+  margin: 0 auto;
+  font-family: "Press Start 2P", system-ui;
+  position: relative;
+  padding: 40px 0;
+}
+
+.experience-timeline {
+  position: relative;
+  padding-left: 40px;
+  margin-top: 40px;
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 40px;
+  padding-left: 30px;
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #985cd2; 
+  transform: translateX(-50%);
+}
+
+.company {
+  position: absolute;
+  left: -120px;
+  top: 0;
+  font-family: 'Press Start 2P', sans-serif;
+  color: #985cd2; 
+  font-size: 12px;
+}
+
+.role-details h3 {
+  color: #547dfd;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.company-link {
+  color: #547dfd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.company-link:hover {
+  color: #c9a0df;
+}
+
+.duration {
+  color: #81c950;
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-family: 'Dokdo', sans-serif;
+}
+
+.achievements {
+  list-style: none;
+  padding: 0;
+}
+
+.achievements li {
+  margin-bottom: 16px;
+}
+
+.achievement-content {
+  color: #000000;
+  font-family: 'Dokdo', sans-serif;
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 0 4px;
+  background-color: rgba(84, 125, 253, 0.1);
+  color: #547dfd;
+  border-radius: 4px;
+  font-family: "Press Start 2P", system-ui;
+  font-size: 12px;
+}
+/* ============= END OF EXPERIENCE SECTION ============= */
+
+/* ============= PROJECTS (ROW) ============= */
+.project-section {
+  width: 65%;
+  margin: 0 auto;
+  padding: 40px 0;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: rgba(70, 112, 220, 0.1);
+  color: #547dfd;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.desc {
+  font-family: "Dokdo";
+  color: #faf0dd;
+  font-weight:lighter;
+  font-size: 26px;
+  margin-bottom: 40px;
+}
+
+.project-card {
+  background: #faf0dd;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  margin: 12px;
+}
+
+.project-card::before,
+.project-card::after {
+  content: "♦";
+  position: absolute;
+  color: #ec6ba7;
+  font-size: 42px;
+  z-index: 1;
+}
+
+.project-card::before {
+  top: 8px;
+  left: 8px;
+}
+
+.project-card::after {
+  bottom: 8px;
+  right: 8px;
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: url('../img/mouse-cursor.png');
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-4px);
+}
+
+.project-card a {
+  text-decoration: none;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-image {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background: #1a1d21;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.project-header h3 {
+  color: #ec6ba7;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.project-status {
+  background: rgba(147, 176, 255, 0.1);
+  color: rgb(147, 176, 255);
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+}
+
+.project-description {
+  color: #000000;
+  font-family: 'Dokdo', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tag {
+  background: rgba(84, 125, 253, 0.1);
+  color: #75c2df;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: "Press Start 2P", system-ui;
+}
+/* ============= END OF PROJECTS (ROW) ============= */
+
+/* ============= SKILLS ============= */
+.skills-section {
+  width: 65%;
+  margin: auto;
+  font-family: "Press Start 2P", system-ui;
+}
+
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.skill-category {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(216, 79, 139, 0.2);
+}
+
+.category-name {
+  color: rgba(70, 112, 220, 0.8);
+  font-size: 12px;
+}
+
+.skills-list {
+  margin-left: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-item {
+  font-family: "Dokdo";
+  background-color: rgba(216, 79, 139, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 20px;
+  color: rgba(216, 79, 139, 0.9);
+  transition: background-color 0.3s ease;
+}
+
+.skill-item:hover {
+  background-color: rgba(216, 79, 139, 0.2);
+}
+/* ============= END OF SKILLS ============= */
+
+/* ============= FOOTER AND SVG ============= */
+.footer {
+  /* background-color: rgba(253, 210, 59, 1); */
+  color: #ec6ba7;
+  padding: 2rem 0;
+  font-family: 'Dokdo', 'Press Start 2P';
+}
+
+.footer-content {
+  padding: 4px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-icon {
+  color: #ec6ba7;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #547dfd;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.copyright p {
+  margin: 0.25rem 0;
+}
+/* ============= END OF FOOTER AND SVG CODES ============= */
+
+@media (max-width: 768px) {
+  /* ============= NAVBAR STUFF ============= */
+  .vertical-container {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    flex-direction: row;
+    transform: translateX(-50%); /* center */
+    display:flex;
+  }
+
+  .nav-items-top {
+    display: none;
+  }
+
+  .nav-items {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 90%;
+    padding: 0;
+    list-style: none;
+    pointer-events: all;
+    display: flex; /* added */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #faf0dd;
+    display: none; 
+    margin-right: 1em;
+  }
+
+  .nav-items svg {
+    width: 20px;
+    height: 20px;
+    color: #ec6ba7; 
+  }
+
+  .nav-items a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .vertical-container.active {
+    width: 375px;
+    height: 70px;
+  }
+
+  .vertical-container.active .nav-items {
+    opacity: 1;
+    pointer-events: all;
+    display: flex; 
+  }
+
+  .nav-items-bottom {
+    display: none; 
+  }
+
+  /* fixing mobile issue with not showing icons w/ z-index */
+  .toggle-box {
+    z-index: 1000; 
+    width: 20%;
+  }
+
+  /* ============= END OF NAVBAR STUFF ============= */
+
+  /* ============= HEADER + INTRO TEXTBOX ============= */
+  .about {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .about div:last-child {
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    gap: 2rem;  
+  }
+  /* ============= END OF HEADER + INTRO TEXTBOX ============= */
+
+  /* ============= PROJECTS (ROW) ============= */
+  .project-section {
+    width: 90%;
+  }
+  
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .project-header h3 {
+    font-size: 1.2rem;
+  }
+  /* ============= END OF PROJECTS (ROW) ============= */
+
+  /* ============= EXPERIENCE SECTION ============= */
+  .experience-section {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .experience-timeline {
+    padding-left: 20px;
+  }
+
+  .company {
+    position: relative;
+    left: 0;
+    margin-bottom: 12px;
+  }
+
+  .experience-item {
+    padding-left: 20px;
+  }
+  /* ============= END OF EXPERIENCE SECTION ============= */
+
+  /* ============= SKILLS ============= */
+  .skills-section {
+    width: 90%;
+  }
+
+  .skill-category {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .category-name {
+    margin-bottom: 10px;
+  }
+  /* ============= END OF SKILLS ============= */
+
+  /* ============= FOOTER ============= */
+  .footer-content {
+    padding: 0 1rem;
+  }
+}
+
+/* ============= SCROLLING ANIMATION ============= */
+.scroll-reveal {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease-out, transform 1s ease-out;
+  will-change: opacity, visibility, transform;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.scroll-reveal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0) scale(1);
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.2s;
+}
+
+/* custom animations */
+.hero.scroll-reveal {
+  transition-duration: 0.4s;
+}
+
+.about.scroll-reveal {
+  transition-duration: 0.2s;
+}
+
+.grid-item.scroll-reveal {
+  transition-duration: 0.2s;
+}
+
+.skills-section.scroll-reveal {
+  transition-duration: 0.2s;
+}
+
+@media (max-width: 768px) {
+  .scroll-reveal {
+    transition-duration: 0.5s !important;
+  }
+  
+  .reveal-left,
+  .reveal-right {
+    transform: translateX(0) translateY(50px);
+  }
+}
+/* ============= END OF SCROLLING ANIMATION ============= */
