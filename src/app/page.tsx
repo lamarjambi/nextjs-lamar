@@ -1,16 +1,17 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useCallback } from "react";
+import type { CardRef, NavigationHandler, AnimationVariant } from "@/types/navigation";
 
-export default function Home() {
+export default function Home(): React.JSX.Element {
   const router = useRouter();
   
   const artistRef = useRef<HTMLDivElement | null>(null);
   const devRef = useRef<HTMLDivElement | null>(null);
   const gameRef = useRef<HTMLDivElement | null>(null);
 
-  function animateThenNavigate(ref: React.RefObject<HTMLDivElement | null>, href: string) {
+  const animateThenNavigate: NavigationHandler = useCallback((ref: CardRef, href: string, variant: AnimationVariant = 'default') => {
     const node = ref.current;
     if (!node) {
       router.push(href);
@@ -24,7 +25,7 @@ export default function Home() {
     setTimeout(() => {
       router.push(href);
     }, 580);
-  }
+  }, [router]);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-5 bg-[url('/img/background.png')] bg-[length:100%] bg-left-top overflow-hidden">
       {/* title with typewriter effect */}

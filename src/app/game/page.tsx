@@ -1,13 +1,17 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 export default function GamePage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const scoreDisplayRef = useRef<HTMLDivElement>(null);
   const highScoreDisplayRef = useRef<HTMLDivElement>(null);
   const startButtonRef = useRef<HTMLButtonElement>(null);
+  
+  // Scroll effect state
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const projectsSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Snake game implementation
@@ -185,6 +189,194 @@ export default function GamePage() {
     };
   }, []);
 
+  // Smooth scroll-triggered card dealing effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!projectsSectionRef.current) return;
+
+      const container = projectsSectionRef.current;
+      const rect = container.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      // Calculate scroll progress through the container
+      // Start when container enters viewport, end when it exits
+      const scrollStart = windowHeight;
+      const scrollEnd = -rect.height;
+      const scrollRange = scrollStart - scrollEnd;
+      const currentScroll = scrollStart - rect.top;
+
+      let progress = currentScroll / scrollRange;
+      progress = Math.max(0, Math.min(1, progress));
+
+      // Cap the progress at 60% to keep cards visible longer
+      // This means cards finish dealing at 60% scroll, then scroll continues
+      const cardDealingProgress = Math.min(progress / 0.6, 1);
+      setScrollProgress(cardDealingProgress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Project data
+  const projects = [
+    { 
+      id: 1, 
+      title: "Cosmic Thread", 
+      color: "bg-gradient-to-br from-purple-400 to-purple-600", 
+      desc: "Space adventure game",
+      href: "https://playlamar.itch.io/cosmic-thread",
+      suit: "♠️"
+    },
+    { 
+      id: 2, 
+      title: "Hue's Quest", 
+      color: "bg-gradient-to-br from-pink-400 to-pink-600", 
+      desc: "Color puzzle adventure",
+      href: "https://github.com/lamarjambi/hues-quest.git",
+      suit: "♥️"
+    },
+    { 
+      id: 3, 
+      title: "Poly-0: The Saga", 
+      color: "bg-gradient-to-br from-blue-400 to-blue-600", 
+      desc: "Epic polygon journey",
+      href: "https://github.com/lamarjambi/poly-0-the-saga.git",
+      suit: "♦️"
+    },
+    { 
+      id: 4, 
+      title: "Typing Rush", 
+      color: "bg-gradient-to-br from-green-400 to-green-600", 
+      desc: "Fast-paced typing game",
+      href: "oppr.org/s/3HMXmh9U",
+      suit: "♣️"
+    },
+    { 
+      id: 5, 
+      title: "Super Adrenaline Junkies", 
+      color: "bg-gradient-to-br from-yellow-400 to-yellow-600", 
+      desc: "High-speed platformer",
+      href: "oppr.org/s/iYpolLEj",
+      suit: "🃏"
+    },
+  ];
+
+  // Calculate each card's position based on scroll
+  const getCardTransform = (index: number) => {
+    const totalCards = projects.length;
+    const cardsPerRow = 3;
+    
+    // Deal cards row by row for more natural effect
+    const row = Math.floor(index / cardsPerRow);
+    const col = index % cardsPerRow;
+    
+    // Each row starts dealing at different scroll progress
+    const rowStart = row * 0.2; // Each row starts 20% later
+    const cardStart = rowStart + (col * 0.1); // Cards in same row are 10% apart
+    const cardDuration = 0.25; // Slightly shorter duration for smoother overlap
+    
+    // Calculate this card's individual progress
+    let cardProgress = (scrollProgress - cardStart) / cardDuration;
+    cardProgress = Math.max(0, Math.min(1, cardProgress));
+
+    // Easing function
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+    const eased = easeOutCubic(cardProgress);
+
+    // Starting position: stacked in center
+    const startX = 0;
+    const startY = 0;
+    const startRotation = index * 3;
+
+    // Final position: 3 cards per row grid layout (smaller cards)
+    const cardWidth = 220;
+    const cardHeight = 300;
+    const gapX = 40;
+    const gapY = 30;
+    
+    // Center the grid but push it down more
+    const totalWidth = cardsPerRow * cardWidth + (cardsPerRow - 1) * gapX;
+    const totalHeight = Math.ceil(totalCards / cardsPerRow) * cardHeight + (Math.ceil(totalCards / cardsPerRow) - 1) * gapY;
+    
+    const startOffsetX = -totalWidth / 2 + cardWidth / 2;
+    const startOffsetY = -totalHeight / 2 + cardHeight / 2; // Center the grid vertically
+    
+    const finalX = startOffsetX + col * (cardWidth + gapX);
+    const finalY = startOffsetY + row * (cardHeight + gapY);
+    const finalRotation = 0;
+
+    // Interpolate
+    const currentX = startX + (finalX - startX) * eased;
+    const currentY = startY + (finalY - startY) * eased;
+    const currentRotation = startRotation + (finalRotation - startRotation) * eased;
+
+    // Add slight vertical bounce during transition
+    const bounceHeight = Math.sin(cardProgress * Math.PI) * 40;
+
+    return {
+      transform: `translate(${currentX}px, ${currentY - bounceHeight}px) rotate(${currentRotation}deg)`,
+      opacity: 0.4 + cardProgress * 0.6,
+      zIndex: cardProgress > 0.5 ? 10 + index : index,
+    };
+  };
+
+  // Special transform for the deck (position 5 - bottom right)
+  const getDeckTransform = () => {
+    const cardWidth = 220;
+    const cardHeight = 300;
+    const gapX = 40;
+    const gapY = 30;
+    const cardsPerRow = 3;
+    
+    // Deck appears at the last position (row 2, col 1)
+    const deckRow = 2;
+    const deckCol = 1;
+    
+    // Deck starts dealing after all project cards
+    const deckStart = 0.8; // Start at 80% scroll progress
+    const deckDuration = 0.2; // Deal over 20% of scroll
+    
+    let deckProgress = (scrollProgress - deckStart) / deckDuration;
+    deckProgress = Math.max(0, Math.min(1, deckProgress));
+
+    // Easing function
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+    const eased = easeOutCubic(deckProgress);
+
+    // Starting position: stacked in center
+    const startX = 0;
+    const startY = 0;
+    const startRotation = 15;
+
+    // Final position: bottom right of grid
+    const totalWidth = cardsPerRow * cardWidth + (cardsPerRow - 1) * gapX;
+    const totalHeight = 3 * cardHeight + 2 * gapY; // 3 rows total
+    
+    const startOffsetX = -totalWidth / 2 + cardWidth / 2;
+    const startOffsetY = -totalHeight / 2 + cardHeight / 2;
+    
+    const finalX = startOffsetX + deckCol * (cardWidth + gapX);
+    const finalY = startOffsetY + deckRow * (cardHeight + gapY);
+    const finalRotation = 0;
+
+    // Interpolate
+    const currentX = startX + (finalX - startX) * eased;
+    const currentY = startY + (finalY - startY) * eased;
+    const currentRotation = startRotation + (finalRotation - startRotation) * eased;
+
+    // Add slight vertical bounce during transition
+    const bounceHeight = Math.sin(deckProgress * Math.PI) * 40;
+
+    return {
+      transform: `translate(${currentX}px, ${currentY - bounceHeight}px) rotate(${currentRotation}deg)`,
+      opacity: 0.4 + deckProgress * 0.6,
+      zIndex: deckProgress > 0.5 ? 15 : 5,
+    };
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] overflow-x-hidden relative">
       {/* Card-themed background pattern */}
@@ -261,156 +453,140 @@ export default function GamePage() {
       {/* Spacer */}
       <div className="h-20"></div>
 
-      {/* Projects Section - Card Deck */}
-      <section className="w-[80%] mx-auto font-press-start mb-12">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-[#e74c3c] to-[#c0392b] text-white rounded-full text-sm mb-6 shadow-lg">
-            <span className="text-2xl">🃏</span>
-            <span>Game Projects</span>
-            <span className="text-2xl">🃏</span>
-          </div>
-          <h2 className="text-white text-3xl mb-4 leading-relaxed" style={{ fontFamily: 'Dokdo, sans-serif' }}>
-            Experimenting with different game engines!!
-          </h2>
-          <p className="text-[#bdc3c7] text-lg">Click on a project card to play :3</p>
-        </div>
+      {/* Scrollable Cards Section */}
+      <div 
+        ref={projectsSectionRef}
+        className="relative h-[100vh]"
+      >
+        {/* Sticky container for cards */}
+          <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-full h-[1200px] flex items-center justify-center">
+              {/* Title that fades out */}
+              <div 
+                className="absolute top-10 left-1/2 -translate-x-1/2 text-center transition-opacity duration-500"
+                style={{ opacity: 1 - scrollProgress * 2 }}
+              >
+                <h2 className="text-4xl font-bold text-white mb-2" style={{ fontFamily: 'Dokdo, sans-serif' }}>
+                  Game Projects
+                </h2>
+                <p className="text-base text-[#bdc3c7]">Keep scrolling to deal cards...</p>
+              </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Game Cards */}
-          <div className="group relative">
-            <div className="bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] overflow-hidden transform group-hover:scale-105 group-hover:rotate-2 transition-all duration-300">
-              <a href="https://playlamar.itch.io/cosmic-thread" target="_blank" rel="noopener noreferrer" className="block">
-                <div className="relative">
-                  <video autoPlay loop muted playsInline className="w-full h-48 object-cover">
-                    <source src="/img/cosmicThread-gamplay.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-2xl">♠️</span>
-                    <span className="text-2xl">♠️</span>
+                {/* Cards */}
+                <div className="relative w-full max-w-[1000px] h-[1200px] flex items-center justify-center">
+                  {projects.map((project, index) => (
+                    <div
+                      key={project.id}
+                      className={`absolute w-[220px] h-[300px] ${project.color} rounded-2xl shadow-2xl border-4 border-[#2c3e50] transition-all duration-100`}
+                      style={getCardTransform(index === 4 ? 5 : index)}
+                    >
+                    <div className="relative w-full h-full p-8 flex flex-col justify-between">
+                      {/* Card suit badge */}
+                      <div className="absolute top-4 right-4 w-10 h-10 bg-[#2c3e50] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                        {project.suit}
+                      </div>
+                      
+                      {/* Content */}
+                      <div className="mt-10">
+                        <h3 className="text-xl font-bold text-white mb-2 font-press-start leading-tight">
+                          {project.title}
+                        </h3>
+                        <p className="text-white text-base" style={{ fontFamily: 'Dokdo, sans-serif' }}>
+                          {project.desc}
+                        </p>
+                      </div>
+                      
+                      {/* Bottom section */}
+                      <div className="flex gap-1.5 items-center">
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                        <div className="w-3 h-3 bg-white rounded-full"></div>
+                        <div className="flex-1"></div>
+                        <a 
+                          href={project.href} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="px-3 py-1.5 bg-[#2c3e50] text-white rounded-full font-bold text-xs hover:bg-[#34495e] transition-colors font-press-start"
+                        >
+                          View
+                        </a>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-[#2c3e50] text-lg font-press-start text-center">Cosmic Thread</h3>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-2xl">♠️</span>
-                    <span className="text-2xl">♠️</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
+                ))}
 
-          <div className="group relative">
-            <div className="bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] overflow-hidden transform group-hover:scale-105 group-hover:-rotate-2 transition-all duration-300">
-              <a href="https://github.com/lamarjambi/hues-quest.git" target="_blank" rel="noopener noreferrer" className="block">
-                <div className="relative">
-                  <video autoPlay loop muted playsInline className="w-full h-48 object-cover">
-                    <source src="/img/huesQuest-gameplay.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-2xl">♥️</span>
-                    <span className="text-2xl">♥️</span>
-                  </div>
-                  <h3 className="text-[#2c3e50] text-lg font-press-start text-center">Hue&apos;s Quest</h3>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-2xl">♥️</span>
-                    <span className="text-2xl">♥️</span>
+                {/* Deck in the actual last position (position 4 - middle bottom) */}
+                <div 
+                  className="absolute w-[220px] h-[300px] bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] transition-all duration-100"
+                  style={getCardTransform(4)}
+                >
+                  <div className="relative w-full h-full p-6 flex flex-col justify-center items-center">
+                    <div className="text-center">
+                      <div className="text-4xl mb-3">🃏</div>
+                      <h3 className="text-lg font-bold text-[#2c3e50] mb-1 font-press-start">
+                        Deck
+                      </h3>
+                      <p className="text-[#2c3e50] text-sm" style={{ fontFamily: 'Dokdo, sans-serif' }}>
+                        Scroll to deal
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </a>
-            </div>
-          </div>
+              </div>
 
-          <div className="group relative">
-            <div className="bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] overflow-hidden transform group-hover:scale-105 group-hover:rotate-1 transition-all duration-300">
-              <a href="https://github.com/lamarjambi/poly-0-the-saga.git" target="_blank" rel="noopener noreferrer" className="block">
-                <div className="relative">
-                  <video autoPlay loop muted playsInline className="w-full h-48 object-cover">
-                    <source src="/img/poly0-gameplay.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300"></div>
+              {/* Scroll indicator */}
+              <div 
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center transition-opacity duration-500"
+                style={{ opacity: scrollProgress < 1 ? 1 : 0 }}
+              >
+                <p className="text-sm text-[#bdc3c7] mb-2 font-press-start">
+                  {Math.round(scrollProgress * 100)}% dealt
+                </p>
+                <div className="w-32 h-2 bg-[#34495e] rounded-full overflow-hidden">
+                  <div 
+                    className="h-full bg-white transition-all duration-100"
+                    style={{ width: `${Math.min(scrollProgress * 100, 100)}%` }}
+                  />
                 </div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-2xl">♦️</span>
-                    <span className="text-2xl">♦️</span>
-                  </div>
-                  <h3 className="text-[#2c3e50] text-lg font-press-start text-center">Poly-0: The Saga</h3>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-2xl">♦️</span>
-                    <span className="text-2xl">♦️</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] overflow-hidden transform group-hover:scale-105 group-hover:-rotate-1 transition-all duration-300">
-              <a href="oppr.org/s/3HMXmh9U" target="_blank" rel="noopener noreferrer" className="block">
-                <div className="relative">
-                  <Image src="/img/typing-rush-game.gif" alt="Typing Rush" width={400} height={200} className="w-full h-48 object-cover" />
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-2xl">♣️</span>
-                    <span className="text-2xl">♣️</span>
-                  </div>
-                  <h3 className="text-[#2c3e50] text-lg font-press-start text-center">Typing Rush</h3>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-2xl">♣️</span>
-                    <span className="text-2xl">♣️</span>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div className="group relative">
-            <div className="bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] overflow-hidden transform group-hover:scale-105 group-hover:rotate-2 transition-all duration-300">
-              <a href="oppr.org/s/iYpolLEj" target="_blank" rel="noopener noreferrer" className="block">
-                <div className="relative">
-                  <video autoPlay loop muted playsInline className="w-full h-48 object-cover">
-                    <source src="/img/SAJ-demo-game.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
-                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300"></div>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-2xl">🃏</span>
-                    <span className="text-2xl">🃏</span>
-                  </div>
-                  <h3 className="text-[#2c3e50] text-lg font-press-start text-center">Super Adrenaline Junkies</h3>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-2xl">🃏</span>
-                    <span className="text-2xl">🃏</span>
-                  </div>
-                </div>
-              </a>
+                {scrollProgress >= 1 && (
+                  <p className="text-xs text-[#bdc3c7] mt-2 font-press-start">
+                    All cards dealt! Continue scrolling...
+                  </p>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Spacer */}
-      <div className="h-20"></div>
+      {/* Completion Section */}
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]">
+        <div className="text-center">
+          <div className="bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] p-12 max-w-2xl mx-8">
+            <div className="text-6xl mb-6">🎴</div>
+            <h2 className="text-4xl font-bold text-[#2c3e50] mb-4" style={{ fontFamily: 'Dokdo, sans-serif' }}>
+              All Cards Dealt! 🎴
+            </h2>
+            <p className="text-xl text-[#2c3e50] mb-8" style={{ fontFamily: 'Dokdo, sans-serif' }}>
+              Continue exploring below to see more of my work...
+            </p>
+            <div className="flex justify-center gap-4">
+              <div className="text-2xl">♠️</div>
+              <div className="text-2xl">♥️</div>
+              <div className="text-2xl">♦️</div>
+              <div className="text-2xl">♣️</div>
+              <div className="text-2xl">🃏</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Skills Section - Card Hand */}
       <section className="w-[80%] mx-auto font-press-start mb-12">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-[#27ae60] to-[#2ecc71] text-white rounded-full text-sm mb-6 shadow-lg">
-            <span className="text-2xl">🃏</span>
             <span>Skills Deck</span>
-            <span className="text-2xl">🃏</span>
           </div>
           <h2 className="text-white text-3xl mb-4" style={{ fontFamily: 'Dokdo, sans-serif' }}>
             Where do my skills lie?
@@ -470,9 +646,7 @@ export default function GamePage() {
       <section className="w-[80%] mx-auto font-press-start mb-12">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-4 px-6 py-3 bg-gradient-to-r from-[#8e44ad] to-[#9b59b6] text-white rounded-full text-sm mb-6 shadow-lg">
-            <span className="text-2xl">🐍</span>
             <span>Sn@ke Game</span>
-            <span className="text-2xl">🐍</span>
           </div>
           <h2 className="text-white text-3xl mb-4" style={{ fontFamily: 'Dokdo, sans-serif' }}>
             Lead our Sn@ke (pink :3) to his food using your magical Kirby mouse!

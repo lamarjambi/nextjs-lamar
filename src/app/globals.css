@@ -35,6 +35,32 @@ body {
   font-size: 1.75rem;
 }
 
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #faf0dd 0%, #e8d5b7 100%);
+  border-radius: 10px;
+  border: 2px solid #2c3e50;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #e8d5b7 0%, #d4c5a9 100%);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #faf0dd #1a1a2e;
+}
+
 /* typewriter animation */
 @keyframes typing {
   from { width: 0 }
@@ -81,4 +107,67 @@ body {
   transform-origin: center bottom;
   pointer-events: none;
   z-index: 50;
+}
+
+/* Scroll-triggered card dealing animations */
+@keyframes card-deal {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.8) rotate(-10deg);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(-10px) scale(1.05) rotate(5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes deck-shuffle {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(5deg) scale(1.02);
+  }
+  50% {
+    transform: rotate(-3deg) scale(0.98);
+  }
+  75% {
+    transform: rotate(2deg) scale(1.01);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.card-deal-animation {
+  animation: card-deal 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.deck-shuffle-animation {
+  animation: deck-shuffle 0.5s ease-in-out;
+}
+
+/* Staggered delays for card dealing */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Floating deck animation */
+@keyframes deck-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.deck-float {
+  animation: deck-float 3s ease-in-out infinite;
 }
