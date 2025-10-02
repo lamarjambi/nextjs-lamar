@@ -21,7 +21,7 @@ const pressStart = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: "Intro to J@mbo World",
+  title: "J@mbo World",
   description: "J@mbo (Lamar Jambi) World portfolio :3",
 };
 

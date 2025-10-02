@@ -228,7 +228,9 @@ export default function GamePage() {
       color: "bg-gradient-to-br from-purple-400 to-purple-600", 
       desc: "Space adventure game",
       href: "https://playlamar.itch.io/cosmic-thread",
-      suit: "♠️"
+      suit: "♠️",
+      media: "/img/cosmicThread-gamplay.mp4",
+      mediaType: "video"
     },
     { 
       id: 2, 
@@ -236,7 +238,9 @@ export default function GamePage() {
       color: "bg-gradient-to-br from-pink-400 to-pink-600", 
       desc: "Color puzzle adventure",
       href: "https://github.com/lamarjambi/hues-quest.git",
-      suit: "♥️"
+      suit: "♥️",
+      media: "/img/huesQuest-gameplay.mp4",
+      mediaType: "video"
     },
     { 
       id: 3, 
@@ -244,7 +248,9 @@ export default function GamePage() {
       color: "bg-gradient-to-br from-blue-400 to-blue-600", 
       desc: "Epic polygon journey",
       href: "https://github.com/lamarjambi/poly-0-the-saga.git",
-      suit: "♦️"
+      suit: "♦️",
+      media: "/img/poly0-gameplay.mp4",
+      mediaType: "video"
     },
     { 
       id: 4, 
@@ -252,7 +258,9 @@ export default function GamePage() {
       color: "bg-gradient-to-br from-green-400 to-green-600", 
       desc: "Fast-paced typing game",
       href: "oppr.org/s/3HMXmh9U",
-      suit: "♣️"
+      suit: "♣️",
+      media: "/img/typing-rush-game.gif",
+      mediaType: "image"
     },
     { 
       id: 5, 
@@ -260,7 +268,9 @@ export default function GamePage() {
       color: "bg-gradient-to-br from-yellow-400 to-yellow-600", 
       desc: "High-speed platformer",
       href: "oppr.org/s/iYpolLEj",
-      suit: "🃏"
+      suit: "🃏",
+      media: "/img/SAJ-demo-game.mp4",
+      mediaType: "video"
     },
   ];
 
@@ -478,39 +488,65 @@ export default function GamePage() {
                   {projects.map((project, index) => (
                     <div
                       key={project.id}
-                      className={`absolute w-[220px] h-[300px] ${project.color} rounded-2xl shadow-2xl border-4 border-[#2c3e50] transition-all duration-100`}
+                      className={`absolute w-[220px] h-[300px] ${project.color} rounded-2xl shadow-2xl border-4 border-[#2c3e50] transition-all duration-100 overflow-hidden`}
                       style={getCardTransform(index === 4 ? 5 : index)}
                     >
-                    <div className="relative w-full h-full p-8 flex flex-col justify-between">
+                    <div className="relative w-full h-full flex flex-col">
                       {/* Card suit badge */}
-                      <div className="absolute top-4 right-4 w-10 h-10 bg-[#2c3e50] text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                      <div className="absolute top-2 right-2 w-8 h-8 bg-[#2c3e50] text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg z-10">
                         {project.suit}
                       </div>
                       
-                      {/* Content */}
-                      <div className="mt-10">
-                        <h3 className="text-xl font-bold text-white mb-2 font-press-start leading-tight">
-                          {project.title}
-                        </h3>
-                        <p className="text-white text-base" style={{ fontFamily: 'Dokdo, sans-serif' }}>
-                          {project.desc}
-                        </p>
+                      {/* Media content */}
+                      <div className="w-full h-32 relative">
+                        {project.mediaType === "video" ? (
+                          <video
+                            src={project.media}
+                            className="w-full h-full object-cover"
+                            muted
+                            loop
+                            playsInline
+                            autoPlay
+                          />
+                        ) : (
+                          <Image
+                            src={project.media}
+                            alt={project.title}
+                            width={220}
+                            height={128}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
+                        {/* Gradient overlay for better text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                       </div>
                       
-                      {/* Bottom section */}
-                      <div className="flex gap-1.5 items-center">
-                        <div className="w-3 h-3 bg-white rounded-full"></div>
-                        <div className="w-3 h-3 bg-white rounded-full"></div>
-                        <div className="w-3 h-3 bg-white rounded-full"></div>
-                        <div className="flex-1"></div>
-                        <a 
-                          href={project.href} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="px-3 py-1.5 bg-[#2c3e50] text-white rounded-full font-bold text-xs hover:bg-[#34495e] transition-colors font-press-start"
-                        >
-                          View
-                        </a>
+                      {/* Content */}
+                      <div className="flex-1 p-4 flex flex-col justify-between">
+                        <div>
+                          <h3 className="text-lg font-bold text-white mb-1 font-press-start leading-tight">
+                            {project.title}
+                          </h3>
+                          <p className="text-white text-sm" style={{ fontFamily: 'Dokdo, sans-serif' }}>
+                            {project.desc}
+                          </p>
+                        </div>
+                        
+                        {/* Bottom section */}
+                        <div className="flex gap-1.5 items-center mt-3">
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                          <div className="flex-1"></div>
+                          <a 
+                            href={project.href} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="px-3 py-1.5 bg-[#2c3e50] text-white rounded-full font-bold text-xs hover:bg-[#34495e] transition-colors font-press-start"
+                          >
+                            View
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -535,52 +571,11 @@ export default function GamePage() {
                 </div>
               </div>
 
-              {/* Scroll indicator */}
-              <div 
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center transition-opacity duration-500"
-                style={{ opacity: scrollProgress < 1 ? 1 : 0 }}
-              >
-                <p className="text-sm text-[#bdc3c7] mb-2 font-press-start">
-                  {Math.round(scrollProgress * 100)}% dealt
-                </p>
-                <div className="w-32 h-2 bg-[#34495e] rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-white transition-all duration-100"
-                    style={{ width: `${Math.min(scrollProgress * 100, 100)}%` }}
-                  />
-                </div>
-                {scrollProgress >= 1 && (
-                  <p className="text-xs text-[#bdc3c7] mt-2 font-press-start">
-                    All cards dealt! Continue scrolling...
-                  </p>
-                )}
-              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Completion Section */}
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]">
-        <div className="text-center">
-          <div className="bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] p-12 max-w-2xl mx-8">
-            <div className="text-6xl mb-6">🎴</div>
-            <h2 className="text-4xl font-bold text-[#2c3e50] mb-4" style={{ fontFamily: 'Dokdo, sans-serif' }}>
-              All Cards Dealt! 🎴
-            </h2>
-            <p className="text-xl text-[#2c3e50] mb-8" style={{ fontFamily: 'Dokdo, sans-serif' }}>
-              Continue exploring below to see more of my work...
-            </p>
-            <div className="flex justify-center gap-4">
-              <div className="text-2xl">♠️</div>
-              <div className="text-2xl">♥️</div>
-              <div className="text-2xl">♦️</div>
-              <div className="text-2xl">♣️</div>
-              <div className="text-2xl">🃏</div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Skills Section - Card Hand */}
       <section className="w-[80%] mx-auto font-press-start mb-12">
