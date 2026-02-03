@@ -27,8 +27,9 @@ export default function Home(): React.JSX.Element {
     }, 580);
   }, [router]);
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-5 bg-[url('/img/background.png')] bg-[length:100%] bg-left-top overflow-hidden">
-      {/* title with typewriter effect */}
+    <div className="relative min-h-screen flex flex-col items-center justify-center p-5 overflow-hidden
+  before:absolute before:inset-0 before:bg-[url('/img/rug-background.png')] before:bg-[length:100%] before:bg-left-top before:opacity-50 before:-z-10">
+      {/* title with typewriter effect
       <div className="text-center mb-11">
         <h1 className="font-press-start text-[#547dfd] text-2xl sm:text-3xl tracking-widest [text-shadow:0.09em_0_black,0_0.09em_black,-0.09em_0_black,0_-0.09em_black] border-r-[0.15em] border-r-[rgba(225,225,225,0.7)] whitespace-nowrap overflow-hidden w-[22ch] mx-auto mb-3 animate-[typing_3.5s_steps(19,end),blink-carat_0.5s_step-end_infinite]">
           Choose your fighter
@@ -36,14 +37,14 @@ export default function Home(): React.JSX.Element {
         <p className="text-center text-lg sm:text-xl text-[#333] max-w-[650px] mx-auto leading-relaxed description">
           Click which portfolio you'd like to view: illustrations, computer science, or game development :]
         </p>
-      </div>
+      </div> */}
 
       {/* fanned stack */}
       <div className="relative w-[240px] h-[340px] [perspective:1200px]">
         {/* left card */}
         <div 
           ref={artistRef}
-          className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom left-0 top-0 -translate-x-10 translate-y-6 -rotate-[18deg] hover:scale-110 hover:z-40 cursor-pointer"
+          className="absolute inset-0 w-50 h-70 border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom left-0 top-0 -translate-x-100 -translate-y- -rotate-[18deg] hover:scale-110 hover:z-40 cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
             animateThenNavigate(artistRef, "/artistFiles/alBalad.html");
@@ -60,7 +61,7 @@ export default function Home(): React.JSX.Element {
         {/* middle card */}
         <div 
           ref={devRef}
-          className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom -rotate-[6deg] hover:scale-110 hover:z-40 cursor-pointer"
+          className="absolute inset-0 w-50 h-70 border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group -translate-x-130 translate-y-60 origin-bottom -rotate-[6deg] hover:scale-110 hover:z-40 cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
             animateThenNavigate(devRef, "/artistFiles/banana.html");
@@ -77,7 +78,7 @@ export default function Home(): React.JSX.Element {
         {/* right/front card */}
         <div 
           ref={gameRef}
-          className="absolute inset-0 w-full h-full border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom translate-x-10 translate-y-6 rotate-[10deg] hover:scale-110 hover:z-40 cursor-pointer"
+          className="absolute inset-0 w-50 h-70 border-2 border-black rounded-[5.5%] overflow-hidden transition-transform duration-300 group origin-bottom translate-x-120 -translate-y-40 rotate-[10deg] hover:scale-110 hover:z-40 cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
             animateThenNavigate(gameRef, "/game");

@@ -488,7 +488,7 @@ export default function GamePage() {
                   {projects.map((project, index) => (
                     <div
                       key={project.id}
-                      className={`absolute w-[220px] h-[300px] ${project.color} rounded-2xl shadow-2xl border-4 border-[#2c3e50] transition-all duration-100 overflow-hidden`}
+                      className={`absolute w-[220px] h-[300px] ${project.color} rounded-2xl shadow-2xl border-4 border-[#2c3e50] transition-all duration-300 overflow-hidden hover:scale-105 hover:-translate-y-4 hover:shadow-3xl hover:z-50 cursor-pointer`}
                       style={getCardTransform(index === 4 ? 5 : index)}
                     >
                     <div className="relative w-full h-full flex flex-col">
@@ -554,7 +554,7 @@ export default function GamePage() {
 
                 {/* Deck in the actual last position (position 4 - middle bottom) */}
                 <div 
-                  className="absolute w-[220px] h-[300px] bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] transition-all duration-100"
+                  className="absolute w-[220px] h-[300px] bg-gradient-to-br from-[#faf0dd] to-[#e8d5b7] rounded-2xl shadow-2xl border-4 border-[#2c3e50] transition-all duration-300 hover:scale-105 hover:-translate-y-4 hover:shadow-3xl hover:z-50 cursor-pointer"
                   style={getCardTransform(4)}
                 >
                   <div className="relative w-full h-full p-6 flex flex-col justify-center items-center">
@@ -576,6 +576,8 @@ export default function GamePage() {
         </div>
       </div>
 
+      {/* spacer */}
+      <div className="h-20"></div>
 
       {/* Skills Section - Card Hand */}
       <section className="w-[80%] mx-auto font-press-start mb-12">
@@ -634,7 +636,7 @@ export default function GamePage() {
         </div>
       </section>
 
-      {/* Spacer */}
+      {/* spacer */}
       <div className="h-20"></div>
 
       {/* Snake Game Section - Game Card */}
