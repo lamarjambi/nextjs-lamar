@@ -171,3 +171,25 @@ body {
 .deck-float {
   animation: deck-float 3s ease-in-out infinite;
 }
+
+/* Card fly-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* when card is clicked, it zooms in and rotates 90 degrees */
+@keyframes flyToViewer {
+  to {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(6) rotate(-100deg);
+  }
+}
+
+.card-fly-animation {
+  animation: flyToViewer 0.8s ease-out forwards;
+  z-index: 100 !important;
+  will-change: transform;
+  pointer-events: none;
+}
