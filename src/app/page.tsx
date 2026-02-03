@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useRef, useCallback, useState } from "react"; // Added useState
+import { useRef, useCallback, useState } from "react"; 
 import type { CardRef, NavigationHandler, AnimationVariant } from "@/types/navigation";
 
 export default function Home(): React.JSX.Element {
   const router = useRouter();
-  const [isAnimating, setIsAnimating] = useState(false); // Added state
+  const [isAnimating, setIsAnimating] = useState(false); 
   
   const artistRef = useRef<HTMLDivElement | null>(null);
   const devRef = useRef<HTMLDivElement | null>(null);
@@ -19,8 +19,8 @@ export default function Home(): React.JSX.Element {
       return;
     }
     
-    setIsAnimating(true); // Trigger overlay
-    node.classList.add("card-fly-animation"); // Changed class name
+    setIsAnimating(true);
+    node.classList.add("card-fly-animation"); 
     
     setTimeout(() => {
       router.push(href);
