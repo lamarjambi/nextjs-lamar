@@ -388,7 +388,7 @@ export default function GamePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] overflow-x-hidden relative">
+    <div className="min-h-screen bg-[rgba(152,92,210,0.7)] overflow-x-hidden relative">
       {/* Card-themed background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-16 h-24 bg-white rounded-lg transform rotate-12"></div>

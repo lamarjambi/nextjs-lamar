@@ -181,9 +181,12 @@ body {
 /* when card is clicked, it zooms in and rotates 90 degrees */
 @keyframes flyToViewer {
   to {
+    position: fixed;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(6) rotate(-100deg);
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%) scale(6) rotate(-90deg);
   }
 }
 
