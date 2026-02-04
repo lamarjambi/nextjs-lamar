@@ -4,6 +4,15 @@ import { useRouter } from "next/navigation";
 import { useRef, useCallback, useState } from "react"; 
 import type { CardRef, NavigationHandler, AnimationVariant } from "@/types/navigation";
 
+// to add: 
+// LOADING SCREEN!! - not super important
+// silly lamar -> profile info about jambo
+// gameboy -> snake game
+// sketchbook -> painting tool
+// ??
+
+// shoud cards be draggable?
+
 export default function Home(): React.JSX.Element {
   const router = useRouter();
   const [isAnimating, setIsAnimating] = useState(false); 
@@ -57,7 +66,7 @@ export default function Home(): React.JSX.Element {
           cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
-            animateThenNavigate(artistRef, "/artistFiles/alBalad.html");
+            animateThenNavigate(artistRef, "/artist/page.tsx");
           }}
         >
           <a href="/artistFiles/alBalad.html" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
@@ -76,7 +85,7 @@ export default function Home(): React.JSX.Element {
           origin-center -rotate-[6deg] hover:scale-110 hover:z-40 hover:-rotate-[20deg] cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
-            animateThenNavigate(devRef, "/artistFiles/banana.html");
+            animateThenNavigate(devRef, "/software/page.tsx");
           }}
         >
           <a href="/artistFiles/banana.html" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
