@@ -27,8 +27,8 @@ export default function GamePage() {
       color: "bg-gradient-to-br from-[#75C2DF] to-[#FAF0DD]",
       items: [
         { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4" },
-        { name: "Hue's Quest", desc: "Color puzzle adventure", link: "https://github.com/lamarjambi/hues-quest.git" },
-        { name: "Poly-0: The Saga", desc: "Epic polygon journey", link: "https://github.com/lamarjambi/poly-0-the-saga.git" },
+        { name: "Hue's Quest", desc: "Color puzzle adventure", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4" },
+        { name: "Poly-0: The Saga", desc: "Epic polygon journey", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4" },
         { name: "Typing Rush", desc: "Fast-paced typing game", link: "oppr.org/s/3HMXmh9U" },
         { name: "Super Adrenaline Junkies", desc: "High-speed platformer", link: "oppr.org/s/iYpolLEj" },
       ]
