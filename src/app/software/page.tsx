@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 
 
-export default function GamePage() {
+export default function DevPage() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
   // Card data - three main categories

@@ -5,8 +5,9 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 
 
-export default function GamePage() {
+export default function ArtistPage() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  
 
   // Card data - three main categories
   const cards = [
@@ -169,4 +170,4 @@ export default function GamePage() {
       </div>
     </div>
   );
-}
+} 

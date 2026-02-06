@@ -46,21 +46,29 @@ export default function GamePage() {
   ];
 
   const getCardStyle = (index: number) => {
+    const cardPositions = [
+      { translateY: 0, translateX: -20, rotate: -8 },      // Card 1 (Projects)
+      { translateY: 30, translateX: 0, rotate: 0 },        // Card 2 (Experience)
+      { translateY: 60, translateX: 20, rotate: 8 },       // Card 3 (Skills)
+    ];
+
+    const position = cardPositions[index];
+
     if (activeCard === index) {
       return {
-        transform: `translateY(${index * 8}px) rotate(0deg) scale(1.05)`,
+        transform: `translateY(${position.translateY}px) translateX(${position.translateX}px) rotate(0deg) scale(1.05)`,
         zIndex: 30,
       };
     }
 
     return {
-      transform: `translateY(${index * 8}px) rotate(${index * 2}deg)`,
+      transform: `translateY(${position.translateY}px) translateX(${position.translateX}px) rotate(${position.rotate}deg)`,
       zIndex: 10 + index,
     };
   };
 
   return (
-    <div className="min-h-screen bg-[rgba(152,92,210,0.7)] overflow-x-hidden relative">
+    <div className="h-screen bg-[rgba(152,92,210,0.7)] overflow-hidden relative">
       {/* Card-themed background pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-16 h-24 bg-white rounded-lg transform rotate-12"></div>
@@ -91,19 +99,22 @@ export default function GamePage() {
             {/* desc */}
             <div className="space-y-4 text-purple-900">
               <p className="text-lg leading-relaxed font-dokdo">
-                Creating immersive gaming experiences with a focus on innovative mechanics and engaging storytelling.
+                Creating experiences and statements..
               </p>
             </div>
 
             {/* Social icons */}
             <div className="flex gap-4">
-              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg">
+              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center 
+              cursor-pointer hover:scale-110 transition-transform shadow-lg">
                 <span className="text-white text-xl font-bold">@</span>
               </div>
-              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg">
+              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center 
+              cursor-pointer hover:scale-110 transition-transform shadow-lg">
                 <span className="text-white text-xl font-bold">S</span>
               </div>
-              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg">
+              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center 
+              cursor-pointer hover:scale-110 transition-transform shadow-lg">
                 <span className="text-white text-xl font-bold">©</span>
               </div>
             </div>
@@ -129,10 +140,15 @@ export default function GamePage() {
                       
                       {/* Card content */}
                       <div className="relative z-10 h-full flex flex-col">
+                        
+                        {/* Category title - always visible */}
+                        <h2 className="text-3xl font-bold mb-4">
+                          {card.category}
+                        </h2>
 
                         {/* Items list - visible when active */}
                         {activeCard === index && (
-                          <div className="flex-1 overflow-y-auto space-y-2 mt-4">
+                          <div className="flex-1 overflow-y-auto space-y-2">
                             {card.items.map((item, idx) => (
                               <Link
                                 key={idx}
@@ -158,8 +174,8 @@ export default function GamePage() {
               </div>
 
               {/* Instruction text */}
-              <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 text-purple-900 
-              font-semibold text-center translate-y-24 translate-x-2 font-dokdo">
+              <div className="absolute -bottom-12 text-purple-900 
+              font-semibold translate-y-30 translate-x-50 font-dokdo">
                 <p>Click cards to explore</p>
               </div>
             </div>
