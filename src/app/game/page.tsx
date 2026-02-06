@@ -29,8 +29,8 @@ export default function GamePage() {
         { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4" },
         { name: "Hue's Quest", desc: "Color puzzle adventure", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4" },
         { name: "Poly-0: The Saga", desc: "Epic polygon journey", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4" },
-        { name: "Typing Rush", desc: "Fast-paced typing game", link: "oppr.org/s/3HMXmh9U" },
-        { name: "Super Adrenaline Junkies", desc: "High-speed platformer", link: "oppr.org/s/iYpolLEj" },
+        { name: "Typing Rush", desc: "Fast-paced typing game", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif" },
+        { name: "Super Adrenaline Junkies", desc: "High-speed platformer", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4" }, 
       ]
     },
     { 
@@ -115,13 +115,19 @@ export default function GamePage() {
             transform: 'translate(0, 0)',
           }}
         >
-          <video
-            src={hoveredProject}
-            autoPlay
-            loop
-            muted
-            className="w-full h-full object-cover"
-          />
+          {hoveredProject.endsWith('.gif') ? (
+            <img 
+            src={hoveredProject} 
+            alt="Preview" 
+            className="w-full h-full object-cover" />
+          ) : (
+            <video 
+            src={hoveredProject} 
+            autoPlay 
+            loop 
+            muted 
+            className="w-full h-full object-cover" />
+          )}
         </div>
       )}
 
@@ -129,6 +135,8 @@ export default function GamePage() {
       <div className="max-w-7xl mx-auto px-8 py-12 relative z-10">
         <div className="grid grid-cols-2 gap-12 items-center min-h-screen">
           
+          {/* back arrow */}
+
           {/* Left section - Text/Branding */}
           <div className="space-y-8">
 
@@ -205,7 +213,13 @@ export default function GamePage() {
                                 href={item.link}
                                 className="block bg-white/20 backdrop-blur-sm rounded-lg p-2 hover:bg-white/30 
                                 transition-colors"
-                                onMouseEnter={() => item.video && setHoveredProject(item.video)}
+                                onMouseEnter={() => {
+                                  if (item.video) {
+                                    setHoveredProject(item.video);
+                                  } else if (item.img) {
+                                    setHoveredProject(item.img);
+                                  }
+                                }}
                                 onMouseLeave={() => setHoveredProject(null)}
                               >
                                 <p className="font-bold font-vt323">{item.name}</p>
@@ -223,7 +237,7 @@ export default function GamePage() {
 
               {/* Instruction text */}
               <div className="absolute text-xl -bottom-12 text-purple-900 
-              font-semibold translate-y-40 translate-x-35 font-vt323">
+              font-semibold translate-y-[12vh] translate-x-[0vw] font-vt323">
                 <p>* Click cards to explore</p>
               </div>
             </div>

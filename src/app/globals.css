@@ -114,7 +114,7 @@ body {
 }
 
 .group:hover .wavy-underline::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 2 Q 2.5 0, 5 2 T 10 2 T 15 2 T 20 2' stroke='%23EC6BA7' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 2 Q 2.5 0, 5 2 T 10 2 T 15 2 T 20 2' stroke='%23547DFD' stroke-width='2' fill='none'/%3E%3C/svg%3E");
   background-size: 20px 4px;
   background-repeat: repeat-x;
   height: 4px;
