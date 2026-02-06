@@ -9,7 +9,8 @@ import type { CardRef, NavigationHandler, AnimationVariant } from "@/types/navig
 // silly lamar -> profile info about jambo
 // gameboy -> snake game
 // sketchbook -> painting tool
-// ??
+// file -> resume
+// writer thingy idk -> substack (if i start writing) - not important
 
 // shoud cards be draggable?
 
@@ -20,6 +21,7 @@ export default function Home(): React.JSX.Element {
   const artistRef = useRef<HTMLDivElement | null>(null);
   const devRef = useRef<HTMLDivElement | null>(null);
   const gameRef = useRef<HTMLDivElement | null>(null);
+  const lamarRef = useRef<HTMLDivElement | null>(null);
 
   const animateThenNavigate: NavigationHandler = useCallback((ref: CardRef, href: string, variant: AnimationVariant = 'default') => {
     const node = ref.current;
@@ -66,10 +68,10 @@ export default function Home(): React.JSX.Element {
           cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
-            animateThenNavigate(artistRef, "/artist/page.tsx");
+            animateThenNavigate(artistRef, "/artist");
           }}
         >
-          <a href="/artistFiles/alBalad.html" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
+          <a href="/artist" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
             <Image src="/img/ArtistCard.png" alt="Artist Card" fill className="object-cover" />
             <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Artist</p>
@@ -85,10 +87,10 @@ export default function Home(): React.JSX.Element {
           origin-center -rotate-[6deg] hover:scale-110 hover:z-40 hover:-rotate-[20deg] cursor-pointer"
           onClick={(e) => {
             e.preventDefault();
-            animateThenNavigate(devRef, "/software/page.tsx");
+            animateThenNavigate(devRef, "/software");
           }}
         >
-          <a href="/artistFiles/banana.html" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
+          <a href="/software" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
             <Image src="/img/DevCard.png" alt="Developer Card" fill className="object-cover" />
             <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Software Developer</p>
@@ -119,6 +121,25 @@ export default function Home(): React.JSX.Element {
           </a>
         </div>
       </div>
+
+      {/* silly lamar */}
+      <div 
+          ref={lamarRef}
+          className="absolute h-full w-full inset-0 overflow-hidden transition-all duration-800 group 
+          translate-x-130 translate-y-60 origin-center -rotate-[6deg] 
+          hover:scale-110 hover:z-40 hover:-rotate-[20deg] cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            animateThenNavigate(lamarRef, "/lamar");
+          }}
+        >
+          <a href="/lamar" onClick={(e) => e.preventDefault()}>
+            <Image src="/img/silly-lamar.PNG" alt="Lamar Card" fill className="object-cover" />
+            <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Software Developer</p>
+            </div>
+          </a>
+        </div>    
 
       {/* Fullscreen color overlay */}
       {isAnimating && (

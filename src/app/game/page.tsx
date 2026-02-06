@@ -105,6 +105,24 @@ export default function GamePage() {
         <div className="absolute left-[15%] text-[#EAC2FF] text-9xl opacity-0 fall-5">♣</div>
       </div>
 
+      {/* back button */}
+      <Link href="/" className="fixed top-10 left-18 z-50 group">
+        <div className="relative w-18 h-18">
+          <Image
+            src="/img/backArrow.PNG"
+            alt="Back"
+            fill
+            className="object-contain transition-opacity group-hover:opacity-0"
+          />
+          <Image
+            src="/img/backArrow-active.PNG"
+            alt="Back"
+            fill
+            className="object-contain opacity-0 transition-opacity group-hover:opacity-100"
+          />
+        </div>
+      </Link>
+
       {/* Video popup that follows mouse */}
       {hoveredProject && (
         <div 
@@ -144,12 +162,19 @@ export default function GamePage() {
               [-webkit-text-stroke:1px_black]">
                 J@mbo
               </h1>
-              <div className="inline-block group">
-                <p className="text-3xl text-[#702C95] font-semibold font-press-start pb-2">
-                  Game Designer
-                </p>
-                <div className="wavy-underline w-full"></div>
-              </div>
+              <a
+              href="https://www.screenskills.com/job-profiles/browse/games/programming/gameplay-programmer/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >
+                <div className="inline-block group">
+                  <p className="text-3xl text-[#702C95] font-semibold font-press-start pb-2">
+                    Gameplay Programmer
+                  </p>
+                  <div className="wavy-underline w-full"></div>
+                </div>
+              </a>
+              
             </div>
 
             {/* desc */}
