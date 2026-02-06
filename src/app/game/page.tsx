@@ -23,7 +23,7 @@ export default function GamePage() {
   const cards = [
     { 
       id: 1,
-      category: "Projects",
+      category: "Games",
       color: "bg-gradient-to-br from-[#75C2DF] to-[#FAF0DD]",
       items: [
         { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4" },
@@ -58,25 +58,33 @@ export default function GamePage() {
 
   const getCardStyle = (index: number) => {
     const cardPositions = [
-      { translateY: -40, translateX: -100, rotate: -8 },      // projects
-      { translateY: 60, translateX: 0, rotate: 0 },        // experience
-      { translateY: 10, translateX: 200, rotate: 8 },       // skills
+      { translateY: '-10vh', translateX: '-15vw', rotate: -8 }, // projects
+      { translateY: '0vh', translateX: '-8vw', rotate: 0 }, // experience
+      { translateY: '-4vh', translateX: '5vw', rotate: 8 }, // skills
     ];
 
     const position = cardPositions[index];
 
     if (activeCard === index) {
       return {
-        transform: `translateY(${position.translateY}px) translateX(${position.translateX}px) rotate(0deg) scale(1.05)`,
+        transform: `
+          translate(${position.translateX}, ${position.translateY})
+          rotate(0deg)
+          scale(1.05)
+        `,
         zIndex: 30,
       };
     }
 
     return {
-      transform: `translateY(${position.translateY}px) translateX(${position.translateX}px) rotate(${position.rotate}deg)`,
+      transform: `
+        translate(${position.translateX}, ${position.translateY})
+        rotate(${position.rotate}deg)
+      `,
       zIndex: 10 + index,
     };
   };
+
 
   return (
     <div className="h-screen bg-[rgba(152,92,210,0.7)] overflow-hidden relative">
