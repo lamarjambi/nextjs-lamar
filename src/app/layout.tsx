@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Press_Start_2P } from "next/font/google";
+import { VT323 } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -20,6 +21,13 @@ const pressStart = Press_Start_2P({
   variable: "--font-press-start",
 });
 
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-vt323",
+});
+
+
 export const metadata: Metadata = {
   title: "J@mbo World",
   description: "J@mbo (Lamar Jambi) World portfolio :3",
@@ -33,7 +41,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} 
+        ${vt323.variable} antialiased`}
       >
         {children}
       </body>

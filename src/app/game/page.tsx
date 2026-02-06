@@ -13,7 +13,7 @@ export default function GamePage() {
     { 
       id: 1,
       category: "Projects",
-      color: "bg-gradient-to-br from-purple-400 to-purple-600",
+      color: "bg-gradient-to-br from-[#75C2DF] to-[#FAF0DD]",
       items: [
         { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread" },
         { name: "Hue's Quest", desc: "Color puzzle adventure", link: "https://github.com/lamarjambi/hues-quest.git" },
@@ -25,7 +25,7 @@ export default function GamePage() {
     { 
       id: 2,
       category: "Experience",
-      color: "bg-gradient-to-br from-pink-400 to-pink-600",
+      color: "bg-gradient-to-br from-[#FDD23B] to-[#C9A0DF]",
       items: [
         { name: "Game Designer", desc: "Independent projects", link: "#" },
         { name: "Game Development", desc: "Unity & Game engines", link: "#" },
@@ -35,7 +35,7 @@ export default function GamePage() {
     { 
       id: 3,
       category: "Skills",
-      color: "bg-gradient-to-br from-blue-400 to-blue-600",
+      color: "bg-gradient-to-br from-[#EC6BA7] to-[#81C950]",
       items: [
         { name: "Unity/C#", desc: "Game engine development", link: "#" },
         { name: "Game Design", desc: "Mechanics & systems", link: "#" },
@@ -47,9 +47,9 @@ export default function GamePage() {
 
   const getCardStyle = (index: number) => {
     const cardPositions = [
-      { translateY: 0, translateX: -20, rotate: -8 },      // Card 1 (Projects)
-      { translateY: 30, translateX: 0, rotate: 0 },        // Card 2 (Experience)
-      { translateY: 60, translateX: 20, rotate: 8 },       // Card 3 (Skills)
+      { translateY: -40, translateX: -100, rotate: -8 },      // projects
+      { translateY: 60, translateX: 0, rotate: 0 },        // experience
+      { translateY: 10, translateX: 200, rotate: 8 },       // skills
     ];
 
     const position = cardPositions[index];
@@ -69,13 +69,21 @@ export default function GamePage() {
 
   return (
     <div className="h-screen bg-[rgba(152,92,210,0.7)] overflow-hidden relative">
-      {/* Card-themed background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-16 h-24 bg-white rounded-lg transform rotate-12"></div>
-        <div className="absolute top-32 right-20 w-16 h-24 bg-white rounded-lg transform -rotate-12"></div>
-        <div className="absolute bottom-40 left-32 w-16 h-24 bg-white rounded-lg transform rotate-6"></div>
-        <div className="absolute bottom-20 right-40 w-16 h-24 bg-white rounded-lg transform -rotate-6"></div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-24 bg-white rounded-lg transform rotate-45"></div>
+      {/* Falling cards and symbols background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Falling card rectangles */}
+        <div className="absolute left-[10%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-1"></div>
+        <div className="absolute left-[30%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-2"></div>
+        <div className="absolute left-[50%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-3"></div>
+        <div className="absolute left-[70%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-4"></div>
+        <div className="absolute left-[90%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-5"></div>
+        
+        {/* Falling club symbols */}
+        <div className="absolute left-[20%] text-[#EAC2FF] text-9xl opacity-0 fall-2">♣</div>
+        <div className="absolute left-[40%] text-[#EAC2FF] text-9xl opacity-0 fall-4">♣</div>
+        <div className="absolute left-[60%] text-[#EAC2FF] text-9xl opacity-0 fall-1">♣</div>
+        <div className="absolute left-[80%] text-[#EAC2FF] text-9xl opacity-0 fall-3">♣</div>
+        <div className="absolute left-[15%] text-[#EAC2FF] text-9xl opacity-0 fall-5">♣</div>
       </div>
 
       {/* Main content */}
@@ -87,17 +95,20 @@ export default function GamePage() {
 
             {/* titles */}
             <div>
-              <h1 className="text-9xl font-bold text-purple-900 mb-6 font-press-start">
+              <h1 className="text-9xl font-bold text-[#702C95] mb-6 font-press-start 
+              [-webkit-text-stroke:1px_black]">
                 J@mbo
               </h1>
-              <p className="text-3xl text-purple-800 font-semibold border-b-4 border-blue-400 
-              inline-block pb-2 font-press-start">
-                Game Designer
-              </p>
+              <div className="inline-block">
+                <p className="text-3xl text-[#702C95] font-semibold font-press-start pb-2">
+                  Game Designer
+                </p>
+                <div className="wavy-underline w-full"></div>
+              </div>
             </div>
 
             {/* desc */}
-            <div className="space-y-4 text-purple-900">
+            <div className="space-y-4 text-[#FDD23B]">
               <p className="text-lg leading-relaxed font-dokdo">
                 Creating experiences and statements..
               </p>
@@ -105,16 +116,16 @@ export default function GamePage() {
 
             {/* Social icons */}
             <div className="flex gap-4">
-              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center 
-              cursor-pointer hover:scale-110 transition-transform shadow-lg">
+              <div className="w-12 h-12 bg-[#547DFD] rounded-full flex items-center justify-center 
+              cursor-pointer hover:scale-110 transition-transform">
                 <span className="text-white text-xl font-bold">@</span>
               </div>
-              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center 
-              cursor-pointer hover:scale-110 transition-transform shadow-lg">
+              <div className="w-12 h-12 bg-[#547DFD] rounded-full flex items-center justify-center 
+              cursor-pointer hover:scale-110 transition-transform">
                 <span className="text-white text-xl font-bold">S</span>
               </div>
-              <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center 
-              cursor-pointer hover:scale-110 transition-transform shadow-lg">
+              <div className="w-12 h-12 bg-[#547DFD] rounded-full flex items-center justify-center 
+              cursor-pointer hover:scale-110 transition-transform">
                 <span className="text-white text-xl font-bold">©</span>
               </div>
             </div>
@@ -135,14 +146,14 @@ export default function GamePage() {
                     style={getCardStyle(index)}
                     onClick={() => setActiveCard(activeCard === index ? null : index)}
                   >
-                    <div className={`w-full h-full ${card.color} rounded-2xl shadow-2xl p-6 text-white 
-                    border-4 border-white relative overflow-hidden`}>
+                    <div className={`w-full h-full ${card.color} rounded-2xl p-6 text-[#702C95] 
+                    border-4 border-[#702C95] relative overflow-hidden`}>
                       
                       {/* Card content */}
                       <div className="relative z-10 h-full flex flex-col">
                         
                         {/* Category title - always visible */}
-                        <h2 className="text-3xl font-bold mb-4">
+                        <h2 className="text-3xl font-bold mb-4 font-dokdo">
                           {card.category}
                         </h2>
 
@@ -163,10 +174,6 @@ export default function GamePage() {
                           </div>
                         )}
 
-                        {/* Card number */}
-                        <div className="absolute bottom-3 right-3 text-xl font-bold opacity-50">
-                          {index + 1}/{cards.length}
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -174,9 +181,9 @@ export default function GamePage() {
               </div>
 
               {/* Instruction text */}
-              <div className="absolute -bottom-12 text-purple-900 
-              font-semibold translate-y-30 translate-x-50 font-dokdo">
-                <p>Click cards to explore</p>
+              <div className="absolute text-xl -bottom-12 text-purple-900 
+              font-semibold translate-y-40 translate-x-35 font-vt323">
+                <p>* Click cards to explore</p>
               </div>
             </div>
           </div>

@@ -24,52 +24,20 @@
   font-family: var(--font-press-start), system-ui, sans-serif;
 }
 
+
+.font-dokdo {
+  font-family: "Dokdo", ui-sans-serif;
+  font-size: 1.75rem;
+}
+
+.font-vt323 {
+  font-family: var(--font-vt323), monospace;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-}
-
-.font-dokdo {
-  font-family: Dokdo, ui-sans-serif;
-  font-size: 1.75rem;
-}
-
-/* scrollbar */
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #1a1a2e;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #faf0dd 0%, #e8d5b7 100%);
-  border-radius: 10px;
-  border: 2px solid #2c3e50;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #e8d5b7 0%, #d4c5a9 100%);
-}
-
-/* Firefox scrollbar */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: #faf0dd #1a1a2e;
-}
-
-/* typewriter animation */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 22ch }
-}
-
-@keyframes blink-carat {
-  from, to { border-color: transparent }
-  50% { border-color: rgba(0, 0, 0, 0.7) }
 }
 
 /* float animation for cards */
@@ -109,75 +77,6 @@ body {
   z-index: 50;
 }
 
-/* Scroll-triggered card dealing animations */
-@keyframes card-deal {
-  0% {
-    opacity: 0;
-    transform: translateY(50px) scale(0.8) rotate(-10deg);
-  }
-  50% {
-    opacity: 0.7;
-    transform: translateY(-10px) scale(1.05) rotate(5deg);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1) rotate(0deg);
-  }
-}
-
-@keyframes deck-shuffle {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  25% {
-    transform: rotate(5deg) scale(1.02);
-  }
-  50% {
-    transform: rotate(-3deg) scale(0.98);
-  }
-  75% {
-    transform: rotate(2deg) scale(1.01);
-  }
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
-}
-
-.card-deal-animation {
-  animation: card-deal 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
-.deck-shuffle-animation {
-  animation: deck-shuffle 0.5s ease-in-out;
-}
-
-/* Staggered delays for card dealing */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-
-/* Floating deck animation */
-@keyframes deck-float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.deck-float {
-  animation: deck-float 3s ease-in-out infinite;
-}
-
-/* Card fly-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
 /* when card is clicked, it zooms in and rotates 90 degrees */
 @keyframes flyToViewer {
   to {
@@ -195,4 +94,61 @@ body {
   z-index: 100 !important;
   will-change: transform;
   pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  90% {
+    opacity: 0.1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.fall-1 { animation: fall 8s linear infinite; }
+.fall-2 { animation: fall 10s linear 2s infinite; }
+.fall-3 { animation: fall 12s linear 4s infinite; }
+.fall-4 { animation: fall 9s linear 1s infinite; }
+.fall-5 { animation: fall 11s linear 3s infinite; } 
+
+/* line wiggle */
+.wavy-underline {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.wavy-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #547DFD 0%, #547DFD 100%);
+  transition: all 0.3s;
+}
+
+.wavy-underline:hover::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 2 Q 2.5 0, 5 2 T 10 2 T 15 2 T 20 2' stroke='%23547DFD' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  background-size: 20px 4px;
+  background-repeat: repeat-x;
+  height: 4px;
+  animation: wave-move 1s linear infinite;
+}
+
+@keyframes wave-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 20px 0;
+  }
 }
