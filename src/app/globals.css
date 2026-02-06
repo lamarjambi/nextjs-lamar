@@ -34,6 +34,10 @@
   font-family: var(--font-vt323), monospace;
 }
 
+.font-courier-prime {
+  font-family: var(--font-courier-prime), monospace;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -51,30 +55,6 @@ body {
   100% {
     transform: translateY(0);
   }
-}
-
-/* 2D card transition animation */
-@keyframes card-transition {
-  0% {
-    transform: rotate(0deg) scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: rotate(15deg) scale(1.1);
-    opacity: 0.8;
-  }
-  100% {
-    transform: rotate(30deg) scale(1.2);
-    opacity: 0;
-  }
-}
-
-.card-leave {
-  animation: card-transition 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  will-change: transform, opacity;
-  transform-origin: center bottom;
-  pointer-events: none;
-  z-index: 50;
 }
 
 /* when card is clicked, it zooms in and rotates 90 degrees */
@@ -132,12 +112,12 @@ body {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(to right, #547DFD 0%, #547DFD 100%);
+  background: linear-gradient(to right, #EC6BA7 0%, #EC6BA7 100%);
   transition: all 0.3s;
 }
 
-.wavy-underline:hover::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 2 Q 2.5 0, 5 2 T 10 2 T 15 2 T 20 2' stroke='%23547DFD' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+.group:hover .wavy-underline::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 2 Q 2.5 0, 5 2 T 10 2 T 15 2 T 20 2' stroke='%23EC6BA7' stroke-width='2' fill='none'/%3E%3C/svg%3E");
   background-size: 20px 4px;
   background-repeat: repeat-x;
   height: 4px;

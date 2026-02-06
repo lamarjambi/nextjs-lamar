@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Courier_Prime, Geist, Geist_Mono } from "next/font/google";
 import { Press_Start_2P } from "next/font/google";
 import { VT323 } from "next/font/google";
 import "./globals.css";
@@ -27,6 +27,11 @@ const vt323 = VT323({
   variable: "--font-vt323",
 });
 
+const courierPrime = Courier_Prime({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-courier-prime",
+});
 
 export const metadata: Metadata = {
   title: "J@mbo World",
@@ -42,7 +47,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} 
-        ${vt323.variable} antialiased`}
+        ${vt323.variable} ${courierPrime.variable} antialiased`}
       >
         {children}
       </body>

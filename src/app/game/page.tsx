@@ -99,7 +99,7 @@ export default function GamePage() {
               [-webkit-text-stroke:1px_black]">
                 J@mbo
               </h1>
-              <div className="inline-block">
+              <div className="inline-block group">
                 <p className="text-3xl text-[#702C95] font-semibold font-press-start pb-2">
                   Game Designer
                 </p>
@@ -116,15 +116,15 @@ export default function GamePage() {
 
             {/* Social icons */}
             <div className="flex gap-4">
-              <div className="w-12 h-12 bg-[#547DFD] rounded-full flex items-center justify-center 
+              <div className="w-12 h-12 bg-[#EC6BA7] rounded-full flex items-center justify-center 
               cursor-pointer hover:scale-110 transition-transform">
                 <span className="text-white text-xl font-bold">@</span>
               </div>
-              <div className="w-12 h-12 bg-[#547DFD] rounded-full flex items-center justify-center 
+              <div className="w-12 h-12 bg-[#EC6BA7] rounded-full flex items-center justify-center 
               cursor-pointer hover:scale-110 transition-transform">
                 <span className="text-white text-xl font-bold">S</span>
               </div>
-              <div className="w-12 h-12 bg-[#547DFD] rounded-full flex items-center justify-center 
+              <div className="w-12 h-12 bg-[#EC6BA7] rounded-full flex items-center justify-center 
               cursor-pointer hover:scale-110 transition-transform">
                 <span className="text-white text-xl font-bold">©</span>
               </div>
@@ -167,8 +167,8 @@ export default function GamePage() {
                                 className="block bg-white/20 backdrop-blur-sm rounded-lg p-2 hover:bg-white/30 
                                 transition-colors"
                               >
-                                <p className="font-bold">{item.name}</p>
-                                <p className="text-sm opacity-90">{item.desc}</p>
+                                <p className="font-bold font-vt323">{item.name}</p>
+                                <p className="text-sm opacity-90 font-courier-prime">{item.desc}</p>
                               </Link>
                             ))}
                           </div>
