@@ -79,9 +79,6 @@ body {
 @keyframes fall {
   0% {
     transform: translateY(-100vh) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
     opacity: 0.1;
   }
   90% {
@@ -94,10 +91,10 @@ body {
 }
 
 .fall-1 { animation: fall 8s linear infinite; }
-.fall-2 { animation: fall 10s linear 2s infinite; }
-.fall-3 { animation: fall 12s linear 4s infinite; }
-.fall-4 { animation: fall 9s linear 1s infinite; }
-.fall-5 { animation: fall 11s linear 3s infinite; } 
+.fall-2 { animation: fall 10s linear 0.5s infinite; }
+.fall-3 { animation: fall 12s linear 0.3s infinite; }
+.fall-4 { animation: fall 9s linear 0.2s infinite; }
+.fall-5 { animation: fall 11s linear 0.7s infinite; }
 
 /* line wiggle */
 .wavy-underline {

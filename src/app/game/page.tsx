@@ -7,6 +7,17 @@ import { useEffect, useRef, useState, useCallback } from "react";
 
 export default function GamePage() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
 
   // Card data - three main categories
   const cards = [
@@ -15,7 +26,7 @@ export default function GamePage() {
       category: "Projects",
       color: "bg-gradient-to-br from-[#75C2DF] to-[#FAF0DD]",
       items: [
-        { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread" },
+        { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4" },
         { name: "Hue's Quest", desc: "Color puzzle adventure", link: "https://github.com/lamarjambi/hues-quest.git" },
         { name: "Poly-0: The Saga", desc: "Epic polygon journey", link: "https://github.com/lamarjambi/poly-0-the-saga.git" },
         { name: "Typing Rush", desc: "Fast-paced typing game", link: "oppr.org/s/3HMXmh9U" },
@@ -86,6 +97,26 @@ export default function GamePage() {
         <div className="absolute left-[15%] text-[#EAC2FF] text-9xl opacity-0 fall-5">♣</div>
       </div>
 
+      {/* Video popup that follows mouse */}
+      {hoveredProject && (
+        <div 
+          className="fixed w-80 h-48 bg-black rounded-lg overflow-hidden shadow-2xl pointer-events-none z-50 border-4 border-[#702C95]"
+          style={{
+            left: `${mousePosition.x + 20}px`,
+            top: `${mousePosition.y + 20}px`,
+            transform: 'translate(0, 0)',
+          }}
+        >
+          <video
+            src={hoveredProject}
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
+
       {/* Main content */}
       <div className="max-w-7xl mx-auto px-8 py-12 relative z-10">
         <div className="grid grid-cols-2 gap-12 items-center min-h-screen">
@@ -117,15 +148,15 @@ export default function GamePage() {
             {/* Social icons */}
             <div className="flex gap-4">
               <div className="w-12 h-12 bg-[#EC6BA7] rounded-full flex items-center justify-center 
-              cursor-pointer hover:scale-110 transition-transform">
+              cursor-pointer hover:scale-110 hover:bg-[#547DFD] transition-transform">
                 <span className="text-white text-xl font-bold">@</span>
               </div>
               <div className="w-12 h-12 bg-[#EC6BA7] rounded-full flex items-center justify-center 
-              cursor-pointer hover:scale-110 transition-transform">
+              cursor-pointer hover:scale-110 hover:bg-[#547DFD] transition-transform">
                 <span className="text-white text-xl font-bold">S</span>
               </div>
               <div className="w-12 h-12 bg-[#EC6BA7] rounded-full flex items-center justify-center 
-              cursor-pointer hover:scale-110 transition-transform">
+              cursor-pointer hover:scale-110 hover:bg-[#547DFD] transition-transform">
                 <span className="text-white text-xl font-bold">©</span>
               </div>
             </div>
@@ -166,6 +197,8 @@ export default function GamePage() {
                                 href={item.link}
                                 className="block bg-white/20 backdrop-blur-sm rounded-lg p-2 hover:bg-white/30 
                                 transition-colors"
+                                onMouseEnter={() => item.video && setHoveredProject(item.video)}
+                                onMouseLeave={() => setHoveredProject(null)}
                               >
                                 <p className="font-bold font-vt323">{item.name}</p>
                                 <p className="text-sm opacity-90 font-courier-prime">{item.desc}</p>
