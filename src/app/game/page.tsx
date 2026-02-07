@@ -26,11 +26,12 @@ export default function GamePage() {
       category: "Games",
       color: "bg-gradient-to-br from-[#75C2DF] to-[#75C2DF] hover:from-[#75C2DF] hover:to-[#FAF0DD]",
       items: [
-        { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4", date: "2025", tags: ["Unity", "C#", "2D"] },
-        { name: "Hue's Quest", desc: "Color puzzle adventure", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4", date: "2025", tags: ["Unity", "Puzzle", "Platformer"] },
-        { name: "Poly-0: The Saga", desc: "Epic polygon journey", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4", date: "2025", tags: ["Unity", "3D", "Adventure"] },
-        { name: "Typing Rush", desc: "Fast-paced typing game", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif", tags: ["JavaScript", "Web"], date: "2024" },
-        { name: "Super Adrenaline Junkies", desc: "High-speed platformer", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4", tags: ["Unity", "Platformer"], date: "2024" }, 
+        { name: "Cosmic Thread", desc: "In a far-away galaxy, you're the universal agent who's solving Xaltarian mysteries", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4", date: "In Progress", tags: ["Unity", "C#", "2D", "Puzzle"] },
+        { name: "Poly-0: The Saga", desc: "You're Poly-0 trying to retrieve humanity's memory discs to combat OVERMIND, an evil AI ", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4", date: "Finished", tags: ["GameMaker", "2D", "Adventure"] },
+        { name: "Typing Rush", desc: "Silly typing game :3", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif", tags: ["P5.js", "Web", "Typing"], date: "Finished" },
+        { name: "Super Adrenaline Junkies", desc: "Rini tries to escape the junkyard with Garbo chasing her", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4", tags: ["P5.js", "Web" ,"Platformer"], date: "Finished" }, 
+        { name: "Hue's Quest", desc: "Rini, a newcomer to the town, tries to solve the mystery behind the monochromity of the town", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4", date: "Paused", tags: ["GameMaker", "Puzzle", "RPG-like"] },
+        { name: "Fog City Shadows", desc: "Horror 3D/2D game about having job :P", link: "https://github.com/lamarjambi/fog-city-shadows", video: "#", date: "Paused", tags: ["Unity", "2.5D", "Horror"] },
       ]
     },
     { 
@@ -133,7 +134,7 @@ export default function GamePage() {
             transform: 'translate(0, 0)',
           }}
         >
-          {hoveredProject.endsWith('.gif') ? (
+          {hoveredProject.match(/\.(gif|png|jpg|jpeg|webp)$/i) ? (
             <img 
             src={hoveredProject} 
             alt="Preview" 
@@ -340,7 +341,7 @@ export default function GamePage() {
                                         setHoveredProject(item.video);
                                       } else if (item.img) {
                                         setHoveredProject(item.img);
-                                      }
+                                      } 
                                     }}
                                     onMouseLeave={() => setHoveredProject(null)}
                                   >
@@ -349,7 +350,7 @@ export default function GamePage() {
                                 );
                               }
 
-                              // If no link, render as div
+                              // if no link, render as div
                               return (
                                 <div
                                   key={idx}
