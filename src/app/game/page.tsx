@@ -26,11 +26,11 @@ export default function GamePage() {
       category: "Games",
       color: "bg-gradient-to-br from-[#75C2DF] to-[#75C2DF] hover:from-[#75C2DF] hover:to-[#FAF0DD]",
       items: [
-        { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4" },
-        { name: "Hue's Quest", desc: "Color puzzle adventure", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4" },
-        { name: "Poly-0: The Saga", desc: "Epic polygon journey", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4" },
-        { name: "Typing Rush", desc: "Fast-paced typing game", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif" },
-        { name: "Super Adrenaline Junkies", desc: "High-speed platformer", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4" }, 
+        { name: "Cosmic Thread", desc: "Space adventure game", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4", date: "2025", tags: ["Unity", "C#", "2D"] },
+        { name: "Hue's Quest", desc: "Color puzzle adventure", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4", date: "2025", tags: ["Unity", "Puzzle", "Platformer"] },
+        { name: "Poly-0: The Saga", desc: "Epic polygon journey", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4", date: "2025", tags: ["Unity", "3D", "Adventure"] },
+        { name: "Typing Rush", desc: "Fast-paced typing game", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif", tags: ["JavaScript", "Web"], date: "2024" },
+        { name: "Super Adrenaline Junkies", desc: "High-speed platformer", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4", tags: ["Unity", "Platformer"], date: "2024" }, 
       ]
     },
     { 
@@ -38,9 +38,9 @@ export default function GamePage() {
       category: "Experience",
       color: "bg-gradient-to-br from-[#FDD23B] to-[#FDD23B] hover:from-[#FDD23B] hover:to-[#C9A0DF]",
       items: [
-        { name: "Game Designer", desc: "Independent projects", link: "#" },
-        { name: "Game Development", desc: "Unity & Game engines", link: "#" },
-        { name: "Interactive Design", desc: "UX/UI for games", link: "#" },
+        { name: "ScreamJam2025", desc: "Requiem Forest is a semi-open world horror game that tests your sins", link: "https://playlamar.itch.io/requiem-forest", img:"/img/screamjam2025.png" ,date: "Oct 2025" },
+        { name: "Game Development", desc: "Unity & Game engines", link: "#", date: "2021 - Present" },
+        { name: "Interactive Design", desc: "UX/UI for games", link: "#", date: "2023 - Present" },
       ]
     },
     { 
@@ -48,10 +48,10 @@ export default function GamePage() {
       category: "Skills",
       color: "bg-gradient-to-br from-[#EC6BA7] to-[#EC6BA7] hover:from-[#EC6BA7] hover:to-[#81C950]",
       items: [
-        { name: "Unity/C#", desc: "Game engine development", link: "#" },
-        { name: "Game Design", desc: "Mechanics & systems", link: "#" },
-        { name: "Level Design", desc: "Environment creation", link: "#" },
-        { name: "React/Next.js", desc: "Web development", link: "#" },
+        { name: "Game Engines", tags: ["Unreal Engine 5", "Unity", "GameMaker", "Godot Engine"] },
+        { name: "Programming Languages", tags: ["C++", "C/C#", "Python", "TypeScript", "JavaScript", "HTML/CSS"] },
+        { name: "Version Control Tools", tags: ["Perforce", "Diversion", "Git"] },
+        { name: "2D/3D Assets", tags: ["Procreate", "Aseprite", "Blender"] },
       ]
     },
   ];
@@ -292,26 +292,73 @@ export default function GamePage() {
                         {/* Items list - visible when active */}
                         {activeCard === index && (
                           <div className="flex-1 overflow-y-auto space-y-2">
-                            {card.items.map((item, idx) => (
-                              <Link
-                                key={idx}
-                                href={item.link}
-                                target="_blank"
-                                className="block bg-white/20 backdrop-blur-sm rounded-lg p-2 hover:bg-white/30 
-                                transition-colors"
-                                onMouseEnter={() => {
-                                  if (item.video) {
-                                    setHoveredProject(item.video);
-                                  } else if (item.img) {
-                                    setHoveredProject(item.img);
-                                  }
-                                }}
-                                onMouseLeave={() => setHoveredProject(null)}
-                              >
-                                <p className="font-bold font-vt323">{item.name}</p>
-                                <p className="text-sm opacity-90 font-courier-prime">{item.desc}</p>
-                              </Link>
-                            ))}
+                            {card.items.map((item, idx) => {
+                              const content = (
+                                <>
+                                  {/* Header with name and date */}
+                                  <div className="flex justify-between items-start mb-1">
+                                    <p className="font-bold font-vt323 text-lg">{item.name}</p>
+                                    {item.date && (
+                                      <span className="text-xs font-courier-prime opacity-80 ml-2 whitespace-nowrap">
+                                        {item.date}
+                                      </span>
+                                    )}
+                                  </div>
+                                  
+                                  {/* Description */}
+                                  {item.desc && (
+                                    <p className="text-sm opacity-90 font-courier-prime mb-2">{item.desc}</p>
+                                  )}
+                                  
+                                  {/* Tags */}
+                                  {item.tags && (
+                                    <div className="flex flex-wrap gap-1">
+                                      {item.tags.map((tag, tagIdx) => (
+                                        <span
+                                          key={tagIdx}
+                                          className="px-2 py-0.5 bg-[#702C95]/30 rounded-full text-xs font-courier-prime"
+                                        >
+                                          {tag}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  )}
+                                </>
+                              );
+
+                              // If item has a link, wrap in Link component
+                              if (item.link) {
+                                return (
+                                  <Link
+                                    key={idx}
+                                    href={item.link}
+                                    target="_blank"
+                                    className="block bg-white/20 backdrop-blur-sm rounded-lg p-3 hover:bg-white/30 
+                                    transition-colors"
+                                    onMouseEnter={() => {
+                                      if (item.video) {
+                                        setHoveredProject(item.video);
+                                      } else if (item.img) {
+                                        setHoveredProject(item.img);
+                                      }
+                                    }}
+                                    onMouseLeave={() => setHoveredProject(null)}
+                                  >
+                                    {content}
+                                  </Link>
+                                );
+                              }
+
+                              // If no link, render as div
+                              return (
+                                <div
+                                  key={idx}
+                                  className="block bg-white/20 backdrop-blur-sm rounded-lg p-3"
+                                >
+                                  {content}
+                                </div>
+                              );
+                            })}
                           </div>
                         )}
 
