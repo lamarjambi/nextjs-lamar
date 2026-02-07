@@ -28,7 +28,7 @@ export default function SoftwarePage() {
       items: [
         { name: "Doodle Noodle", desc: "A GenAI-free artist prompt generator with an inspo board!", link: "https://www.doodlenoodle.dev", video: "/img/doodle-noodle.png", date: "Completed", tags: ["TypeScript", "next.js", "API", "AWS"] },
         { name: "WEBTOYS OS", desc: "Collaborative desktop for users to create apps and games", date: "Completed", img:"/img/webtoys-os.png", tags: ["TypeScript", "next.js"] },
-        { name: "Script Doctor", desc: "AI puzzle solver agent", date: "Completed", img:"/img/webtoys-os.png", tags: ["A*", "GPT-4", "Python", "JavaScript"] },
+        { name: "Script Doctor", desc: "AI puzzle solver agent", date: "Completed", link:"https://github.com/lamarjambi/ScriptDoctor-Python" , img:"/img/script-doctor.png", tags: ["A*", "GPT-4", "Python", "JavaScript"] },
         { name: "HSRN Virtual Meetup App", desc: "NYU IT X HSRN Data Center Robot meeting platform", date: "Completed", img:"/img/hsrn.png", tags: ["React", "JavaScript", "API", "Figma"] },
       ]
     },
@@ -37,7 +37,7 @@ export default function SoftwarePage() {
       category: "Experience",
       color: "bg-gradient-to-br from-[#FDD23B] to-[#FDD23B] hover:from-[#FDD23B] hover:to-[#C9A0DF]",
       items: [
-        { name: "Game Innovation Lab", desc: "Researh Intern", link: "https://game.engineering.nyu.edu/", img:"/img/script-doctor.png", date: "Nov 24 - Feb 25" },
+        { name: "Game Innovation Lab", desc: "Researh Intern", link: "https://game.engineering.nyu.edu/", date: "Nov 24 - Feb 25" },
         { name: "Robotics Club @ NYU", desc: "Vice President + Software Engineer", link:"https://instagram.com/nyurobotics" , date: "Sep 24 - Apr 25", img:"/img/robotics.png" },
       ]
     },
