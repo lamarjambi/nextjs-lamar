@@ -19,7 +19,7 @@ export default function GamePage() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Card data - three main categories
+  // card metadata
   const cards = [
     { 
       id: 1,
@@ -88,16 +88,16 @@ export default function GamePage() {
 
   return (
     <div className="h-screen bg-[rgba(152,92,210,0.7)] overflow-hidden relative">
-      {/* Falling cards and symbols background */}
+      {/* background animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Falling card rectangles */}
+        {/* cards */}
         <div className="absolute left-[10%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-1"></div>
         <div className="absolute left-[30%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-2"></div>
         <div className="absolute left-[50%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-3"></div>
         <div className="absolute left-[70%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-4"></div>
         <div className="absolute left-[90%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-5"></div>
         
-        {/* Falling club symbols */}
+        {/* clubs */}
         <div className="absolute left-[20%] text-[#EAC2FF] text-9xl opacity-0 fall-2">♣</div>
         <div className="absolute left-[40%] text-[#EAC2FF] text-9xl opacity-0 fall-4">♣</div>
         <div className="absolute left-[60%] text-[#EAC2FF] text-9xl opacity-0 fall-1">♣</div>
@@ -123,7 +123,7 @@ export default function GamePage() {
         </div>
       </Link>
 
-      {/* Video popup that follows mouse */}
+      {/* media popup w/ mouse */}
       {hoveredProject && (
         <div 
           className="fixed w-80 h-48 bg-black rounded-lg overflow-hidden shadow-2xl pointer-events-none z-50 border-4 border-[#702C95]"
@@ -149,11 +149,11 @@ export default function GamePage() {
         </div>
       )}
 
-      {/* Main content */}
+      {/* main */}
       <div className="max-w-7xl mx-auto px-8 py-12 relative z-10">
         <div className="grid grid-cols-2 gap-12 items-center min-h-screen">
 
-          {/* Left section - Text/Branding */}
+          {/* left section */}
           <div className="space-y-8">
 
             {/* titles */}
@@ -180,8 +180,8 @@ export default function GamePage() {
             {/* desc */}
             <div className="space-y-4 text-[#FDD23B]">
               <p className="text-lg leading-relaxed font-dokdo">
-                3DS XL was the first gaming console I ever owned-I got it as a present from my parents,
-                and I've been chasing that high again and again by giving people fun experiences :]
+                The 3DS XL was the first gaming console I ever <i>personaly</i> owned-I got it as a present from my parents,
+                and I've been chasing that high over and over again by giving people fun experiences :]
               </p>
             </div>
 
@@ -281,21 +281,21 @@ export default function GamePage() {
                     <div className={`w-full h-full ${card.color} rounded-2xl p-6 text-[#702C95] 
                     border-4 border-[#702C95] relative overflow-hidden`}>
                       
-                      {/* Card content */}
+                      {/* card content */}
                       <div className="relative z-10 h-full flex flex-col">
                         
-                        {/* Category title - always visible */}
+                        {/* category */}
                         <h2 className="text-3xl font-bold mb-4 font-dokdo">
                           {card.category}
                         </h2>
 
-                        {/* Items list - visible when active */}
+                        {/* items */}
                         {activeCard === index && (
                           <div className="flex-1 overflow-y-auto space-y-2">
                             {card.items.map((item, idx) => {
                               const content = (
                                 <>
-                                  {/* Header with name and date */}
+                                  {/* header */}
                                   <div className="flex justify-between items-start mb-1">
                                     <p className="font-bold font-vt323 text-lg">{item.name}</p>
                                     {item.date && (
@@ -305,12 +305,12 @@ export default function GamePage() {
                                     )}
                                   </div>
                                   
-                                  {/* Description */}
+                                  {/* desc */}
                                   {item.desc && (
                                     <p className="text-sm opacity-90 font-courier-prime mb-2">{item.desc}</p>
                                   )}
                                   
-                                  {/* Tags */}
+                                  {/* tags */}
                                   {item.tags && (
                                     <div className="flex flex-wrap gap-1">
                                       {item.tags.map((tag, tagIdx) => (
@@ -326,7 +326,7 @@ export default function GamePage() {
                                 </>
                               );
 
-                              // If item has a link, wrap in Link component
+                              // if item has a link, wrap in Link component
                               if (item.link) {
                                 return (
                                   <Link
@@ -368,7 +368,7 @@ export default function GamePage() {
                 ))}
               </div>
 
-              {/* Instruction text */}
+              {/* instrution text */}
               <div className="absolute text-xl -bottom-12 text-purple-900 
               font-semibold translate-y-[12vh] translate-x-[0vw] font-vt323">
                 <p>* Click cards to explore</p>
