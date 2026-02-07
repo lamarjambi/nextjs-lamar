@@ -41,7 +41,7 @@ export default function Home(): React.JSX.Element {
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center p-5 overflow-hidden
-    before:absolute before:inset-0 before:bg-[url('/img/rug-background.png')] before:bg-cover 
+    before:absolute before:inset-0 before:bg-[url('/img/rug-background2.png')] before:bg-cover 
     before:bg-center before:opacity-50 before:-z-10">
       {/* title with typewriter effect
       <div className="text-center mb-11">
@@ -123,7 +123,7 @@ export default function Home(): React.JSX.Element {
       </div>
 
       {/* silly lamar */}
-      <div 
+      {/* <div 
           ref={lamarRef}
           className="absolute h-full w-full inset-0 overflow-hidden transition-all duration-800 group 
           translate-x-130 translate-y-60 origin-center -rotate-[6deg] 
@@ -139,7 +139,7 @@ export default function Home(): React.JSX.Element {
               <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Software Developer</p>
             </div>
           </a>
-        </div>    
+        </div>     */}
 
       {/* Fullscreen color overlay */}
       {isAnimating && (
