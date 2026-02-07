@@ -27,9 +27,9 @@ export default function GamePage() {
       color: "bg-gradient-to-br from-[#75C2DF] to-[#75C2DF] hover:from-[#75C2DF] hover:to-[#FAF0DD]",
       items: [
         { name: "Cosmic Thread", desc: "In a far-away galaxy, you're the universal agent who's solving Xaltarian mysteries", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4", date: "In Progress", tags: ["Unity", "C#", "2D", "Puzzle"] },
-        { name: "Poly-0: The Saga", desc: "You're Poly-0 trying to retrieve humanity's memory discs to combat OVERMIND, an evil AI ", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4", date: "Finished", tags: ["GameMaker", "2D", "Adventure"] },
-        { name: "Typing Rush", desc: "Silly typing game :3", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif", tags: ["P5.js", "Web", "Typing"], date: "Finished" },
-        { name: "Super Adrenaline Junkies", desc: "Rini tries to escape the junkyard with Garbo chasing her", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4", tags: ["P5.js", "Web" ,"Platformer"], date: "Finished" }, 
+        { name: "Poly-0: The Saga", desc: "You're Poly-0 trying to retrieve humanity's memory discs to combat OVERMIND, an evil AI ", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4", date: "Completed", tags: ["GameMaker", "2D", "Adventure"] },
+        { name: "Typing Rush", desc: "Silly typing game :3", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif", tags: ["P5.js", "Web", "Typing"], date: "Completed" },
+        { name: "Super Adrenaline Junkies", desc: "Rini tries to escape the junkyard with Garbo chasing her", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4", tags: ["P5.js", "Web" ,"Platformer"], date: "Completed" }, 
         { name: "Hue's Quest", desc: "Rini, a newcomer to the town, tries to solve the mystery behind the monochromity of the town", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4", date: "Paused", tags: ["GameMaker", "Puzzle", "RPG-like"] },
         { name: "Fog City Shadows", desc: "Horror 3D/2D game about having job :P", link: "https://github.com/lamarjambi/fog-city-shadows", video: "/videos/fogcity-gameplay.mp4", date: "Paused", tags: ["Unity", "2.5D", "Horror"] },
       ]
@@ -371,7 +371,7 @@ export default function GamePage() {
               {/* instrution text */}
               <div className="absolute text-xl -bottom-12 text-purple-900 
               font-semibold translate-y-[12vh] translate-x-[0vw] font-vt323">
-                <p>* Click cards to explore</p>
+                <p>* Click a card to explore</p>
               </div>
             </div>
           </div>
