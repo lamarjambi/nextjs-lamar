@@ -31,7 +31,7 @@ export default function GamePage() {
         { name: "Typing Rush", desc: "Silly typing game :3", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif", tags: ["P5.js", "Web", "Typing"], date: "Finished" },
         { name: "Super Adrenaline Junkies", desc: "Rini tries to escape the junkyard with Garbo chasing her", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4", tags: ["P5.js", "Web" ,"Platformer"], date: "Finished" }, 
         { name: "Hue's Quest", desc: "Rini, a newcomer to the town, tries to solve the mystery behind the monochromity of the town", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4", date: "Paused", tags: ["GameMaker", "Puzzle", "RPG-like"] },
-        { name: "Fog City Shadows", desc: "Horror 3D/2D game about having job :P", link: "https://github.com/lamarjambi/fog-city-shadows", video: "#", date: "Paused", tags: ["Unity", "2.5D", "Horror"] },
+        { name: "Fog City Shadows", desc: "Horror 3D/2D game about having job :P", link: "https://github.com/lamarjambi/fog-city-shadows", video: "/videos/fogcity-gameplay.mp4", date: "Paused", tags: ["Unity", "2.5D", "Horror"] },
       ]
     },
     { 
@@ -39,9 +39,8 @@ export default function GamePage() {
       category: "Experience",
       color: "bg-gradient-to-br from-[#FDD23B] to-[#FDD23B] hover:from-[#FDD23B] hover:to-[#C9A0DF]",
       items: [
-        { name: "ScreamJam2025", desc: "Requiem Forest is a semi-open world horror game that tests your sins", link: "https://playlamar.itch.io/requiem-forest", img:"/img/screamjam2025.png" ,date: "Oct 2025" },
-        { name: "Game Development", desc: "Unity & Game engines", link: "#", date: "2021 - Present" },
-        { name: "Interactive Design", desc: "UX/UI for games", link: "#", date: "2023 - Present" },
+        { name: "ScreamJam2025", desc: "Game mechanics (inventory and interaction systems) + UI", link: "https://playlamar.itch.io/requiem-forest", img:"/img/screamjam2025.png", date: "Oct 2025" },
+        { name: "WEBTOYS OS", desc: "Lead Product Designer", date: "Sep 2025", img:"/img/webtoys-os.png" },
       ]
     },
     { 
