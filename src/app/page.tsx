@@ -49,25 +49,27 @@ export default function Home(): React.JSX.Element {
 
       {/* cards */}
       <div className="relative w-[240px] h-[340px] [perspective:1200px]">
-        {/* artist */}
-        <div 
-          ref={artistRef}
-          className="absolute inset-0 w-50 h-70 border-2 border-black rounded-[5.5%] 
-          overflow-hidden transition-all duration-800 group origin-center left-0 top-0 
-          translate-x-[-30vw] -rotate-[18deg] hover:scale-110 hover:z-40 hover:-rotate-[10deg] 
-          cursor-pointer"
-          onClick={(e) => {
-            e.preventDefault();
-            animateThenNavigate(artistRef, "/artist");
-          }}
-        >
-          <a href="/artist" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
-            <Image src="/img/ArtistCard.png" alt="Artist Card" fill className="object-cover" />
-            <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Artist</p>
-            </div>
-          </a>
+
+        {/* artist card */}
+      <Link 
+        href="/artist" 
+        className={`-translate-y-[15vh] translate-x-[5vw] rotate-5 group transition-opacity duration-300 ${isAnimating ? 'opacity-0' : ''}`}
+      >
+        <div className="relative w-50 h-70 -translate-x-[30vw] rotate-10">
+          <Image
+            src="/img/ArtistCard.PNG"
+            alt="Back"
+            fill
+            className="object-contain transition-opacity group-hover:opacity-0"
+          />
+          <Image
+            src="/img/ArtistCard-active.PNG"
+            alt="Back"
+            fill
+            className="object-contain opacity-0 transition-opacity group-hover:opacity-100"
+          />
         </div>
+      </Link>
 
         {/* software */}
         <div 
@@ -133,7 +135,7 @@ export default function Home(): React.JSX.Element {
         </div>
       </Link>
 
-      {/* Fullscreen color overlay */}
+      {/* color overlay */}
       {isAnimating && (
         <div className="fixed inset-0 bg-[rgba(152,92,210,0.7)] z-50 
         animate-[fadeIn_0.8s_ease-out]" />
