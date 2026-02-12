@@ -50,7 +50,7 @@ export default function Home(): React.JSX.Element {
       {/* cards */}
       <div className="relative w-[240px] h-[340px] [perspective:1200px]">
 
-        {/* artist card */}
+      {/* artist card */}
       <Link 
         href="/artist" 
         className={`-translate-y-[15vh] translate-x-[5vw] rotate-5 group transition-opacity duration-300 ${isAnimating ? 'opacity-0' : ''}`}
@@ -66,8 +66,15 @@ export default function Home(): React.JSX.Element {
             src="/img/ArtistCard-active.PNG"
             alt="Back"
             fill
-            className="object-contain opacity-0 transition-opacity group-hover:opacity-100"
+            className="object-contain opacity-0 transition-opacity group-hover:scale-105
+            group-hover:opacity-100"
           />
+          
+          {/* Add this overlay div */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 
+          transition-opacity">
+            <span className="text-[#A87CC0] text-1xl font-press-start">Artist</span>
+          </div>
         </div>
       </Link>
 
