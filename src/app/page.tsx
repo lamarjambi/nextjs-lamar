@@ -129,7 +129,7 @@ export default function Home(): React.JSX.Element {
             {/* overlay */}
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 
             transition-opacity">
-              <span className="text-[#702C95] text-0.5xl text-center font-press-start text-outline">
+              <span className="text-[#FAF0DD] text-0.5xl text-center font-press-start text-outline">
                 Gameplay Programmer
               </span>
             </div>
