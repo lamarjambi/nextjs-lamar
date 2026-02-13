@@ -50,104 +50,113 @@ export default function Home(): React.JSX.Element {
       {/* cards */}
       <div className="relative w-[240px] h-[340px] [perspective:1200px]">
 
-      {/* artist card */}
-      {/* issue: can hover from away?? */}
-      <Link 
-        href="/artist" 
-        className={"group inline-block -translate-x-[30vw]"}
-      >
-        <div className="relative w-50 h-70 rotate-10">
-          <Image
-            src="/img/ArtistCard.PNG"
-            alt="Back"
-            fill
-            className="object-contain transition-opacity group-hover:opacity-0"
-          />
-          <Image
-            src="/img/ArtistCard-active.PNG"
-            alt="Back"
-            fill
-            className="object-contain opacity-0 transition-opacity group-hover:scale-105
-            group-hover:opacity-100"
-          />
-          
-          {/* Add this overlay div */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 
-          transition-opacity">
-            <span className="text-[#A87CC0] text-1xl font-press-start">Artist</span>
+        {/* artist card */}
+        <Link 
+          href="/artist" 
+          className={"group inline-block -translate-x-[30vw] -translate-y-[10vh]"}
+        >
+          <div className="relative w-50 h-70 rotate-10">
+            <Image
+              src="/img/ArtistCard.PNG"
+              alt="Back"
+              fill
+              className="object-contain transition-opacity group-hover:opacity-0"
+            />
+            <Image
+              src="/img/ArtistCard-active.PNG"
+              alt="Back"
+              fill
+              className="object-contain opacity-0 transition-opacity group-hover:scale-105
+              group-hover:opacity-100"
+            />
+            
+            {/* overlay */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 
+            transition-opacity">
+              <span className="text-[#A87CC0] text-1xl font-press-start">Artist</span>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
 
-        {/* software */}
-        <div 
-          ref={devRef}
-          className="absolute inset-0 w-50 h-70 border-2 border-black rounded-[5.5%] 
-          overflow-hidden transition-all duration-800 group -translate-x-[35vw] translate-y-[30vh] 
-          origin-center -rotate-[6deg] hover:scale-110 hover:z-40 hover:-rotate-[20deg] cursor-pointer"
-          onClick={(e) => {
-            e.preventDefault();
-            animateThenNavigate(devRef, "/software");
-          }}
+        {/* software card */}
+        <Link 
+          href="/software" 
+          className={"group inline-block -translate-x-[35vw] -translate-y-[15vh]"}
         >
-          <a href="/software" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
-            <Image src="/img/DevCard.png" alt="Developer Card" fill className="object-cover" />
-            <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <p className="text-black font-press-start text-base text-center px-2 py-1 bg-transparent">Software Developer</p>
+          <div className="relative w-50 h-70 -rotate-6">
+            <Image
+              src="/img/DevCard.PNG"
+              alt="Back"
+              fill
+              className="object-contain transition-opacity group-hover:opacity-0"
+            />
+            <Image
+              src="/img/DevCard-active.PNG"
+              alt="Back"
+              fill
+              className="object-contain opacity-0 transition-opacity group-hover:scale-105
+              group-hover:opacity-100"
+            />
+            
+            {/* overlay */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 
+            transition-opacity">
+              <span className="text-[#A87CC0] text-1xl text-center font-press-start">Software Developer</span>
             </div>
-          </a>
-        </div>
+          </div>
+        </Link>
 
-        {/* game */}
-        <div 
-          ref={gameRef}
-          className="absolute inset-0 w-50 h-70 border-2 border-black rounded-[5.5%] 
-          overflow-hidden transition-all duration-800 group origin-center 
-          translate-x-120 -translate-y-[5vh] rotate-[10deg] hover:scale-110 hover:z-40 hover:rotate-[15deg] 
-          cursor-pointer"
-          onClick={(e) => {
-            e.preventDefault();
-            animateThenNavigate(gameRef, "/game");
-          }}
+        {/* game card */}
+        <Link 
+          href="/game" 
+          className={"group inline-block "}
         >
-          <a href="/game" className="block w-full h-full relative" onClick={(e) => e.preventDefault()}>
-            <Image src="/img/GameCard.png" alt="Game Designer Card" fill className="object-cover" />
-            <div className="absolute inset-0 bg-[rgba(152,92,210,0.7)] flex justify-center items-center 
-            opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              
-              <p className="text-black font-press-start text-base text-center px-2 py-1 
-              bg-transparent">Game Designer</p>
+          <div className="relative w-50 h-70 rotate-10 translate-x-[30vw] -translate-y-[95vh]">
+            <Image
+              src="/img/GameCard.PNG"
+              alt="Back"
+              fill
+              className="object-contain transition-opacity group-hover:opacity-0"
+            />
+            <Image
+              src="/img/GameCard-active.PNG"
+              alt="Back"
+              fill
+              className="object-contain opacity-0 transition-opacity group-hover:scale-105
+              group-hover:opacity-100"
+            />
+            
+            {/* overlay */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 
+            transition-opacity">
+              <span className="text-[#A87CC0] text-1xl text-center font-press-start">Gameplay Programmer</span>
             </div>
-          </a>
-        </div>
-      </div>
+          </div>
+        </Link>
 
-      {/* silly lamar */}
-      <Link 
-        href="/lamar" 
-        className={`-translate-y-[15vh] translate-x-[5vw] rotate-5 group transition-opacity duration-300 ${isAnimating ? 'opacity-0' : ''}`}
-      >
-        <div className="relative w-48 h-48">
-          <Image
-            src="/img/silly-lamar.PNG"
-            alt="Back"
-            fill
-            className="object-contain transition-opacity group-hover:opacity-0"
-          />
-          <Image
-            src="/img/silly-lamar-active.PNG"
-            alt="Back"
-            fill
-            className="object-contain opacity-0 transition-opacity group-hover:scale-110 group-hover:opacity-100"
-          />
-        </div>
-      </Link>
+        {/* silly lamar */}
+        <Link 
+          href="/lamar" 
+          className={"group inline-block "}
+        >
+          <div className="relative w-50 h-70 -rotate-10 translate-x-[2vw] -translate-y-[100vh]">
+            <Image
+              src="/img/silly-lamar.PNG"
+              alt="Back"
+              fill
+              className="object-contain transition-opacity group-hover:opacity-0"
+            />
+            <Image
+              src="/img/silly-lamar-active.PNG"
+              alt="Back"
+              fill
+              className="object-contain opacity-0 transition-opacity group-hover:scale-105
+              group-hover:opacity-100"
+            />
+          </div>
+        </Link>
 
-      {/* color overlay */}
-      {isAnimating && (
-        <div className="fixed inset-0 bg-[rgba(152,92,210,0.7)] z-50 
-        animate-[fadeIn_0.8s_ease-out]" />
-      )}
+      </div>  
     </div>
   );
 }
