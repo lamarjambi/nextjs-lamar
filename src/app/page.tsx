@@ -51,11 +51,12 @@ export default function Home(): React.JSX.Element {
       <div className="relative w-[240px] h-[340px] [perspective:1200px]">
 
       {/* artist card */}
+      {/* issue: can hover from away?? */}
       <Link 
         href="/artist" 
-        className={`-translate-y-[15vh] translate-x-[5vw] rotate-5 group transition-opacity duration-300 ${isAnimating ? 'opacity-0' : ''}`}
+        className={"group inline-block -translate-x-[30vw]"}
       >
-        <div className="relative w-50 h-70 -translate-x-[30vw] rotate-10">
+        <div className="relative w-50 h-70 rotate-10">
           <Image
             src="/img/ArtistCard.PNG"
             alt="Back"
