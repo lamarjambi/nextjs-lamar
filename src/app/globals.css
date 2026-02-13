@@ -44,36 +44,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* float animation for cards */
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* when card is clicked, it zooms in and rotates 90 degrees */
-@keyframes flyToViewer {
-  to {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    width: 100vw;
-    height: 100vh;
-    transform: translate(-50%, -50%) scale(6) rotate(-90deg);
-  }
-}
-
-.card-fly-animation {
-  animation: flyToViewer 0.8s ease-out forwards;
-  z-index: 100 !important;
-  will-change: transform;
-  pointer-events: none;
+.text-outline {
+  -webkit-text-stroke: 1px black;
 }
 
 @keyframes fall {

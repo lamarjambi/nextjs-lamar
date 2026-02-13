@@ -158,8 +158,7 @@ export default function GamePage() {
 
             {/* titles */}
             <div>
-              <h1 className="text-9xl font-bold text-[#702C95] mb-6 font-press-start 
-              [-webkit-text-stroke:1px_black]">
+              <h1 className="text-9xl font-bold text-[#702C95] mb-6 font-press-start text-outline">
                 J@mbo
               </h1>
               <a
