@@ -40,14 +40,31 @@ export default function ContactPage() {
   ];
 
   const getCardStyle = (index: number) => {
-    const card = cards[index];
-    const isActive = activeCard === index;
+    const cardPositions = [
+      { translateY: '-10vh', translateX: '-15vw', rotate: -8 }, // art cafe
+      { translateY: '0vh', translateX: '-8vw', rotate: 0 }, // experience
+      { translateY: '-4vh', translateX: '5vw', rotate: 8 }, // skills
+    ];
+
+    const position = cardPositions[index];
+
+    if (activeCard === index) {
+      return {
+        transform: `
+          translate(${position.translateX}, ${position.translateY})
+          rotate(0deg)
+          scale(1.05)
+        `,
+        zIndex: 30,
+      };
+    }
+
     return {
-      transform: isActive
-        ? `translate(${card.tx}, ${card.ty}) rotate(0deg) scale(1.07)`
-        : `translate(${card.tx}, ${card.ty}) rotate(${card.rotate}deg)`,
-      zIndex: isActive ? 30 : 10 + index,
-      transition: "transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)",
+      transform: `
+        translate(${position.translateX}, ${position.translateY})
+        rotate(${position.rotate}deg)
+      `,
+      zIndex: 10 + index,
     };
   };
 
@@ -55,6 +72,23 @@ export default function ContactPage() {
 
   return (
     <div className="h-screen bg-[rgba(152,92,210,0.7)] overflow-hidden relative">
+
+      {/* background animation */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* cards */}
+        <div className="absolute left-[10%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-1"></div>
+        <div className="absolute left-[30%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-2"></div>
+        <div className="absolute left-[50%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-3"></div>
+        <div className="absolute left-[70%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-4"></div>
+        <div className="absolute left-[90%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-5"></div>
+        
+        {/* clubs */}
+        <div className="absolute left-[20%] text-[#EAC2FF] text-9xl opacity-0 fall-2">★</div>
+        <div className="absolute left-[40%] text-[#EAC2FF] text-9xl opacity-0 fall-4">★</div>
+        <div className="absolute left-[60%] text-[#EAC2FF] text-9xl opacity-0 fall-1">★</div>
+        <div className="absolute left-[80%] text-[#EAC2FF] text-9xl opacity-0 fall-3">★</div>
+        <div className="absolute left-[15%] text-[#EAC2FF] text-9xl opacity-0 fall-5">★</div>
+      </div>
 
       {/*back button*/}
       <Link href="/" className="fixed top-10 left-18 z-50 group">
@@ -72,10 +106,11 @@ export default function ContactPage() {
         {nameLetters.map((letter, i) => (
           <span
             key={i}
-            className="font-press-start text-[#702C95] [-webkit-text-stroke:1px_black] leading-none select-none"
+            className="text-9xl font-bold text-[#702C95] mb-6 font-press-start text-outline 
+            leading-none select-none"
             style={{
               fontSize: "clamp(2rem, 3.5vw, 3rem)",
-              marginLeft: `${i * 30}px`, // each letter steps slightly right 
+              marginLeft: `${i * 50}px`, // each letter steps slightly right 
             }}
           >
             {letter}
@@ -111,13 +146,14 @@ export default function ContactPage() {
       </div>
 
       {/* cards */}
-      <div className="h-full flex items-center justify-center">
+      <div className="h-full flex items-center justify-center ">
         <div className="relative w-[400px] h-[520px]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute top-1/2 left-3/4 w-72 h-96 -translate-x-1/2 -translate-y-1/2">
             {cards.map((card, index) => (
               <div
                 key={card.id}
-                className="absolute top-0 left-0 w-72 h-96 cursor-pointer"
+                className="absolute top-0 left-0 w-72 h-96 cursor-pointer transition-all duration-500 
+                    ease-out hover:scale-105"
                 style={getCardStyle(index)}
                 onClick={() => setActiveCard(activeCard === index ? null : index)}
               >
