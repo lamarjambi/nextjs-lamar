@@ -18,7 +18,6 @@ import type { CardRef, NavigationHandler, AnimationVariant } from "@/types/navig
 
 export default function Home(): React.JSX.Element {
   const router = useRouter();
-  const [isAnimating, setIsAnimating] = useState(false); 
   
   const artistRef = useRef<HTMLDivElement | null>(null);
   const devRef = useRef<HTMLDivElement | null>(null);
@@ -32,8 +31,6 @@ export default function Home(): React.JSX.Element {
       return;
     }
     
-    setIsAnimating(true);
-    node.classList.add("card-fly-animation"); 
     
     setTimeout(() => {
       router.push(href);
@@ -41,19 +38,18 @@ export default function Home(): React.JSX.Element {
     
   }, [router]);
 
-  // ask opinions for grey background
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center p-5 overflow-hidden
-    before:absolute before:inset-0 before:bg-[url('/img/rug-background2.png')]
-    before:bg-cover bg-gray-500/30 before:bg-center before:opacity-50 before:-z-10">
+    <div className="relative h-screen flex flex-col items-center justify-center p-5 overflow-hidden
+    before:absolute before:inset-0 before:bg-[url('/img/rug-background3.PNG')]
+    before:bg-cover before:bg-center before:-z-10 overflow-hidden">
 
       {/* cards */}
-      <div className="relative w-[240px] h-[340px] [perspective:1200px]">
+      <div className="relative w-screen h-screen [perspective:1200px] overflow-hidden">
 
         {/* artist card */}
         <Link 
           href="/artist" 
-          className={"group inline-block -translate-x-[30vw] -translate-y-[10vh]"}
+          className={"group inline-block translate-x-[15vw] translate-y-[25vh]"}
         >
           <div className="relative w-50 h-70 rotate-10">
             <Image
@@ -81,7 +77,7 @@ export default function Home(): React.JSX.Element {
         {/* software card */}
         <Link 
           href="/software" 
-          className={"group inline-block -translate-x-[35vw] -translate-y-[15vh]"}
+          className={"group inline-block translate-x-0 translate-y-[50vh]"}
         >
           <div className="relative w-50 h-70 -rotate-6">
             <Image
@@ -111,7 +107,7 @@ export default function Home(): React.JSX.Element {
           href="/game" 
           className={"group inline-block "}
         >
-          <div className="relative w-50 h-70 rotate-10 translate-x-[30vw] -translate-y-[95vh]">
+          <div className="relative w-50 h-70 rotate-10 translate-x-[50vw] translate-y-[5vh]">
             <Image
               src="/img/GameCard.PNG"
               alt="Back"
@@ -141,7 +137,7 @@ export default function Home(): React.JSX.Element {
           href="/lamar" 
           className={"group inline-block "}
         >
-          <div className="relative w-50 h-70 -rotate-10 translate-x-[2vw] -translate-y-[100vh]">
+          <div className="relative w-50 h-70 -rotate-10 translate-x-[20vw] translate-y-[40vh]">
             <Image
               src="/img/silly-lamar.PNG"
               alt="Back"

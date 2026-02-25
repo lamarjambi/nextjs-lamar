@@ -148,8 +148,8 @@ export default function SoftwarePage() {
       )}
 
       {/* main */}
-      <div className="max-w-7xl mx-auto px-8 py-12 relative z-10">
-        <div className="grid grid-cols-2 gap-12 items-center min-h-screen">
+      <div className="absolute inset-0 z-10 flex items-center px-8">
+        <div className="grid grid-cols-2 gap-12 items-center w-full max-w-7xl mx-auto translate-y-[3vh]">
 
           {/* left section */}
           <div className="space-y-8">
@@ -263,7 +263,7 @@ export default function SoftwarePage() {
           </div>
 
           {/* cards */}
-          <div className="flex items-center justify-center -translate-y-50  ">
+          <div className="flex items-center justify-center -translate-y-[20vh]">
             <div className="relative w-[400px] h-[600px]">
 
               {/* deck of cards */}

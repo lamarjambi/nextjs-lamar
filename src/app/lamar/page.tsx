@@ -126,7 +126,8 @@ export default function GamePage() {
       {/* media popup w/ mouse */}
       {hoveredProject && (
         <div 
-          className="fixed w-80 h-48 bg-black rounded-lg overflow-hidden shadow-2xl pointer-events-none z-50 border-4 border-[#702C95]"
+          className="fixed w-80 h-48 bg-black rounded-lg overflow-hidden shadow-2xl pointer-events-none z-50 
+          border-4 border-[#702C95]"
           style={{
             left: `${mousePosition.x + 20}px`,
             top: `${mousePosition.y + 20}px`,
@@ -157,8 +158,8 @@ export default function GamePage() {
           <div className="space-y-8">
 
             {/* titles */}
-            <div>
-              <h1 className="text-9xl font-bold text-[#702C95] mb-6 font-press-start 
+            {/* <div>
+              <h1 className="text-8xl font-bold text-[#702C95] mb-6 font-press-start 
               [-webkit-text-stroke:1px_black]">
                 Lamar
               </h1>
@@ -168,30 +169,30 @@ export default function GamePage() {
               rel="noopener noreferrer"
               >
                 <div className="inline-block group">
-                  <p className="text-3xl text-[#702C95] font-semibold font-press-start pb-2">
+                  <p className="text-xl text-[#702C95] font-semibold font-press-start pb-2">
                     Jambi
                   </p>
                   <div className="wavy-underline w-full"></div>
                 </div>
               </a>
               
-            </div>
+            </div> */}
 
             {/* desc */}
-            <div className="space-y-4 text-[#FDD23B]">
+            {/* <div className="space-y-4 text-[#FDD23B]">
               <p className="text-lg leading-relaxed font-dokdo">
                 Integrated Design & Media major at NYU Tandon,
-                with minors in Game Design and Computer Science! <br />
+                with minors in Game Design and Computer Science! <br/>
                 I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and currently based
                 in Brooklyn, NY 
               </p>
-            </div>
+            </div> */}
 
             {/* icons */}
             <div className="flex gap-4">
 
               {/* email */}
-              <a href="mailto:play.lmjambi@gmail.com"
+              {/* <a href="mailto:play.lmjambi@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               >
@@ -203,10 +204,10 @@ export default function GamePage() {
                     </svg>
                   </span>
                 </div>
-              </a>
+              </a> */}
 
               {/* linkedin */}
-              <a href="https://www.linkedin.com/in/lamar-jambi/"
+              {/* <a href="https://www.linkedin.com/in/lamar-jambi/"
               target="_blank"
               rel="noopener noreferrer"
               >
@@ -218,10 +219,10 @@ export default function GamePage() {
                     </svg>
                   </span>
                 </div>
-              </a>
+              </a> */}
               
               {/* twitter */}
-              <a href="https://twitter.com/playlamar"
+              {/* <a href="https://twitter.com/playlamar"
               target="_blank"
               rel="noopener noreferrer"
               >
@@ -233,7 +234,7 @@ export default function GamePage() {
                     </svg>
                   </span>
                 </div>
-              </a>
+              </a> */}
               
             </div>
 
