@@ -19,7 +19,7 @@ export default function ContactPage() {
     },
     {
       id: 1,
-      gif: "/img/me-2.gif",
+      gif: "/img/hotChoco.gif",
       color: "bg-[#FDD23B]",
       label: "what i do",
       blurb: "I make games, design experiences, and build things that blur the line between art and interaction. Whether it's a puzzle game or a product interface, I care deeply about how people feel when they use something.",
@@ -29,7 +29,7 @@ export default function ContactPage() {
     },
     {
       id: 2,
-      gif: "/img/me-3.gif",
+      gif: "/img/twice.gif",
       color: "bg-[#EC6BA7]",
       label: "say hi",
       blurb: "Want to collaborate, chat, or just say hi? Reach me at play.lmjambi@gmail.com — I'm always open to cool projects, internships, or random creative chats.",
