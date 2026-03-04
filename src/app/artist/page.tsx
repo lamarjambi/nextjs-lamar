@@ -179,28 +179,20 @@ export default function ArtistPage() {
                         group-hover:scale-110"
                       />
 
-                      {/* featured badge */}
-                      {artwork.featured && (
-                        <div className="absolute top-2 right-2 bg-[#FDD23B] text-[#702C95] text-xs
-                        font-bold font-courier-prime px-2 py-0.5 rounded-full border-2 border-[#702C95]">
-                          ✦ featured
-                        </div>
-                      )}
-
                       {/* hover overlay with metadata */}
-                      <div className="absolute inset-0 bg-[#702C95]/80 opacity-0 group-hover:opacity-100
+                      <div className="absolute bottom-0 left-0 right-0 bg-[#FAF0DD] opacity-0 group-hover:opacity-100
                       transition-opacity duration-300 flex flex-col justify-end p-3">
-                        <p className="font-bold text-white font-vt323 text-xl leading-tight">
+                        <p className="font-bold text-black font-vt323 text-xl leading-tight">
                           {artwork.title}
                         </p>
-                        <p className="text-[#FDD23B] text-sm font-courier-prime">
+                        <p className="text-[#547DFD] text-sm font-courier-prime">
                           {artwork.medium} · {artwork.year}
                         </p>
                         <div className="flex flex-wrap gap-1 mt-1">
                           {artwork.tags.map((tag, i) => (
                             <span
                               key={i}
-                              className="px-1.5 py-0.5 bg-white/20 rounded-full text-white
+                              className="px-1.5 py-0.5 bg-[#EC6BA7]/20 rounded-full text-[#EC6BA7]
                               text-xs font-courier-prime"
                             >
                               {tag}
