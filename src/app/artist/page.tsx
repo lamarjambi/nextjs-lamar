@@ -164,7 +164,7 @@ export default function ArtistPage() {
                   return (
                     <Wrapper
                       key={artwork.id}
-                      {...(wrapperProps as any)}
+                      {...(wrapperProps as object)}
                       className={`${spanClass} relative rounded-2xl overflow-hidden border-4 border-[#702C95]
                       cursor-pointer group transition-all duration-300
                       hover:border-[#FDD23B] hover:scale-[1.02] hover:z-10`}

@@ -25,20 +25,19 @@ export default function Home(): React.JSX.Element {
     }, 530);
   }, [router]);
 
-  const displayTitle = hoverTitle ?? "Welcome to J@mbo's Livingroom";
+  const displayTitle = hoverTitle ?? "Welcome to J@mbo's Livingroom!!";
 
   return (
     <div className="relative h-screen flex flex-col items-center justify-center p-5 overflow-hidden
     before:absolute before:inset-0 before:bg-[url('/img/rug-background3.PNG')]
     before:bg-cover before:bg-center before:-z-10 overflow-hidden">
 
-      {/* hover title - top left */}
-      <div className="absolute top-6 left-8 translate-y-[10vh] translate-x-[10vw] pointer-events-none">
+      <div className="absolute top-6 left-8 translate-y-[10vh] translate-x-[10vw] pointer-events-none
+      bg-white/70 rounded-sm">
         <span
           key={displayTitle}
-          className="font-press-start text-[#A87CC0] text-sm
-          bg-white/70 px-3 py-2 rounded-sm
-          animate-fade-in"
+          className="font-press-start text-[#702C95] text-sm px-1 py-1 animate-typewriter inline-block
+          text-outline"
         >
           {displayTitle}
         </span>
@@ -51,7 +50,7 @@ export default function Home(): React.JSX.Element {
         <Link
           href="/artist"
           className={"group inline-block translate-x-[15vw] translate-y-[25vh]"}
-          onMouseEnter={() => setHoverTitle("Artist")}
+          onMouseEnter={() => setHoverTitle("Artist Card")}
           onMouseLeave={() => setHoverTitle(null)}
         >
           <div className="relative w-50 h-70 rotate-10">
@@ -78,7 +77,7 @@ export default function Home(): React.JSX.Element {
         <Link
           href="/software"
           className={"group inline-block translate-x-0 translate-y-[50vh]"}
-          onMouseEnter={() => setHoverTitle("Software Developer")}
+          onMouseEnter={() => setHoverTitle("Software Developer Card")}
           onMouseLeave={() => setHoverTitle(null)}
         >
           <div className="relative w-50 h-70 -rotate-6">
@@ -105,7 +104,7 @@ export default function Home(): React.JSX.Element {
         <Link
           href="/game"
           className={"group inline-block "}
-          onMouseEnter={() => setHoverTitle("Gameplay Programmer")}
+          onMouseEnter={() => setHoverTitle("Gameplay Programmer Card")}
           onMouseLeave={() => setHoverTitle(null)}
         >
           <div className="relative w-50 h-70 rotate-10 translate-x-[50vw] translate-y-[5vh]">
@@ -132,7 +131,7 @@ export default function Home(): React.JSX.Element {
         <Link
           href="/lamar"
           className={"group inline-block "}
-          onMouseEnter={() => setHoverTitle("Silly Lamar")}
+          onMouseEnter={() => setHoverTitle("Info about J@mbo")}
           onMouseLeave={() => setHoverTitle(null)}
         >
           <div className="relative w-50 h-70 -rotate-10 translate-x-[20vw] translate-y-[40vh]">

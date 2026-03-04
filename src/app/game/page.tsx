@@ -181,7 +181,7 @@ export default function GamePage() {
             <div className="space-y-4 text-[#FDD23B]">
               <p className="text-lg leading-relaxed font-dokdo">
                 The 3DS XL was the first gaming console I ever <i>personaly</i> owned-I got it as a present from my parents,
-                and I've been chasing that high over and over again by giving people fun experiences :]
+                and I&apos;ve been chasing that high over and over again by giving people fun experiences :]
               </p>
             </div>
 
