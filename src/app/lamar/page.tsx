@@ -10,10 +10,10 @@ export default function ContactPage() {
   const cards = [
     {
       id: 0,
-      gif: "/img/artCafe.gif",
-      color: "bg-[#75C2DF]",
-      label: "who i am",
-      blurb: "I'm Lamar — an Integrated Design & Media major at NYU Tandon, with minors in Game Design and Computer Science. I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I'm currently based in Brooklyn, NY.",
+      gif: "/img/twice.gif",
+      color: "bg-[#EC6BA7]",
+      label: "What Am I Interested In",
+      blurb: "I play lots and lots of Splatoon 3 :] It's my favorite competitive game, but my top 3 is probably World's End Club, Octopath Traveler, and (guilty pleasure) Monster Prom: XXL :]",
       rotate: -10,
       tx: "-13vw",
       ty: "-5vh",
@@ -22,18 +22,18 @@ export default function ContactPage() {
       id: 1,
       gif: "/img/hotChoco.gif",
       color: "bg-[#FDD23B]",
-      label: "what i do",
-      blurb: "I make games, design experiences, and build things that blur the line between art and interaction. Whether it's a puzzle game or a product interface, I care deeply about how people feel when they use something.",
+      label: "what Do I Do",
+      blurb: "I make art!!!! Which is, recently, through building games; my fondest childhood memories always revolved around laying on the floor and playing Flash Games with my cousins :P",
       rotate: 1,
       tx: "-1vw",
       ty: "2vh",
     },
     {
       id: 2,
-      gif: "/img/twice.gif",
-      color: "bg-[#EC6BA7]",
-      label: "say hi",
-      blurb: "Want to collaborate, chat, or just say hi? Reach me at play.lmjambi@gmail.com — I'm always open to cool projects, internships, or random creative chats.",
+      gif: "/img/artCafe.gif",
+      color: "bg-[#75C2DF]",
+      label: "who am I",
+      blurb: "My name is Lamar, and I study Integrated Design & Media major at NYU Tandon, with a minor in Game Design! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I'm currently based in Brooklyn, NY >:3",
       rotate: 11,
       tx: "11vw",
       ty: "-2vh",
@@ -78,6 +78,7 @@ export default function ContactPage() {
   };
 
   const nameLetters = ["L", "a", "m", "a", "r"];
+  const lastLetters = ["J", "a", "m", "b", "i"];
 
   return (
     <div className="h-screen bg-[rgba(152,92,210,0.7)] overflow-hidden relative">
@@ -105,26 +106,56 @@ export default function ContactPage() {
       </Link>
 
       {/* name */}
-      <div
-        className="fixed bottom-8 left-10 z-40 flex flex-col items-start"
-        style={{ transformOrigin: "bottom left" }}
-      >
-        {nameLetters.map((letter, i) => (
-          <span
-            key={i}
-            className="text-9xl font-bold text-[#702C95] mb-6 font-press-start text-outline leading-none select-none"
-            style={{
-              fontSize: "clamp(2rem, 3.5vw, 3rem)",
-              marginLeft: `${i * 50}px`,
-            }}
-          >
-            {letter}
-          </span>
-        ))}
+      <div className="fixed bottom-8 left-10 z-40 flex flex-row items-end" 
+      style={{transformOrigin: "bottom left"}}>
+        
+        {/* jambi — left column */}
+        <div className="flex flex-col items-start">
+          {lastLetters.map((letter, i) => (
+            <span
+              key={i}
+              className="text-[#702C95] font-press-start leading-none select-none"
+              style={{
+                fontSize: "clamp(2rem, 3.5vw, 3rem)",
+                marginLeft: `${i * 40}px`,
+                marginBottom: "0.5rem",
+              }}
+            >
+              {letter}
+            </span>
+          ))}
+        </div>
+
+        {/* lamar — right column */}
+        <div className="flex flex-col items-start" style={{marginLeft: "-200px"}}>
+          {nameLetters.map((letter, i) => (
+            <span
+              key={i}
+              className="font-bold text-[#702C95] font-press-start text-outline leading-none select-none"
+              style={{
+                fontSize: "clamp(3rem, 6vw, 5rem)",
+                marginLeft: `${i * 60}px`,
+                marginBottom: "0.5rem",
+              }}
+            >
+              {letter}
+            </span>
+          ))}
+        </div>
+
       </div>
 
       {/* icons */}
       <div className="fixed right-10 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-4 items-center">
+
+        <a href="/files/Lamar_Jambi_Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <div className="w-11 h-11 bg-[#EC6BA7] rounded-full flex items-center justify-center hover:scale-110 hover:bg-[#547DFD] transition-all cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" className="bi bi-file-earmark-fill" viewBox="0 0 16 16">
+              <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2z"/>
+            </svg>
+          </div>
+        </a>
+
         <a href="mailto:play.lmjambi@gmail.com" target="_blank" rel="noopener noreferrer">
           <div className="w-11 h-11 bg-[#EC6BA7] rounded-full flex items-center justify-center hover:scale-110 hover:bg-[#547DFD] transition-all cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="white" viewBox="0 0 16 16">
@@ -148,6 +179,7 @@ export default function ContactPage() {
             </svg>
           </div>
         </a>
+
       </div>
 
       {/* cards */}
