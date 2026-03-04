@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export default function ContactPage() {
   const [activeCard, setActiveCard] = useState<number | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const cards = [
     {
@@ -41,9 +42,9 @@ export default function ContactPage() {
 
   const getCardStyle = (index: number) => {
     const cardPositions = [
-      { translateY: '-10vh', translateX: '-15vw', rotate: -8 }, // art cafe
-      { translateY: '0vh', translateX: '-8vw', rotate: 0 }, // experience
-      { translateY: '-4vh', translateX: '5vw', rotate: 8 }, // skills
+      { translateY: '-10vh', translateX: '-15vw', rotate: -8 },
+      { translateY: '0vh', translateX: '-8vw', rotate: 0 },
+      { translateY: '-4vh', translateX: '5vw', rotate: 8 },
     ];
 
     const position = cardPositions[index];
@@ -55,7 +56,16 @@ export default function ContactPage() {
           rotate(0deg)
           scale(1.05)
         `,
-        zIndex: 30,
+      };
+    }
+
+    if (hoveredCard === index) {
+      return {
+        transform: `
+          translate(${position.translateX}, ${position.translateY})
+          rotate(${position.rotate}deg)
+          scale(1.05)
+        `,
       };
     }
 
@@ -64,7 +74,6 @@ export default function ContactPage() {
         translate(${position.translateX}, ${position.translateY})
         rotate(${position.rotate}deg)
       `,
-      zIndex: 10 + index,
     };
   };
 
@@ -75,14 +84,11 @@ export default function ContactPage() {
 
       {/* background animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* cards */}
         <div className="absolute left-[10%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-1"></div>
         <div className="absolute left-[30%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-2"></div>
         <div className="absolute left-[50%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-3"></div>
         <div className="absolute left-[70%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-4"></div>
         <div className="absolute left-[90%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-5"></div>
-        
-        {/* clubs */}
         <div className="absolute left-[20%] text-[#EAC2FF] text-9xl opacity-0 fall-2">★</div>
         <div className="absolute left-[40%] text-[#EAC2FF] text-9xl opacity-0 fall-4">★</div>
         <div className="absolute left-[60%] text-[#EAC2FF] text-9xl opacity-0 fall-1">★</div>
@@ -90,7 +96,7 @@ export default function ContactPage() {
         <div className="absolute left-[15%] text-[#EAC2FF] text-9xl opacity-0 fall-5">★</div>
       </div>
 
-      {/*back button*/}
+      {/* back button */}
       <Link href="/" className="fixed top-10 left-18 z-50 group">
         <div className="relative w-18 h-18">
           <Image src="/img/backArrow.PNG" alt="Back" fill className="object-contain transition-opacity group-hover:opacity-0" />
@@ -98,19 +104,18 @@ export default function ContactPage() {
         </div>
       </Link>
 
-      {/*name + portfolio*/}
+      {/* name */}
       <div
         className="fixed bottom-8 left-10 z-40 flex flex-col items-start"
-        style={{transformOrigin: "bottom left" }}
+        style={{ transformOrigin: "bottom left" }}
       >
         {nameLetters.map((letter, i) => (
           <span
             key={i}
-            className="text-9xl font-bold text-[#702C95] mb-6 font-press-start text-outline 
-            leading-none select-none"
+            className="text-9xl font-bold text-[#702C95] mb-6 font-press-start text-outline leading-none select-none"
             style={{
               fontSize: "clamp(2rem, 3.5vw, 3rem)",
-              marginLeft: `${i * 50}px`, // each letter steps slightly right 
+              marginLeft: `${i * 50}px`,
             }}
           >
             {letter}
@@ -118,7 +123,7 @@ export default function ContactPage() {
         ))}
       </div>
 
-      {/*icons*/}
+      {/* icons */}
       <div className="fixed right-10 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-4 items-center">
         <a href="mailto:play.lmjambi@gmail.com" target="_blank" rel="noopener noreferrer">
           <div className="w-11 h-11 bg-[#EC6BA7] rounded-full flex items-center justify-center hover:scale-110 hover:bg-[#547DFD] transition-all cursor-pointer">
@@ -146,27 +151,27 @@ export default function ContactPage() {
       </div>
 
       {/* cards */}
-      <div className="h-full flex items-center justify-center ">
+      <div className="h-full flex items-center justify-center">
         <div className="relative w-[400px] h-[520px]">
           <div className="absolute top-1/2 left-3/4 w-72 h-96 -translate-x-1/2 -translate-y-1/2">
             {cards.map((card, index) => (
               <div
                 key={card.id}
-                className="absolute top-0 left-0 w-72 h-96 cursor-pointer transition-all duration-500 
-                    ease-out hover:scale-105"
-                style={getCardStyle(index)}
+                className="absolute top-0 left-0 w-72 h-96 cursor-pointer transition-all duration-500 ease-out"
+                style={{
+                  ...getCardStyle(index),
+                  zIndex: activeCard === index ? 30 : hoveredCard === index ? 25 : 10 + index,
+                }}
                 onClick={() => setActiveCard(activeCard === index ? null : index)}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
               >
                 <div className="w-full h-full rounded-2xl border-4 border-[#702C95] overflow-hidden relative">
-
-                  {/* GIFs */}
                   <img
                     src={card.gif}
                     alt={card.label}
                     className="w-full h-full object-cover"
                   />
-
-                  {/* color + blurb overlay on click */}
                   <div
                     className={`absolute inset-0 ${card.color} flex flex-col justify-between p-5
                     transition-opacity duration-300
@@ -176,7 +181,6 @@ export default function ContactPage() {
                     <p className="text-[#702C95] font-courier-prime text-sm leading-relaxed">{card.blurb}</p>
                     <p className="text-[#702C95]/50 font-vt323 text-xs text-right">click to close</p>
                   </div>
-
                 </div>
               </div>
             ))}
