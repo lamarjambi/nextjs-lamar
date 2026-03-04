@@ -33,10 +33,11 @@ export default function Home(): React.JSX.Element {
     before:bg-cover before:bg-center before:-z-10 overflow-hidden">
 
       {/* hover title - top left */}
-      <div className="absolute top-6 left-8 z-50  pointer-events-none">
+      <div className="absolute top-6 left-8 translate-y-[10vh] translate-x-[10vw] pointer-events-none">
         <span
           key={displayTitle}
-          className="font-press-start text-black text-sm drop-shadow-[2px_2px_0px_rgba(0,0,0,0.3)]
+          className="font-press-start text-[#A87CC0] text-sm
+          bg-white/70 px-3 py-2 rounded-sm
           animate-fade-in"
         >
           {displayTitle}
@@ -69,7 +70,6 @@ export default function Home(): React.JSX.Element {
             />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100
             transition-opacity">
-              <span className="text-[#A87CC0] text-1xl font-press-start">Artist</span>
             </div>
           </div>
         </Link>
@@ -97,7 +97,6 @@ export default function Home(): React.JSX.Element {
             />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100
             transition-opacity">
-              <span className="text-[#A87CC0] text-1xl text-center font-press-start">Software Developer</span>
             </div>
           </div>
         </Link>
@@ -125,9 +124,6 @@ export default function Home(): React.JSX.Element {
             />
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100
             transition-opacity">
-              <span className="text-[#FAF0DD] text-0.5xl text-center font-press-start text-outline">
-                Gameplay Programmer
-              </span>
             </div>
           </div>
         </Link>
