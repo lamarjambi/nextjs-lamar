@@ -148,7 +148,7 @@ export default function ContactPage() {
       {/* icons */}
       <div className="fixed right-10 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-4 items-center">
 
-        <a href="/files/Lamar_Jambi_Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <a href="/files/lamar_jambi_resume.pdf" target="_blank" rel="noopener noreferrer">
           <div className="w-11 h-11 bg-[#EC6BA7] rounded-full flex items-center justify-center hover:scale-110 hover:bg-[#547DFD] transition-all cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" className="bi bi-file-earmark-fill" viewBox="0 0 16 16">
               <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2z"/>
