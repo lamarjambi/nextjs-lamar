@@ -19,8 +19,25 @@ export default function GamePage() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  interface CardItem {
+  name: string;
+  desc?: string;
+  link?: string;
+  video?: string;
+  img?: string;
+  date?: string;
+  tags?: string[];
+}
+
+interface Card {
+  id: number;
+  category: string;
+  color: string;
+  items: CardItem[];
+}
+
   // card metadata
-  const cards = [
+  const cards: Card[] = [
     { 
       id: 1,
       category: "Games",
