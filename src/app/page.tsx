@@ -55,7 +55,7 @@ export default function Home(): React.JSX.Element {
         >
           <div className="relative w-50 h-70 rotate-10">
             <Image
-              src="/img/ArtistCard.PNG"
+              src="/img/ArtistCard.png"
               alt="Back"
               fill
               className="object-contain transition-opacity group-hover:opacity-0"
@@ -82,7 +82,7 @@ export default function Home(): React.JSX.Element {
         >
           <div className="relative w-50 h-70 -rotate-6">
             <Image
-              src="/img/DevCard.PNG"
+              src="/img/DevCard.png"
               alt="Back"
               fill
               className="object-contain transition-opacity group-hover:opacity-0"
@@ -109,7 +109,7 @@ export default function Home(): React.JSX.Element {
         >
           <div className="relative w-50 h-70 rotate-10 translate-x-[50vw] translate-y-[5vh]">
             <Image
-              src="/img/GameCard.PNG"
+              src="/img/GameCard.png"
               alt="Back"
               fill
               className="object-contain transition-opacity group-hover:opacity-0"
