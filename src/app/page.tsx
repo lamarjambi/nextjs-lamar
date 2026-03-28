@@ -1,58 +1,46 @@
 "use client";
 import { useRef } from "react";
+import { games } from "@/data/games";
+import { otherProjects } from "@/data/projects";
+import type { Game } from "@/data/games";
+import type { Project } from "@/data/projects";
 
-const games = [
-  {
-    name: "Cosmic Thread",
-    desc: "In a far-away galaxy, you're the universal agent solving Xaltarian mysteries",
-    link: "https://playlamar.itch.io/cosmic-thread",
-    video: "/videos/cosmicThread-gameplay.mp4",
-    status: "In Progress",
-    tags: ["Unity", "C#", "2D", "Puzzle"],
-  },
-  {
-    name: "Fog City Shadows",
-    desc: "Horror 3D/2D game about having a job :P",
-    link: "https://github.com/lamarjambi/fog-city-shadows",
-    video: "/videos/fogcity-gameplay.mp4",
-    status: "Completed",
-    tags: ["Unity", "2.5D", "Horror"],
-  },
-  {
-    name: "Poly-0: The Saga",
-    desc: "You're Poly-0 trying to retrieve humanity's memory discs to combat OVERMIND",
-    link: "https://github.com/lamarjambi/poly-0-the-saga.git",
-    video: "/videos/poly0-gameplay.mp4",
-    status: "Completed",
-    tags: ["GameMaker", "2D", "Adventure"],
-  },
-  {
-    name: "Typing Rush",
-    desc: "Silly typing game :3",
-    link: "https://oppr.org/s/3HMXmh9U",
-    img: "/videos/typing-rush-game.gif",
-    status: "Completed",
-    tags: ["P5.js", "Web", "Typing"],
-  },
-  {
-    name: "Super Adrenaline Junkies",
-    desc: "Rini tries to escape the junkyard with Garbo chasing her",
-    link: "https://oppr.org/s/iYpolLEj",
-    video: "/videos/SAJ-demo-game.mp4",
-    status: "Completed",
-    tags: ["P5.js", "Web", "Platformer"],
-  },
-  {
-    name: "Hue's Quest",
-    desc: "Rini tries to solve the mystery behind the monochromity of the town",
-    link: "https://github.com/lamarjambi/hues-quest.git",
-    video: "/videos/huesQuest-gameplay.mp4",
-    status: "Paused",
-    tags: ["GameMaker", "Puzzle", "RPG-like"],
-  },
-];
+function ProjectThumbnail({ project }: { project: Project }) {
+  return (
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block aspect-video rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-lg"
+    >
+      <img
+        src={project.img}
+        alt={project.name}
+        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-[#702C95]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+        <h2 className="font-press-start text-white text-xs mb-2 leading-relaxed">
+          {project.name}
+        </h2>
+        <p className="font-courier-prime text-white/90 text-xs mb-3 leading-snug">
+          {project.desc}
+        </p>
+        <div className="flex flex-wrap gap-1">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-xs px-2 py-0.5 bg-[#FDD23B] text-[#702C95] rounded-full font-courier-prime font-bold"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </a>
+  );
+}
 
-function GameThumbnail({ game }: { game: (typeof games)[0] }) {
+function GameThumbnail({ game }: { game: Game }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleMouseEnter = () => {
@@ -137,7 +125,7 @@ export default function Home() {
       before:bg-cover before:bg-center before:-z-10"
     >
       {/* header */}
-      <header className="px-8 pt-8 pb-6">
+      <header className="px-24 pt-8 pb-6">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           {/* name + title */}
           <div>
@@ -206,13 +194,38 @@ export default function Home() {
         </div>
       </header>
 
-      {/* game grid */}
-      <main className="px-8 pb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {games.map((game) => (
-            <GameThumbnail key={game.name} game={game} />
-          ))}
-        </div>
+      <main className="px-24 pb-16 space-y-14">
+
+        {/* games section */}
+        <section>
+          <div className="mb-5">
+            <h2 className="font-press-start text-[#702C95] text-lg mb-1">Games</h2>
+            <p className="font-courier-prime text-[#702C95] text-sm">
+              Projects built in Unity, GameMaker, and p5.js — hover to preview
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {games.map((game) => (
+              <GameThumbnail key={game.name} game={game} />
+            ))}
+          </div>
+        </section>
+
+        {/* other projects section */}
+        <section>
+          <div className="mb-5">
+            <h2 className="font-press-start text-[#702C95] text-lg mb-1">Other Projects</h2>
+            <p className="font-courier-prime text-[#702C95] text-sm">
+              Web apps, AI tools, and research — things built outside of game engines
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {otherProjects.map((project) => (
+              <ProjectThumbnail key={project.name} project={project} />
+            ))}
+          </div>
+        </section>
+
       </main>
     </div>
   );
