@@ -115,11 +115,17 @@ function GameThumbnail({ game }: { game: Game }) {
 
 export default function Home() {
   return (
-    <div
-      className="min-h-screen relative overflow-x-hidden
-      before:fixed before:inset-0 before:bg-[url('/img/rug-background3.PNG')]
-      before:bg-cover before:bg-center before:-z-10"
-    >
+    <div className="min-h-screen relative overflow-x-hidden">
+
+      {/* background — rotated on mobile, normal on desktop */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        <div className="
+          absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+          bg-[url('/img/rug-background3.PNG')] bg-cover bg-center
+          w-[100vh] h-[100vw] rotate-90
+          sm:w-screen sm:h-screen sm:rotate-0
+        " />
+      </div>
       {/* header */}
       <header className="px-6 sm:px-16 lg:px-40 pt-8 pb-6 bg-[#FAF0DD]/90 border-b-4 border-[#702C95]">
         <div className="flex items-end justify-between gap-4 flex-wrap">
