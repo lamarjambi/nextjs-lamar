@@ -8,9 +8,7 @@ import type { Project } from "@/data/projects";
 function ProjectThumbnail({ project }: { project: Project }) {
   return (
     <a
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={`/projects/${project.slug}`}
       className="group relative block aspect-video rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-lg"
     >
       <img
@@ -23,7 +21,7 @@ function ProjectThumbnail({ project }: { project: Project }) {
           {project.name}
         </h2>
         <p className="font-courier-prime text-white/90 text-xs mb-3 leading-snug">
-          {project.desc}
+          {project.shortDesc}
         </p>
         <div className="flex flex-wrap gap-1">
           {project.tags.map((tag) => (
@@ -62,9 +60,7 @@ function GameThumbnail({ game }: { game: Game }) {
 
   return (
     <a
-      href={game.link}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={`/games/${game.slug}`}
       className="group relative block aspect-video rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-lg"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -100,7 +96,7 @@ function GameThumbnail({ game }: { game: Game }) {
           {game.name}
         </h2>
         <p className="font-courier-prime text-white/90 text-xs mb-3 leading-snug">
-          {game.desc}
+          {game.shortDesc}
         </p>
         <div className="flex flex-wrap gap-1">
           {game.tags.map((tag) => (
@@ -218,9 +214,9 @@ export default function Home() {
         {/* games section */}
         <section>
           <div className="mb-5">
-            <h2 className="font-press-start text-[#702C95] text-lg mb-1">Games</h2>
-            <p className="font-courier-prime text-[#702C95] text-sm">
-              Projects built in Unity, Unreal 5, GameMaker, and p5.js 
+            <h2 className="font-press-start text-[#702C95] text-lg mb-1 text-outline">Games</h2>
+            <p className="font-courier-prime text-[#702C95] text-sm text-outline">
+              Games built in Unity, Unreal 5, GameMaker, and p5.js 
               <br></br>
               <br></br>
               *hover to preview
@@ -236,9 +232,12 @@ export default function Home() {
         {/* other projects section */}
         <section>
           <div className="mb-5">
-            <h2 className="font-press-start text-[#702C95] text-lg mb-1">Other Projects</h2>
-            <p className="font-courier-prime text-[#702C95] text-sm">
-              Web apps, AI tools, and research — things built outside of game engines
+            <h2 className="font-press-start text-[#702C95] text-lg mb-1 text-outline">Other Projects</h2>
+            <p className="font-courier-prime text-[#702C95] text-sm text-outline">
+              Web apps, AI research, and other
+              <br></br>
+              <br></br>
+              *hover to preview
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -259,7 +258,7 @@ export default function Home() {
           play.lmjambi@gmail.com
         </a>
         <p className="font-courier-prime text-[#702C95]/60 text-xs">
-          last updated March 2026
+          last updated 03/28/2026
         </p>
       </footer>
     </div>
