@@ -127,7 +127,7 @@ export default function Home() {
         " />
       </div>
       {/* header */}
-      <header className="px-6 sm:px-16 lg:px-40 pt-8 pb-6 bg-[#FAF0DD]/90 border-b-4 border-[#702C95]">
+      <header className="px-6 sm:px-16 lg:px-40 pt-8 pb-6 bg-[#FAF0DD]/90 border-b-2 border-[#702C95]">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           {/* name + title */}
           <div>
@@ -256,7 +256,7 @@ export default function Home() {
       </main>
 
       {/* footer */}
-      <footer className="px-6 sm:px-16 lg:px-40 py-4 bg-[#FAF0DD]/90 border-t-4 border-[#702C95] flex items-center justify-between gap-4 flex-wrap">
+      <footer className="px-6 sm:px-16 lg:px-40 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] flex items-center justify-between gap-4 flex-wrap">
         <a
           href="mailto:play.lmjambi@gmail.com"
           className="font-courier-prime text-[#702C95] text-sm hover:text-[#EC6BA7] transition-colors"
