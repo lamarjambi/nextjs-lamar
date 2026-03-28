@@ -121,7 +121,7 @@ export default function Home() {
       before:bg-cover before:bg-center before:-z-10"
     >
       {/* header */}
-      <header className="px-24 pt-8 pb-6 bg-[#FAF0DD]/90 border-b-4 border-[#702C95]">
+      <header className="px-40 pt-8 pb-6 bg-[#FAF0DD]/90 border-b-4 border-[#702C95]">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           {/* name + title */}
           <div>
@@ -209,7 +209,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="px-24 pt-10 pb-16 space-y-14">
+      <main className="px-40 pt-10 pb-16 space-y-14">
 
         {/* games section */}
         <section>

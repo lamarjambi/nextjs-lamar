@@ -88,7 +88,7 @@ export const games: Game[] = [
     link: "#",
     img: "/img/yokai-placeholder.png",
     status: "In Progress",
-    tags: ["Unity", "C#"],
+    tags: ["Unreal Engine 5", "Blueprints"],
     year: "2026",
   },
 ];
