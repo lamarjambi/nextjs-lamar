@@ -34,22 +34,6 @@ export const games: Game[] = [
     tags: ["Unity", "Horror", "Game Jam"],
   },
   {
-    name: "Poly-0: The Saga",
-    desc: "You're Poly-0 trying to retrieve humanity's memory discs to combat OVERMIND",
-    link: "https://github.com/lamarjambi/poly-0-the-saga.git",
-    video: "/videos/poly0-gameplay.mp4",
-    status: "Completed",
-    tags: ["GameMaker", "2D", "Adventure"],
-  },
-  {
-    name: "Typing Rush",
-    desc: "Silly typing game :3",
-    link: "https://oppr.org/s/3HMXmh9U",
-    img: "/videos/typing-rush-game.gif",
-    status: "Completed",
-    tags: ["P5.js", "Web", "Typing"],
-  },
-  {
     name: "Super Adrenaline Junkies",
     desc: "Rini tries to escape the junkyard with Garbo chasing her",
     link: "https://oppr.org/s/iYpolLEj",

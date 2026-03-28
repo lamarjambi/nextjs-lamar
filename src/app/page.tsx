@@ -125,25 +125,30 @@ export default function Home() {
       before:bg-cover before:bg-center before:-z-10"
     >
       {/* header */}
-      <header className="px-24 pt-8 pb-6">
+      <header className="px-24 pt-8 pb-6 bg-[#FAF0DD]/90 border-b-4 border-[#702C95]">
         <div className="flex items-end justify-between gap-4 flex-wrap">
           {/* name + title */}
           <div>
             <h1 className="text-7xl font-bold text-[#702C95] mb-6 font-press-start text-outline">
               Lamar Jambi
             </h1>
-            <a
-              href="https://www.screenskills.com/job-profiles/browse/games/programming/gameplay-programmer/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
               <div className="inline-block group">
                 <p className="text-2xl text-[#702C95] font-semibold font-press-start pb-2">
                   Gameplay Programmer
                 </p>
                 <div className="wavy-underline w-full"></div>
               </div>
-            </a>
+            <p className="font-courier-prime text-[#702C95] text-sm mt-4 max-w-2xl leading-relaxed">
+              I study Integrated Design & Media major at NYU Tandon, with a minor 
+              in Game Design! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I'm 
+              currently based in Brooklyn, NY :P
+              <br></br>
+              <br></br>
+
+              I played Flash games and Halo 3 as a kid with my siblings and cousins, laying
+              on the floor, and I want to recreate that feeling to new generations! I enjoy
+              playing console games, and that's what I'm focusing on :]
+            </p>
           </div>
 
           {/* social icons */}
@@ -227,6 +232,19 @@ export default function Home() {
         </section>
 
       </main>
+
+      {/* footer */}
+      <footer className="px-24 py-4 bg-[#FAF0DD]/90 border-t-4 border-[#702C95] flex items-center justify-between gap-4 flex-wrap">
+        <a
+          href="mailto:play.lmjambi@gmail.com"
+          className="font-courier-prime text-[#702C95] text-sm hover:text-[#EC6BA7] transition-colors"
+        >
+          play.lmjambi@gmail.com
+        </a>
+        <p className="font-courier-prime text-[#702C95]/60 text-xs">
+          last updated March 2026
+        </p>
+      </footer>
     </div>
   );
 }
