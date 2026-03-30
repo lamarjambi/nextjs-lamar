@@ -19,7 +19,7 @@ export const games: Game[] = [
     slug: "cosmic-thread",
     shortDesc: "In a far-away galaxy, you're the universal agent solving Xaltarian mysteries",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "Cosmic Thread is a 2D puzzle game, where the player takes the role as an intergalactic agent",
     role: "Gameplay Programmer, Designer",
     link: "https://playlamar.itch.io/cosmic-thread",
     video: "/videos/cosmicThread-gameplay.mp4",
