@@ -11,12 +11,14 @@ export type Game = {
   team?: string;
   video?: string;
   img?: string;
+  featured?: boolean;
 };
 
 export const games: Game[] = [
   {
     name: "Cosmic Thread",
     slug: "cosmic-thread",
+    featured: true,
     shortDesc: "In a far-away galaxy, you're the universal agent solving Xaltarian mysteries",
     description:
       "Cosmic Thread is a 2D puzzle game, where the player takes the role as an intergalactic agent",
@@ -30,6 +32,7 @@ export const games: Game[] = [
   {
     name: "Requiem Forest",
     slug: "requiem-forest",
+    featured: true,
     shortDesc: "A ScreamJam 2025 entry — survive the forest",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
@@ -43,6 +46,7 @@ export const games: Game[] = [
   {
     name: "Fog City Shadows",
     slug: "fog-city-shadows",
+    featured: true,
     shortDesc: "Horror 3D/2D game about having a job :P",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
@@ -56,6 +60,7 @@ export const games: Game[] = [
   {
     name: "Super Adrenaline Junkies",
     slug: "super-adrenaline-junkies",
+    featured: false,
     shortDesc: "Rini tries to escape the junkyard with Garbo chasing her",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
@@ -69,6 +74,7 @@ export const games: Game[] = [
   {
     name: "Hue's Quest",
     slug: "hues-quest",
+    featured: false,
     shortDesc: "Rini tries to solve the mystery behind the monochromity of the town",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
@@ -82,6 +88,7 @@ export const games: Game[] = [
   {
     name: "Yokai: Redacted",
     slug: "yokai-redacted",
+    featured: false,
     shortDesc: "Coming soon",
     description: "Coming soon.",
     role: "TBD",
@@ -90,5 +97,5 @@ export const games: Game[] = [
     status: "In Progress",
     tags: ["Unreal Engine 5", "Blueprints"],
     year: "2026",
-  },
+  }
 ];

@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { games } from "@/data/games";
 import { otherProjects } from "@/data/projects";
 import type { Game } from "@/data/games";
@@ -114,6 +114,10 @@ function GameThumbnail({ game }: { game: Game }) {
 }
 
 export default function Home() {
+  const [showMoreGames, setShowMoreGames] = useState(false);
+  const featuredGames = games.filter((g) => g.featured);
+  const extraGames = games.filter((g) => !g.featured);
+
   return (
     <div className="min-h-screen relative overflow-x-hidden">
 
@@ -222,17 +226,30 @@ export default function Home() {
           <div className="mb-5">
             <h2 className="font-press-start text-[#702C95] text-lg mb-1 text-outline">Games</h2>
             <p className="font-courier-prime text-[#702C95] text-sm text-outline">
-              Games built in Unity, Unreal 5, GameMaker, and p5.js 
+              Games built in Unity, Unreal 5, GameMaker, and p5.js
               <br></br>
               <br></br>
               *hover to preview
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {games.map((game) => (
+            {featuredGames.map((game) => (
+              <GameThumbnail key={game.name} game={game} />
+            ))}
+            {showMoreGames && extraGames.map((game) => (
               <GameThumbnail key={game.name} game={game} />
             ))}
           </div>
+          {extraGames.length > 0 && (
+            <div className="flex justify-end mt-4">
+              <button
+                onClick={() => setShowMoreGames((v) => !v)}
+                className="font-courier-prime text-[#702C95] text-sm hover:text-[#EC6BA7] transition-colors underline underline-offset-4"
+              >
+                {showMoreGames ? "view less..." : "view more..."}
+              </button>
+            </div>
+          )}
         </section>
 
         {/* other projects section */}
