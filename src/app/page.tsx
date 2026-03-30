@@ -264,7 +264,7 @@ export default function Home() {
           play.lmjambi@gmail.com
         </a>
         <p className="font-courier-prime text-[#702C95]/60 text-xs">
-          last updated 03/28/2026
+          last updated 03/30/2026
         </p>
       </footer>
     </div>

@@ -28,7 +28,7 @@ export default async function GameDetailPage({
       before:bg-cover before:bg-center before:-z-10"
     >
       {/* top bar */}
-      <header className="px-12 py-4 bg-[#FAF0DD]/90 border-b-4 border-[#702C95] flex items-center justify-between">
+      <header className="px-6 sm:px-16 lg:px-40 py-4 bg-[#FAF0DD]/90 border-b-2 border-[#702C95] flex items-center justify-between">
         <Link
           href="/"
           className="font-press-start text-[#702C95] text-xs hover:text-[#EC6BA7] transition-colors"
@@ -75,7 +75,7 @@ export default async function GameDetailPage({
         </div>
 
         {/* details block */}
-        <div className="bg-[#FAF0DD]/90 border-4 border-[#702C95] rounded-2xl p-8 space-y-8">
+        <div className="bg-[#FAF0DD]/90 border-2 border-[#702C95] rounded-2xl p-8 space-y-8">
 
           {/* description */}
           <div>
@@ -141,7 +141,7 @@ export default async function GameDetailPage({
       </main>
 
       {/* footer */}
-      <footer className="px-12 py-4 bg-[#FAF0DD]/90 border-t-4 border-[#702C95] flex items-center justify-between gap-4 flex-wrap mt-12">
+      <footer className="px-34 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] flex items-center justify-between gap-4 flex-wrap mt-12">
         <a
           href="mailto:play.lmjambi@gmail.com"
           className="font-courier-prime text-[#702C95] text-sm hover:text-[#EC6BA7] transition-colors"
@@ -149,7 +149,7 @@ export default async function GameDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-courier-prime text-[#702C95]/60 text-xs">
-          last updated March 2026
+          last updated 03/30/2026
         </p>
       </footer>
     </div>
