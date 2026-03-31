@@ -30,7 +30,7 @@
 
 
 .font-dokdo {
-  font-family: "Dokdo", ui-sans-serif;
+  font-family: var(--font-dokdo), ui-sans-serif;
 }
 
 .font-vt323 {

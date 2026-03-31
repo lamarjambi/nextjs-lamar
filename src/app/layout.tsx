@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Courier_Prime, Geist, Geist_Mono } from "next/font/google";
 import { Press_Start_2P } from "next/font/google";
+import { Dokdo } from "next/font/google";
 import { VT323 } from "next/font/google";
 import "./globals.css";
 
@@ -19,6 +20,13 @@ const pressStart = Press_Start_2P({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-press-start",
+});
+
+
+const dokdo = Dokdo({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-dokdo",
 });
 
 const vt323 = VT323({
@@ -47,7 +55,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} 
-        ${vt323.variable} ${courierPrime.variable} antialiased`}
+        ${vt323.variable} ${courierPrime.variable} ${dokdo.variable} antialiased`}
       >
         {children}
       </body>
