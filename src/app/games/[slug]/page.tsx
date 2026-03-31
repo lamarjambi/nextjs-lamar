@@ -130,7 +130,7 @@ export default async function GameDetailPage({
                 href={game.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-press-start text-xs px-5 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                className="inline-block font-dokdo text-xl px-5 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
               >
                 View Project →
               </a>
@@ -144,12 +144,12 @@ export default async function GameDetailPage({
       <footer className="px-34 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] flex items-center justify-between gap-4 flex-wrap mt-12">
         <a
           href="mailto:play.lmjambi@gmail.com"
-          className="font-courier-prime text-[#702C95] text-sm hover:text-[#EC6BA7] transition-colors"
+          className="font-dokdo text-[#702C95] text-md hover:text-[#EC6BA7] transition-colors"
         >
           play.lmjambi@gmail.com
         </a>
-        <p className="font-courier-prime text-[#702C95]/60 text-xs">
-          last updated 03/30/2026
+        <p className="font-dokdo text-[#702C95]/60 text-md">
+          last updated 03/31/2026
         </p>
       </footer>
     </div>

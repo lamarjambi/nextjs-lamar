@@ -31,7 +31,6 @@
 
 .font-dokdo {
   font-family: "Dokdo", ui-sans-serif;
-  font-size: 1.75rem;
 }
 
 .font-vt323 {
@@ -50,6 +49,14 @@ body {
 
 .text-outline {
   -webkit-text-stroke: 1px black;
+}
+
+.text-outline-white {
+  -webkit-text-stroke: 1px white;
+}
+
+.text-outline-purple {
+  -webkit-text-stroke: 1px #4b1469;
 }
 
 @keyframes fall {

@@ -85,7 +85,7 @@ function GameThumbnail({ game }: { game: Game }) {
 
       {/* status badge */}
       <span
-        className={`absolute top-3 right-3 text-xs font-courier-prime px-2 py-0.5 rounded-full font-bold ${statusColors[game.status] ?? "bg-white text-[#702C95]"}`}
+        className={`absolute top-3 right-3 text-sm font-dokdo px-2 py-0.5 rounded-full font-bold ${statusColors[game.status] ?? "bg-white text-[#702C95]"}`}
       >
         {game.status}
       </span>
@@ -144,7 +144,7 @@ export default function Home() {
                 </p>
                 <div className="wavy-underline w-full"></div>
               </div>
-            <p className="font-courier-prime text-[#702C95] text-sm mt-4 max-w-2xl leading-relaxed">
+            <p className="font-dokdo text-[#702C95] text-2xl mt-4 max-w-4xl leading-relaxed">
               I study Integrated Design & Media major at NYU Tandon, with a minor 
               in Game Design! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I'm 
               currently based in Brooklyn, NY :P
@@ -224,13 +224,7 @@ export default function Home() {
         {/* games section */}
         <section>
           <div className="mb-5">
-            <h2 className="font-press-start text-[#702C95] text-lg mb-1 text-outline">Games</h2>
-            <p className="font-courier-prime text-[#702C95] text-sm text-outline">
-              Games built in Unity, Unreal 5, GameMaker, and p5.js
-              <br></br>
-              <br></br>
-              *hover to preview
-            </p>
+            <h2 className="font-press-start text-black text-xl mb-1 text-outline-purple">Games</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {featuredGames.map((game) => (
@@ -244,7 +238,7 @@ export default function Home() {
             <div className="flex justify-end mt-4">
               <button
                 onClick={() => setShowMoreGames((v) => !v)}
-                className="font-courier-prime text-[#702C95] text-sm hover:text-[#EC6BA7] transition-colors underline underline-offset-4"
+                className="font-dokdo text-black text-lg hover:text-[#EC6BA7] transition-colors underline underline-offset-4"
               >
                 {showMoreGames ? "view less..." : "view more..."}
               </button>
@@ -255,13 +249,7 @@ export default function Home() {
         {/* other projects section */}
         <section>
           <div className="mb-5">
-            <h2 className="font-press-start text-[#702C95] text-lg mb-1 text-outline">Other Projects</h2>
-            <p className="font-courier-prime text-[#702C95] text-sm text-outline">
-              Web apps, AI research, and other
-              <br></br>
-              <br></br>
-              *hover to preview
-            </p>
+            <h2 className="font-press-start text-black text-xl mb-1 text-outline-purple">Other Projects</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {otherProjects.map((project) => (
@@ -276,12 +264,12 @@ export default function Home() {
       <footer className="px-6 sm:px-16 lg:px-40 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] flex items-center justify-between gap-4 flex-wrap">
         <a
           href="mailto:play.lmjambi@gmail.com"
-          className="font-courier-prime text-[#702C95] text-sm hover:text-[#EC6BA7] transition-colors"
+          className="font-dokdo text-[#702C95] text-md hover:text-[#EC6BA7] transition-colors"
         >
           play.lmjambi@gmail.com
         </a>
-        <p className="font-courier-prime text-[#702C95]/60 text-xs">
-          last updated 03/30/2026
+        <p className="font-dokdo text-[#702C95]/60 text-md">
+          last updated 03/31/2026
         </p>
       </footer>
     </div>
