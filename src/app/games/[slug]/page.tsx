@@ -2,6 +2,10 @@ import { games } from "@/data/games";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
+// add documentation/ideation 
+// pdf? a coupleof images? we'll see
+// might be better to post videos on youtube?
+
 export function generateStaticParams() {
   return games.map((g) => ({ slug: g.slug }));
 }
@@ -36,7 +40,7 @@ export default async function GameDetailPage({
           ← back
         </Link>
         <span
-          className={`text-xs font-courier-prime px-3 py-1 rounded-full font-bold ${statusColors[game.status] ?? "bg-white text-[#702C95]"}`}
+          className={`text-lg font-dokdo px-3 py-1 rounded-full font-bold ${statusColors[game.status] ?? "bg-white text-[#702C95]"}`}
         >
           {game.status}
         </span>
@@ -45,16 +49,16 @@ export default async function GameDetailPage({
       <main className="px-12 py-12 max-w-5xl mx-auto">
 
         {/* title */}
-        <h1 className="font-press-start text-[#702C95] text-outline mb-2"
+        <h1 className="font-press-start text-[#702C95] text-outline mb-2 mx-8"
           style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)" }}>
           {game.name}
         </h1>
-        <p className="font-courier-prime text-[#702C95] text-outline text-base mb-8">
+        <p className="font-dokdo text-xl text-[#702C95] text-outline text-base mb-8 mx-8">
           {game.shortDesc}
         </p>
 
         {/* media — centered, top of content */}
-        <div className="w-full rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-xl mb-10">
+        <div className="rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-xl mb-10 mx-8">
           {game.video ? (
             <video
               src={game.video}
@@ -75,65 +79,120 @@ export default async function GameDetailPage({
         </div>
 
         {/* details block */}
-        <div className="bg-[#FAF0DD]/90 border-2 border-[#702C95] rounded-2xl p-8 space-y-8">
+        <div className="bg-[#FAF0DD]/90 border-2 border-[#702C95] rounded-2xl p-8 space-y-8 mx-8">
 
           {/* description */}
           <div>
             <h2 className="font-press-start text-[#702C95] text-sm mb-3">About</h2>
-            <p className="font-courier-prime text-[#702C95] leading-relaxed">
+            <p className="font-courier-prime text-md text-[#702C95] leading-relaxed">
               {game.description}
             </p>
           </div>
 
-          <hr className="border-[#702C95]/30" />
+          {/* tools & year — two labeled columns */}
+          <div className="grid grid-cols-2 gap-6">
+            <div>
+              <p className="font-press-start text-[#702C95] text-xs mb-3">Tools & Tech</p>
+              <div className="flex flex-wrap gap-2">
+                {game.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 bg-[#EC6BA7] text-white rounded-full font-dokdo text-md"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div>
+              <p className="font-press-start text-[#702C95] text-xs mb-3">Year</p>
+              <p className="font-courier-prime text-[#702C95]">{game.year}</p>
+            </div>
+          </div>
 
-          {/* meta row */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+          {/* role & responsibilities — two labeled columns */}
+          <div className="grid grid-cols-2 gap-6">
             <div>
               <p className="font-press-start text-[#702C95] text-xs mb-1">Role</p>
               <p className="font-courier-prime text-[#702C95]">{game.role}</p>
             </div>
-            <div>
-              <p className="font-press-start text-[#702C95] text-xs mb-1">Year</p>
-              <p className="font-courier-prime text-[#702C95]">{game.year}</p>
-            </div>
-            {game.team && (
+            {game.responsibilities ? (
+              <div>
+                <p className="font-press-start text-[#702C95] text-xs mb-1">Responsibilities</p>
+                <p className="font-courier-prime text-[#702C95]">{game.responsibilities}</p>
+              </div>
+            ) : game.team ? (
               <div>
                 <p className="font-press-start text-[#702C95] text-xs mb-1">Team</p>
                 <p className="font-courier-prime text-[#702C95]">{game.team}</p>
               </div>
-            )}
+            ) : null}
           </div>
 
-          <hr className="border-[#702C95]/30" />
+          {/* design doc */}
+          {(game.designDocImages?.length || game.designDocLink) && (
+            <>
+              <hr className="border-[#702C95]/30" />
+              <div>
+                <h2 className="font-press-start text-[#702C95] text-sm mb-4">Design Process</h2>
+                {game.designDocImages && game.designDocImages.length > 0 && (
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    {game.designDocImages.map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        alt={`Design doc ${i + 1}`}
+                        className="w-full rounded-xl border-2 border-[#702C95] object-cover"
+                      />
+                    ))}
+                  </div>
+                )}
+                {game.designDocLink && (
+                  <a
+                    href={game.designDocLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-dokdo text-xl text-[#EC6BA7] underline hover:text-[#702C95] transition-colors"
+                  >
+                    See the full documentation →
+                  </a>
+                )}
+                {game.designDocNote && (
+                  <p className="font-courier-prime text-md text-[#702C95] leading-relaxed mt-4 whitespace-pre-line">
+                    {game.designDocNote}
+                  </p>
+                )}
+              </div>
+            </>
+          )}
 
-          {/* tags */}
-          <div>
-            <p className="font-press-start text-[#702C95] text-xs mb-3">Tools & Tech</p>
-            <div className="flex flex-wrap gap-2">
-              {game.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-[#EC6BA7] text-white rounded-full font-courier-prime text-sm"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
+          {/* results */}
+          {game.results && (
+            <>
+              <hr className="border-[#702C95]/30" />
+              <div>
+                <h2 className="font-press-start text-[#702C95] text-sm mb-3">Results</h2>
+                <p className="font-courier-prime text-md text-[#702C95] leading-relaxed">
+                  {game.results}
+                </p>
+              </div>
+            </>
+          )}
 
-          {/* external link */}
+          {/* play button */}
           {game.link !== "#" && (
             <>
               <hr className="border-[#702C95]/30" />
-              <a
-                href={game.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block font-dokdo text-xl px-5 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
-              >
-                View Project →
-              </a>
+              <div className="flex justify-center">
+                <a
+                  href={game.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                >
+                  Play →
+                </a>
+              </div>
             </>
           )}
 

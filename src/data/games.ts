@@ -4,6 +4,7 @@ export type Game = {
   shortDesc: string;
   description: string;
   role: string;
+  responsibilities?: string;
   link: string;
   status: "In Progress" | "Completed" | "Paused";
   tags: string[];
@@ -12,6 +13,10 @@ export type Game = {
   video?: string;
   img?: string;
   featured?: boolean;
+  designDocImages?: string[];
+  designDocLink?: string;
+  designDocNote?: string;
+  results?: string;
 };
 
 export const games: Game[] = [
@@ -19,11 +24,33 @@ export const games: Game[] = [
     name: "Cosmic Thread",
     slug: "cosmic-thread",
     featured: true,
-    shortDesc: "In a far-away galaxy, you're the universal agent solving Xaltarian mysteries",
+    shortDesc: "In a far-away galaxy, you're the universal agent solving Xaltarian mysteries >:3",
     description:
-      "Cosmic Thread is a 2D puzzle game, where the player takes the role as an intergalactic agent",
-    role: "Gameplay Programmer, Designer",
+      "Cosmic Thread is a comedic, 2D puzzle game, where the player takes the role as an intergalactic agent. The gameplay consists of " + 
+      "thoroughly reading case files and switching between Inspect and Thread modes. Connect the evidence on the investigation " + 
+      "board. Player wins by making the correct connections and identifying the culprit :P",
+    role: "Indie Developer, Gameplay Programmer, 2D Artist",
+    responsibilities: "wqpkqpgjq pq3jgfpk",
     link: "https://playlamar.itch.io/cosmic-thread",
+    designDocImages: ["/img/design-doc/ct-doc1.png", "/img/design-doc/ct-doc2.png"],
+    designDocLink: "https://docs.google.com/document/d/10PTx2B1-a93PUcojfPPzS05c84deABsPt6IaGAMRuwE/edit?usp=sharing",
+    designDocNote: "In Cosmic Thread, players act as an " 
+    + "intergalactic detective, solving mysteries by reading case files and building evidence " + 
+    "connections on an investigation board. Using two modes: Inspect (click items to examine them) " 
+    + "and Thread (Shift+Click to link items with red string), players must " 
+    + "correctly map all connections and identify the culprit to complete each case. There's no fail" 
+    + "state for wrong connections, but a time limit adds mild pressure.\n\n"
+
+    + "The game features three sequentially unlocked cases of increasing difficulty, each taking 5-15 " 
+    + "minutes, for a total runtime of about 30-45 minutes. Case 1 doubles as a tutoria. Built in Unity " 
+    + "and targeting a Steam release, the game draws " 
+    + "aesthetic inspiration from The Case of the Golden Idol with a hand-drawn cosmic art style, corkboard " 
+    + "investigation boards, and atmospheric audio reinforcing every interaction.",
+    results: "Playtesting Cosmic Thread V1 proved highly valuable in shaping the current design. With no tutorial " 
+    + "and nearly all investigation content being text-based, players lacked the guidance needed to engage " 
+    + "with the mechanics confidently, leading to the addition of a mandatory tutorial scene and a general " 
+    + "push toward a stronger game feel. One player also suggested incorporating Animal Crossing-style character " 
+    + "voices to reinforce the comedic tone!",
     video: "/videos/cosmicThread-gameplay.mp4",
     status: "In Progress",
     tags: ["Unity", "C#", "2D", "Puzzle"],

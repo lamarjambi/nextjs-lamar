@@ -2,6 +2,9 @@ import { otherProjects } from "@/data/projects";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
+// add documentation/ideation 
+// pdf? a coupleof images? we'll see
+
 export function generateStaticParams() {
   return otherProjects.map((p) => ({ slug: p.slug }));
 }

@@ -247,6 +247,7 @@ export default function Home() {
         </section>
 
         {/* other projects section */}
+        {/* toggle between art projects (grid) and coding projects */}
         <section>
           <div className="mb-5">
             <h2 className="font-press-start text-black text-xl mb-1 text-outline-purple">Other Projects</h2>
