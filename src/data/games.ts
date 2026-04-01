@@ -100,14 +100,21 @@ export const games: Game[] = [
   featured: true,
   shortDesc: "Horror 3D/2D game about having a job :P",
   description:
-    "Fog City Shadows is a solo-developed 2.5D horror game set in a dim, fog-drenched city. " +
-    "The player navigates hand-drawn environments while juggling the mundane duties of a job " +
-    "that grows increasingly sinister. Inspect your surroundings, collect items, and complete " +
-    "objectives — all while something watches from the shadows.",
+  "Fog City Shadows is a solo-developed 2.5D horror game inspired by the streets of San Francisco. " +
+  "You play as an office worker navigating a city that feels just a little too quiet, a little too watched. " +
+  "Follow the lights, pick up what you find, and try not to think about the job application chasing you through the dark :3",
   role: "Sole Developer, Gameplay Programmer, 2D Artist",
   responsibilities:
     "Sole developer; 2D asset creation, level design, goal system, pickup and inspection mechanics, and overall game logic.",
   link: "https://playlamar.itch.io/fog-city-shadows",
+  designDocImages: ["/img/design-doc/fcs-doc1.PNG", "/img/design-doc/fcs-doc2.PNG"],
+  designDocNote:
+  "Fog City Shadows grew out of a real experience! The intro scene was directly inspired by the office " +
+  "where I worked over the summer, recreated as hand-drawn 2D sprites staged in 3D space. The game opens " +
+  "with a git terminal." +
+  "Once the intro scene is complete, the actual game begins: the player must follow the lights through " +
+  "fog-drenched environments, but they're not alone. A job application stalks them through the dark, " +
+  "turning the all-too-familiar anxiety of job hunting into something genuinely sinister...",
   video: "/videos/fogcity-gameplay.mp4",
   status: "Completed",
   tags: ["Unity", "2.5D", "Horror"],
