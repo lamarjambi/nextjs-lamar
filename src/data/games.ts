@@ -30,7 +30,7 @@ export const games: Game[] = [
       "thoroughly reading case files and switching between Inspect and Thread modes. Connect the evidence on the investigation " + 
       "board. Player wins by making the correct connections and identifying the culprit :P",
     role: "Indie Developer, Gameplay Programmer, 2D Artist",
-    responsibilities: "wqpkqpgjq pq3jgfpk",
+    responsibilities: "Sole developer; story bible, game design, 2D art, C# programming, and sound design.",
     link: "https://playlamar.itch.io/cosmic-thread",
     designDocImages: ["/img/design-doc/ct-doc1.png", "/img/design-doc/ct-doc2.png"],
     designDocLink: "https://docs.google.com/document/d/10PTx2B1-a93PUcojfPPzS05c84deABsPt6IaGAMRuwE/edit?usp=sharing",

@@ -152,7 +152,7 @@ export default async function GameDetailPage({
                     href={game.designDocLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-dokdo text-xl text-[#EC6BA7] underline hover:text-[#702C95] transition-colors"
+                    className="font-dokdo text-xl text-[#EC6BA7] underline hover:text-[#547DFD] transition-colors"
                   >
                     See the full documentation →
                   </a>
