@@ -107,7 +107,7 @@ export const games: Game[] = [
   responsibilities:
     "Sole developer; 2D asset creation, level design, goal system, pickup and inspection mechanics, and overall game logic.",
   link: "https://playlamar.itch.io/fog-city-shadows",
-  designDocImages: ["/img/design-doc/fcs-doc1.PNG", "/img/design-doc/fcs-doc2.PNG"],
+  designDocImages: ["/img/design-doc/fcs-doc1.png", "/img/design-doc/fcs-doc2.png"],
   designDocNote:
   "Fog City Shadows grew out of a real experience! The intro scene was directly inspired by the office " +
   "where I worked over the summer, recreated as hand-drawn 2D sprites staged in 3D space. The game opens " +
