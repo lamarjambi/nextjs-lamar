@@ -107,7 +107,7 @@ export const games: Game[] = [
   role: "Sole Developer, Gameplay Programmer, 2D Artist",
   responsibilities:
     "Sole developer; 2D asset creation, level design, goal system, pickup and inspection mechanics, and overall game logic.",
-  link: "https://github.com/lamarjambi/fog-city-shadows",
+  link: "https://playlamar.itch.io/fog-city-shadows",
   video: "/videos/fogcity-gameplay.mp4",
   status: "Completed",
   tags: ["Unity", "2.5D", "Horror"],
