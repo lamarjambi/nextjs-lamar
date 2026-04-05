@@ -347,7 +347,7 @@ export default function Home() {
                   onClick={() => toggleFilter(cat)}
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-full border-2 font-courier-prime text-sm transition-all ${
                     filters[cat]
-                      ? "border-[#702C95] bg-[#702C95] text-white "
+                      ? "border-[#702C95] bg-[#702C95] text-white hover:border-[#FAF0DD]"
                       : "border-[#702C95]/40 bg-transparent text-[#702C95]/60 hover:border-[#702C95]/70"
                   }`}
                 >
