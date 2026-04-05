@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { games } from "@/data/games";
 import { otherProjects } from "@/data/projects";
+import { animatronicsProjects } from "@/data/animatronics";
 import { artworks, sizeToGridClass } from "@/data/artwork-data";
 import type { Game } from "@/data/games";
 import type { Project, ProjectCategory } from "@/data/projects";
@@ -10,7 +11,7 @@ import type { Artwork } from "@/data/artwork-data";
 function ProjectThumbnail({ project }: { project: Project }) {
   return (
     <a
-      href={`/projects/${project.slug}`}
+      href={`/${project.category === "animatronics" ? "animatronics" : "projects"}/${project.slug}`}
       className="group relative block aspect-video rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-lg"
     >
       <img
@@ -132,49 +133,110 @@ function CategoryDivider({ label }: { label: string }) {
 }
 
 function IllustrationGrid({ items }: { items: Artwork[] }) {
+  const [selected, setSelected] = useState<Artwork | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  const openLightbox = (artwork: Artwork) => {
+    setSelected(artwork);
+    requestAnimationFrame(() => setVisible(true));
+  };
+
+  const closeLightbox = () => {
+    setVisible(false);
+    setTimeout(() => setSelected(null), 300);
+  };
+
   return (
-    <div
-      className="grid gap-3"
-      style={{
-        gridTemplateColumns: "repeat(5, 1fr)",
-        gridAutoRows: "160px",
-        gridAutoFlow: "dense",
-      }}
-    >
-      {items.map((artwork) => {
-        const spanClass = sizeToGridClass[artwork.size];
-        const Wrapper = artwork.link ? "a" : "div";
-        const wrapperProps = artwork.link
-          ? { href: artwork.link, target: "_blank", rel: "noopener noreferrer" }
-          : {};
-        return (
-          <Wrapper
-            key={artwork.id}
-            {...(wrapperProps as object)}
-            className={`${spanClass} group relative rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-lg cursor-pointer transition-all duration-300 hover:border-[#FDD23B] hover:scale-[1.02] hover:z-10`}
+    <>
+      <div
+        className="grid gap-3"
+        style={{
+          gridTemplateColumns: "repeat(5, 1fr)",
+          gridAutoRows: "160px",
+          gridAutoFlow: "dense",
+        }}
+      >
+        {items.map((artwork) => {
+          const spanClass = sizeToGridClass[artwork.size];
+          return (
+            <div
+              key={artwork.id}
+              onClick={() => openLightbox(artwork)}
+              className={`${spanClass} group relative rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-lg cursor-pointer transition-all duration-300 hover:border-[#FDD23B] hover:scale-[1.02] hover:z-10`}
+            >
+              <img
+                src={artwork.imageSrc}
+                alt={artwork.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-[#FAF0DD] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+                <p className="font-bold text-black font-vt323 text-xl leading-tight">{artwork.title}</p>
+                <p className="text-[#547DFD] text-sm font-courier-prime">{artwork.medium} · {artwork.year}</p>
+                <div className="flex flex-wrap gap-1 mt-1">
+                  {artwork.tags.map((tag) => (
+                    <span key={tag} className="px-1.5 py-0.5 bg-[#EC6BA7]/20 rounded-full text-[#EC6BA7] text-xs font-courier-prime">{tag}</span>
+                  ))}
+                </div>
+                {artwork.link && (
+                  <span className="text-[#FDD23B] text-xs font-courier-prime mt-1">↗ view post</span>
+                )}
+              </div>
+              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#75C2DF]/40 to-[#EC6BA7]/40" />
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Lightbox */}
+      {selected && (
+        <div
+          onClick={closeLightbox}
+          className={`fixed inset-0 z-50 flex items-center justify-center p-6 transition-all duration-300 ${
+            visible ? "bg-black/70 backdrop-blur-sm" : "bg-black/0"
+          }`}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className={`relative max-w-3xl w-full max-h-[90vh] flex flex-col rounded-2xl overflow-hidden border-4 border-[#FDD23B] shadow-2xl transition-all duration-300 ${
+              visible ? "scale-100 opacity-100" : "scale-50 opacity-0"
+            }`}
           >
             <img
-              src={artwork.imageSrc}
-              alt={artwork.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              src={selected.imageSrc}
+              alt={selected.title}
+              className="w-full object-contain max-h-[70vh] bg-[#FAF0DD]"
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-[#FAF0DD] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
-              <p className="font-bold text-black font-vt323 text-xl leading-tight">{artwork.title}</p>
-              <p className="text-[#547DFD] text-sm font-courier-prime">{artwork.medium} · {artwork.year}</p>
-              <div className="flex flex-wrap gap-1 mt-1">
-                {artwork.tags.map((tag) => (
-                  <span key={tag} className="px-1.5 py-0.5 bg-[#EC6BA7]/20 rounded-full text-[#EC6BA7] text-xs font-courier-prime">{tag}</span>
-                ))}
+            <div className="bg-[#FAF0DD] p-4 flex items-start justify-between gap-4">
+              <div>
+                <p className="font-vt323 text-2xl text-black leading-tight">{selected.title}</p>
+                <p className="text-[#547DFD] text-sm font-courier-prime">{selected.medium} · {selected.year}</p>
+                <div className="flex flex-wrap gap-1 mt-2">
+                  {selected.tags.map((tag) => (
+                    <span key={tag} className="px-1.5 py-0.5 bg-[#EC6BA7]/20 rounded-full text-[#EC6BA7] text-xs font-courier-prime">{tag}</span>
+                  ))}
+                </div>
+                {selected.link && (
+                  <a
+                    href={selected.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-2 text-[#702C95] text-sm font-courier-prime hover:text-[#EC6BA7] transition-colors"
+                  >
+                    ↗ view post
+                  </a>
+                )}
               </div>
-              {artwork.link && (
-                <span className="text-[#FDD23B] text-xs font-courier-prime mt-1">↗ view post</span>
-              )}
+              <button
+                onClick={closeLightbox}
+                className="shrink-0 w-8 h-8 rounded-full bg-[#702C95] text-white flex items-center justify-center hover:bg-[#EC6BA7] transition-colors text-lg leading-none"
+              >
+                ×
+              </button>
             </div>
-            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#75C2DF]/40 to-[#EC6BA7]/40" />
-          </Wrapper>
-        );
-      })}
-    </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -197,7 +259,8 @@ export default function Home() {
     });
   };
 
-  const filteredProjects = otherProjects.filter((p) => filters[p.category]);
+  const allProjects = [...otherProjects, ...animatronicsProjects];
+  const filteredProjects = allProjects.filter((p) => filters[p.category]);
   const activeCategories = (["apps", "animatronics", "illustrations"] as ProjectCategory[]).filter(
     (cat) => {
       if (cat === "illustrations") return filters.illustrations;

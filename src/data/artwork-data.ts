@@ -6,12 +6,12 @@ export interface Artwork {
   id: number;
   title: string;
   year: string;
-  medium: string; // e.g. "Digital", "Watercolor", "Ink"
+  medium: string; 
   tags: string[];
   imageSrc: string; // path to image, e.g. "/img/art/piece-1.png"
   size: ArtworkSize; // controls bento grid span
   featured?: boolean; // if true, shown with a subtle highlight
-  link?: string; // optional external link (e.g. Twitter post, commission)
+  link?: string; 
 }
 
 export const artworks: Artwork[] = [  
