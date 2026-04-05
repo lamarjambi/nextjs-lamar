@@ -181,8 +181,8 @@ function IllustrationGrid({ items }: { items: Artwork[] }) {
 export default function Home() {
   const [showMoreGames, setShowMoreGames] = useState(false);
   const [filters, setFilters] = useState<Record<ProjectCategory, boolean>>({
-    illustrations: true,
-    animatronics: true,
+    illustrations: false,
+    animatronics: false,
     apps: true,
   });
   const featuredGames = games.filter((g) => g.featured);
@@ -341,7 +341,7 @@ export default function Home() {
             <h2 className="font-press-start text-black text-xl text-outline-purple">Other Projects</h2>
             {/* checkbox filters */}
             <div className="flex flex-wrap gap-2">
-              {(["illustrations", "animatronics", "apps"] as ProjectCategory[]).map((cat) => (
+              {(["apps", "illustrations", "animatronics"] as ProjectCategory[]).map((cat) => (
                 <button
                   key={cat}
                   onClick={() => toggleFilter(cat)}
