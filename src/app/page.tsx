@@ -2,8 +2,10 @@
 import { useRef, useState } from "react";
 import { games } from "@/data/games";
 import { otherProjects } from "@/data/projects";
+import { artworks, sizeToGridClass } from "@/data/artwork-data";
 import type { Game } from "@/data/games";
-import type { Project } from "@/data/projects";
+import type { Project, ProjectCategory } from "@/data/projects";
+import type { Artwork } from "@/data/artwork-data";
 
 function ProjectThumbnail({ project }: { project: Project }) {
   return (
@@ -113,10 +115,97 @@ function GameThumbnail({ game }: { game: Game }) {
   );
 }
 
+const CATEGORY_LABELS: Record<ProjectCategory, string> = {
+  illustrations: "Illustrations",
+  animatronics: "Animatronics",
+  apps: "Apps / Software",
+};
+
+function CategoryDivider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-3 my-4">
+      <div className="flex-1 h-px bg-[#702C95]/30" />
+      <span className="font-courier-prime text-xs text-[#702C95]/60 px-2">— {label} —</span>
+      <div className="flex-1 h-px bg-[#702C95]/30" />
+    </div>
+  );
+}
+
+function IllustrationGrid({ items }: { items: Artwork[] }) {
+  return (
+    <div
+      className="grid gap-3"
+      style={{
+        gridTemplateColumns: "repeat(5, 1fr)",
+        gridAutoRows: "160px",
+        gridAutoFlow: "dense",
+      }}
+    >
+      {items.map((artwork) => {
+        const spanClass = sizeToGridClass[artwork.size];
+        const Wrapper = artwork.link ? "a" : "div";
+        const wrapperProps = artwork.link
+          ? { href: artwork.link, target: "_blank", rel: "noopener noreferrer" }
+          : {};
+        return (
+          <Wrapper
+            key={artwork.id}
+            {...(wrapperProps as object)}
+            className={`${spanClass} group relative rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-lg cursor-pointer transition-all duration-300 hover:border-[#FDD23B] hover:scale-[1.02] hover:z-10`}
+          >
+            <img
+              src={artwork.imageSrc}
+              alt={artwork.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-[#FAF0DD] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+              <p className="font-bold text-black font-vt323 text-xl leading-tight">{artwork.title}</p>
+              <p className="text-[#547DFD] text-sm font-courier-prime">{artwork.medium} · {artwork.year}</p>
+              <div className="flex flex-wrap gap-1 mt-1">
+                {artwork.tags.map((tag) => (
+                  <span key={tag} className="px-1.5 py-0.5 bg-[#EC6BA7]/20 rounded-full text-[#EC6BA7] text-xs font-courier-prime">{tag}</span>
+                ))}
+              </div>
+              {artwork.link && (
+                <span className="text-[#FDD23B] text-xs font-courier-prime mt-1">↗ view post</span>
+              )}
+            </div>
+            <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#75C2DF]/40 to-[#EC6BA7]/40" />
+          </Wrapper>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Home() {
   const [showMoreGames, setShowMoreGames] = useState(false);
+  const [filters, setFilters] = useState<Record<ProjectCategory, boolean>>({
+    illustrations: true,
+    animatronics: true,
+    apps: true,
+  });
   const featuredGames = games.filter((g) => g.featured);
   const extraGames = games.filter((g) => !g.featured);
+
+  const toggleFilter = (cat: ProjectCategory) => {
+    setFilters((prev) => {
+      const next = { ...prev, [cat]: !prev[cat] };
+      // keep at least one active
+      if (!Object.values(next).some(Boolean)) return prev;
+      return next;
+    });
+  };
+
+  const filteredProjects = otherProjects.filter((p) => filters[p.category]);
+  const activeCategories = (["apps", "animatronics", "illustrations"] as ProjectCategory[]).filter(
+    (cat) => {
+      if (cat === "illustrations") return filters.illustrations;
+      return filters[cat] && filteredProjects.some((p) => p.category === cat);
+    }
+  );
+  const showDividers = activeCategories.length > 1;
+  const hasContent = filteredProjects.length > 0 || filters.illustrations;
 
   return (
     <div className="min-h-screen relative overflow-x-hidden">
@@ -247,16 +336,59 @@ export default function Home() {
         </section>
 
         {/* other projects section */}
-        {/* toggle between art projects (grid) and coding projects */}
         <section>
-          <div className="mb-5">
-            <h2 className="font-press-start text-black text-xl mb-1 text-outline-purple">Other Projects</h2>
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
+            <h2 className="font-press-start text-black text-xl text-outline-purple">Other Projects</h2>
+            {/* checkbox filters */}
+            <div className="flex flex-wrap gap-2">
+              {(["illustrations", "animatronics", "apps"] as ProjectCategory[]).map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => toggleFilter(cat)}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-full border-2 font-courier-prime text-sm transition-all ${
+                    filters[cat]
+                      ? "border-[#702C95] bg-[#702C95] text-white "
+                      : "border-[#702C95]/40 bg-transparent text-[#702C95]/60 hover:border-[#702C95]/70"
+                  }`}
+                >
+                  <span className={`w-3.5 h-3.5 rounded-sm border-2 flex items-center justify-center shrink-0 transition-colors ${
+                    filters[cat] ? "border-white bg-white" : "border-current"
+                  }`}>
+                    {filters[cat] && (
+                      <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <path d="M1 4l2 2 4-4" stroke="#702C95" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                  </span>
+                  {CATEGORY_LABELS[cat]}
+                </button>
+              ))}
+            </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {otherProjects.map((project) => (
-              <ProjectThumbnail key={project.name} project={project} />
-            ))}
-          </div>
+
+          {!hasContent ? (
+            <p className="font-courier-prime text-[#702C95]/50 text-sm">No projects match the selected filters.</p>
+          ) : (
+            <div className="space-y-2">
+              {activeCategories.map((cat) => {
+                const group = filteredProjects.filter((p) => p.category === cat);
+                return (
+                  <div key={cat}>
+                    {showDividers && <CategoryDivider label={CATEGORY_LABELS[cat]} />}
+                    {cat === "illustrations" ? (
+                      <IllustrationGrid items={artworks} />
+                    ) : (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                        {group.map((project) => (
+                          <ProjectThumbnail key={project.name} project={project} />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </section>
 
       </main>

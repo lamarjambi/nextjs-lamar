@@ -1,3 +1,6 @@
+export type ProjectCategory = "illustrations" | "animatronics" | "apps";
+export type ProjectSize = "small" | "medium" | "large" | "wide" | "tall";
+
 export type Project = {
   name: string;
   slug: string;
@@ -8,6 +11,8 @@ export type Project = {
   img: string;
   tags: string[];
   year: string;
+  category: ProjectCategory;
+  size?: ProjectSize; // used for illustrations bento grid layout
   team?: string;
 };
 
@@ -23,6 +28,7 @@ export const otherProjects: Project[] = [
     img: "/img/doodle-noodle.png",
     tags: ["TypeScript", "Next.js", "AWS"],
     year: "2025",
+    category: "apps",
   },
   {
     name: "WEBTOYS OS",
@@ -35,6 +41,7 @@ export const otherProjects: Project[] = [
     img: "/img/webtoys-os.png",
     tags: ["TypeScript", "Next.js"],
     year: "2025",
+    category: "apps",
   },
   {
     name: "Script Doctor",
@@ -47,6 +54,7 @@ export const otherProjects: Project[] = [
     img: "/img/script-doctor.png",
     tags: ["Python", "GPT-4", "A*"],
     year: "2024",
+    category: "apps",
   },
   {
     name: "HSRN Virtual Meetup App",
@@ -59,5 +67,6 @@ export const otherProjects: Project[] = [
     img: "/img/hsrn.png",
     tags: ["React", "JavaScript", "Figma"],
     year: "2025",
+    category: "apps",
   },
 ];
