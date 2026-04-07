@@ -261,7 +261,7 @@ export default function Home() {
 
   const allProjects = [...otherProjects, ...animatronicsProjects];
   const filteredProjects = allProjects.filter((p) => filters[p.category]);
-  const activeCategories = (["apps", "animatronics", "illustrations"] as ProjectCategory[]).filter(
+  const activeCategories = (["apps", "illustrations", "animatronics"] as ProjectCategory[]).filter(
     (cat) => {
       if (cat === "illustrations") return filters.illustrations;
       return filters[cat] && filteredProjects.some((p) => p.category === cat);
@@ -465,7 +465,7 @@ export default function Home() {
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 04/07/2026
+          last updated 04/07  /2026
         </p>
       </footer>
     </div>
