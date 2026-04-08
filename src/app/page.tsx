@@ -411,7 +411,7 @@ export default function Home() {
                   className={`flex items-center gap-2 px-3 py-1.5 rounded-full border-2 font-courier-prime text-sm transition-all ${
                     filters[cat]
                       ? "border-[#702C95] bg-[#702C95] text-white hover:border-[#EC6BA7] hover:bg-[#EC6BA7] hover:scale-105"
-                      : "border-[#702C95]/40 bg-transparent text-[#702C95]/60 hover:border-[#702C95]/70"
+                      : "border-[#702C95]/40 bg-transparent text-[#702C95]/60 hover:border-[#EC6BA7]/70"
                   }`}
                 >
                   <span className={`w-3.5 h-3.5 rounded-sm border-2 flex items-center justify-center shrink-0 transition-colors ${
