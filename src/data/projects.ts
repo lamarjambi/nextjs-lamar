@@ -53,8 +53,10 @@ export const otherProjects: Project[] = [
     slug: "script-doctor",
     shortDesc: "AI puzzle solver agent that navigates scripts using A* pathfinding",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    role: "Developer",
+      "During my time at NYU's Game Innovation Lab, I analyzed 5+ AI algorithms including A* Search, evaluating trade-offs in speed and memory usage for game logic. " +
+      "I trained AI agents on puzzle-solving tasks and evaluated their generative performance across PuzzleScript environments. " +
+      "Script Doctor was born from this research, an AI agent that navigates PuzzleScript levels using A* pathfinding and GPT-4 to interpret and solve puzzle scripts autonomously.",
+    role: "Research Intern",
     link: "https://github.com/lamarjambi/ScriptDoctor-Python",
     img: "/img/script-doctor.png",
     tags: ["Python", "GPT-4", "A*"],
@@ -66,8 +68,10 @@ export const otherProjects: Project[] = [
     slug: "hsrn-meetup",
     shortDesc: "NYU IT × HSRN Data Center Robot meeting platform",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    role: "Frontend Developer, Designer",
+      "The HSRN Virtual Meeting App is a collaboration with NYU IT, building a web platform that enables virtual meetings with integrated remote control for data center robots. " +
+      "I developed 10+ Figma layouts for UI/UX design to ensure interface consistency, then implemented the frontend using React and Material UI. " +
+      "The platform bridges remote users with physical lab infrastructure through CoreLink, enabling real-time robot control from a browser.",
+    role: "Full-Stack Developer",
     link: "https://github.com/lamarjambi/hsrn-meetup",
     img: "/img/hsrn.png",
     tags: ["React", "JavaScript", "Figma"],
