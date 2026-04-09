@@ -95,9 +95,36 @@ export const games: Game[] = [
     year: "2025",
   },
   {
+    name: "Reach for the Sky",
+    slug: "reach-for-the-sky",
+    featured: true,
+    shortDesc: "A 3D local co-op puzzle-survival game set inside a dense city inspired by Kowloon Walled City",
+    description:
+      "Reach for the Sky is a 3D local co-op puzzle-survival game set inside a dense city inspired by Kowloon Walled City. " +
+      "Two players begin separated in the chaos of the city and must navigate its social and physical systems to find each other. " +
+      "The city is controlled by overlapping factions. NPCs have their own agendas. ",
+    role: "Lead Gameplay Programmer",
+    responsibilities:
+      "Puzzle design, general game mechanics, local co-op implementation, and Unity systems.",
+    link: "https://github.com/lamarjambi/reach-for-the-stars",
+    designDocImages: ["/img/design-doc/reach-doc1.JPG"],
+    designDocLink: "https://docs.google.com/document/d/1EBdyv-dwliLy8J3fwEh8dIvezmnrDliF6fx3UxqrrFk/edit?usp=sharing",
+    designDocNote:
+      "Reach for the Sky is viewed primarily in an isometric perspective (30°/45° orthographic camera), with context-triggered " +
+      "first-person view for specific puzzle interactions: examining mechanisms, talking to NPCs up close, reading hidden messages.\n\n" +
+      "The city is divided among overlapping factions: gangs, black market operators, and community groups. Each player accumulates " +
+      "reputation independently. " +
+      "Local co-op is one device, split screen. Player 1 uses WASD, Player 2 uses arrow keys. The overarching theme is reunion: " +
+      "two people trying to find each other inside a system designed to keep people apart.",
+    video: "/videos/reachStars-gameplay.mp4",  
+    status: "In Progress",
+    tags: ["Unity", "C#", "3D", "Co-op", "Puzzle"],
+    year: "2025",
+  },
+  {
     name: "Fog City Shadows",
     slug: "fog-city-shadows",
-    featured: true,
+    featured: false,
     shortDesc: "Horror 3D/2D game about having a job :P",
     description:
     "Fog City Shadows is a solo-developed 2.5D horror game inspired by the streets of San Francisco. " +
