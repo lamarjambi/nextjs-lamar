@@ -12,7 +12,7 @@ export const animatronicsProjects: Project[] = [
     link: "https://youtu.be/o1ONF-7-XBQ",
     img: "/img/shripy-crank.jpg",
     tags: ["Cardboard", "Crank Mechanism"],
-    year: "2026",
+    year: "Jan 2026",
     category: "animatronics",
   },
 ];

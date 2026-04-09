@@ -54,7 +54,7 @@ export const games: Game[] = [
     video: "/videos/cosmicThread-gameplay.mp4",
     status: "In Progress",
     tags: ["Unity", "C#", "2D", "Puzzle"],
-    year: "2025",
+    year: "Apr 2025",
   },
   {
     name: "Requiem Forest",
@@ -92,7 +92,7 @@ export const games: Game[] = [
     img: "/img/screamjam2025.png",
     status: "Completed",
     tags: ["Unreal 5", "Horror", "Game Jam", "Blueprint"],
-    year: "2025",
+    year: "Oct 2025",
   },
   {
     name: "Reach for the Sky",
@@ -119,7 +119,7 @@ export const games: Game[] = [
     video: "/videos/reachStars-gameplay.mp4",  
     status: "In Progress",
     tags: ["Unity", "C#", "3D", "Co-op", "Puzzle"],
-    year: "2025",
+    year: "Apr 2026",
   },
   {
     name: "Fog City Shadows",
@@ -145,7 +145,7 @@ export const games: Game[] = [
     video: "/videos/fogcity-gameplay.mp4",
     status: "Completed",
     tags: ["Unity", "2.5D", "Horror"],
-    year: "2025",
+    year: "Mar 2026",
   },
   {
     name: "Super Adrenaline Junkies",
@@ -163,7 +163,7 @@ export const games: Game[] = [
     video: "/videos/SAJ-demo-game.mp4",
     status: "Completed",
     tags: ["P5.js", "Web", "Platformer"],
-    year: "2023",
+    year: "Jan 2024",
   },
   {
     name: "Hue's Quest",
@@ -181,6 +181,6 @@ export const games: Game[] = [
     video: "/videos/huesQuest-gameplay.mp4",
     status: "Paused",
     tags: ["GameMaker", "Puzzle", "RPG-like"],
-    year: "2024",
+    year: "Jan 2024",
   },
 ];
