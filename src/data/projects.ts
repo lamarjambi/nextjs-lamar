@@ -31,7 +31,7 @@ export const otherProjects: Project[] = [
     link: "https://www.doodlenoodle.dev",
     img: "/img/doodle-noodle.png",
     tags: ["TypeScript", "Next.js", "AWS"],
-    year: "2025",
+    year: "July 2025",
     category: "apps",
   },
   {
@@ -45,7 +45,7 @@ export const otherProjects: Project[] = [
     link: "https://github.com/lamarjambi/webtoys-os",
     img: "/img/webtoys-os.png",
     tags: ["TypeScript", "Next.js"],
-    year: "2025",
+    year: "Sep 2025",
     category: "apps",
   },
   {
@@ -60,7 +60,7 @@ export const otherProjects: Project[] = [
     link: "https://github.com/lamarjambi/ScriptDoctor-Python",
     img: "/img/script-doctor.png",
     tags: ["Python", "GPT-4", "A*"],
-    year: "2024",
+    year: "Feb 2025",
     category: "apps",
   },
   {
@@ -75,7 +75,7 @@ export const otherProjects: Project[] = [
     link: "https://github.com/lamarjambi/hsrn-meetup",
     img: "/img/hsrn.png",
     tags: ["React", "JavaScript", "Figma"],
-    year: "2025",
+    year: "Oct 2024",
     category: "apps",
   },
 ];
