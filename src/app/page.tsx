@@ -376,7 +376,7 @@ export default function Home() {
         {/* games section */}
         <section>
           <div className="mb-5">
-            <h2 className="font-press-start text-black text-xl mb-1 text-outline-purple">Games</h2>
+            <h2 className="font-press-start text-black text-xl mb-1 text-outline-purple">Games + Demos</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {featuredGames.map((game) => (
