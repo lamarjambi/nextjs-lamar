@@ -95,30 +95,33 @@ export const games: Game[] = [
     year: "Oct 2025",
   },
   {
-    name: "Reach for the Sky",
-    slug: "reach-for-the-sky",
+    name: "Expelled",
+    slug: "expelled",
     featured: true,
-    shortDesc: "A 3D local co-op puzzle-survival game set inside a dense city inspired by Kowloon Walled City",
+    shortDesc: "You don't belong here, and the realm knows it.",
     description:
-      "Reach for the Sky is a 3D local co-op puzzle-survival game set inside a dense city inspired by Kowloon Walled City. " +
-      "Two players begin separated in the chaos of the city and must navigate its social and physical systems to find each other. " +
-      "The city is controlled by overlapping factions. NPCs have their own agendas. ",
-    role: "Lead Gameplay Programmer",
+      "Expelled is a 3D isometric combat game where the player accidentally falls through a rift into a foreign realm. " +
+      "Their very existence is an anomaly, and the realm's immune system, monsters, hunts them down instinctively. " +
+      "The player isn't evil. They just don't belong. Navigate a grid-based world, fight back with weapons, and survive " +
+      "a realm that wants you gone.",
+    role: "Gameplay Programmer + UI",
     responsibilities:
-      "Puzzle design, general game mechanics, local co-op implementation, and Unity systems.",
-    link: "https://github.com/lamarjambi/reach-for-the-stars",
-    designDocImages: ["/img/design-doc/reach-doc1.JPG"],
+      "AI navigation and camera system.",
+    team: "Gordon Rose + Lamar Jambi",
+    link: "https://github.com/lamarjambi/expelled",
+    designDocImages: ["/img/design-doc/expelled-doc1.png"],
     designDocLink: "https://docs.google.com/document/d/1EBdyv-dwliLy8J3fwEh8dIvezmnrDliF6fx3UxqrrFk/edit?usp=sharing",
     designDocNote:
-      "Reach for the Sky is viewed primarily in an isometric perspective (30°/45° orthographic camera), with context-triggered " +
-      "first-person view for specific puzzle interactions: examining mechanisms, talking to NPCs up close, reading hidden messages.\n\n" +
-      "The city is divided among overlapping factions: gangs, black market operators, and community groups. Each player accumulates " +
-      "reputation independently. " +
-      "Local co-op is one device, split screen. Player 1 uses WASD, Player 2 uses arrow keys. The overarching theme is reunion: " +
-      "two people trying to find each other inside a system designed to keep people apart.",
-    video: "/videos/reachStars-gameplay.mp4",  
+      "Expelled is an isometric combat game built in Unity using a 3D tilemap grid system. The player falls through a rift " +
+      "into an alien realm where their presence triggers an automatic hostile response. " +
+      "system, hunting the player on instinct rather than malice.\n\n" +
+      "Combat is directional and grid-based. The player navigates tile-by-tile through dungeon environments, using weapons " +
+      "to fend off enemies that close in from all sides. The first week of development focuses on the core loop: " +
+      "grid movement, isometric camera, one weapon, and one enemy AI. Week two expands the weapon set. " +
+      "Built with an isometric character controller, 3D tilemap, and Unity NavMesh for enemy pathfinding.",
+    video: "/videos/reachStars-gameplay.mp4",
     status: "In Progress",
-    tags: ["Unity", "C#", "3D", "Co-op", "Puzzle"],
+    tags: ["Unity", "C#", "3D", "Isometric", "Combat"],
     year: "Apr 2026",
   },
   {
