@@ -510,7 +510,7 @@ export default function Home() {
   return (
     <div className="min-h-screen relative overflow-x-hidden">
 
-      {/* Shared background */}
+      {/* background */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
         <div className="
           absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2

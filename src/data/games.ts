@@ -109,7 +109,7 @@ export const games: Game[] = [
       "AI navigation and camera system.",
     team: "Gordon Rose + Lamar Jambi",
     link: "https://github.com/lamarjambi/expelled",
-    designDocImages: ["/img/design-doc/expelled-doc1.png"],
+    designDocImages: ["/img/design-doc/expelled-doc1.png", "/img/design-doc/expelled-doc2.png"],
     designDocLink: "https://docs.google.com/document/d/1EBdyv-dwliLy8J3fwEh8dIvezmnrDliF6fx3UxqrrFk/edit?usp=sharing",
     designDocNote:
       "Expelled is an isometric combat game built in Unity using a 3D tilemap grid system. The player falls through a rift " +
@@ -119,7 +119,7 @@ export const games: Game[] = [
       "to fend off enemies that close in from all sides. The first week of development focuses on the core loop: " +
       "grid movement, isometric camera, one weapon, and one enemy AI. Week two expands the weapon set. " +
       "Built with an isometric character controller, 3D tilemap, and Unity NavMesh for enemy pathfinding.",
-    video: "/videos/reachStars-gameplay.mp4",
+    video: "/videos/expelled-gameplay.mp4",
     status: "In Progress",
     tags: ["Unity", "C#", "3D", "Isometric", "Combat"],
     year: "Apr 2026",
