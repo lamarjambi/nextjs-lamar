@@ -608,7 +608,7 @@ export default function Home() {
       {/* ── DESKTOP LAYOUT (hidden on mobile) ─────────────────────────────── */}
       <div className="hidden sm:block">
 
-        <header className="px-6 sm:px-16 lg:px-40 pt-8 pb-6 bg-[#FAF0DD]/90 border-b-2 border-[#702C95]">
+        <header className="px-6 sm:px-16 lg:px-40 pt-16 sm:pt-16 lg:pt-16 pb-6 bg-[#FAF0DD]/90 border-b-2 border-[#702C95]">
           <div className="flex items-end justify-between gap-4 flex-wrap">
             <div>
               <h1 className="text-7xl font-bold text-[#702C95] mb-6 font-press-start text-outline">
