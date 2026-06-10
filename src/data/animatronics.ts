@@ -33,7 +33,7 @@ export const animatronicsProjects: Project[] = [
   {
     name: "Wormy...",
     slug: "wormy",
-    shortDesc: "Experimental animatronic immitation of a real worm.",
+    shortDesc: "Experimental animatronic immitation of a real worm",
     description:
     "An experimental worm animatronic engineered with a flexible pipe body to mimic organic, worm-like movement. " +
     "The structure is supported and kept upright by a system of structural threads, with its dynamic motion " +
@@ -48,7 +48,7 @@ export const animatronicsProjects: Project[] = [
   {
     name: "Terry, The Jellyfish-Alien Hybrid",
     slug: "terry-alien",
-    shortDesc: "A happy little shrimp animatronic!",
+    shortDesc: "Terry is an alien in the shape of a jellyfish with a tragic story ):",
     description:
       "An animatronic collector alien built with a 3D-printed body, customized tentacles, and cast Ecoflex 00-30 silicone arms. " +
       "The creature features an automated system powered by an Arduino, dual air pumps, and solenoid valves that inflate the silicone arms " +
