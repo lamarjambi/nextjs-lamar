@@ -55,7 +55,7 @@ export const animatronicsProjects: Project[] = [
       "while brightening embedded LEDs dynamically based on proximity data captured by a Time of Flight sensor.",
     role: "3D Modeler, Builder, & Designer",
     link: "https://youtu.be/4N7Gon4IhcY?si=BLqaMaS3MEL2weO4",
-    img: "/img/Image-holder.webp",
+    img: "/img/terry-alien.jpg",
     tags: ["Silicone Chem", "Sensors"],
     year: "May 2026",
     category: "animatronics",
