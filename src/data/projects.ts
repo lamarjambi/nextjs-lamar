@@ -15,6 +15,9 @@ export type Project = {
   category: ProjectCategory;
   size?: ProjectSize;
   team?: string;
+  designDocImages?: string[];
+  designDocLink?: string;
+  designDocNote?: string;
 };
 
 export const otherProjects: Project[] = [

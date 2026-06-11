@@ -26,6 +26,11 @@ export const animatronicsProjects: Project[] = [
     role: "Mechanical Designeer & 3D Modeler",
     videoUrl: "https://www.youtube.com/embed/vZVIeXQa6X8",
     img: "/img/amputee-spider.jpg",
+    designDocImages: ["/img/design-doc/spider-designdoc1.jpg"],
+    designDocLink: "https://docs.google.com/document/d/1b1V237kel-B74jE9Y890Id4M36UTpY1itv6grTEcpdk/edit?usp=sharing",
+    designDocNote:
+      "The spider was built using three TowerPro servo motors mounted in 3D-printed holders, a foam-filled base for support, and legs made from layered thin dowel sticks. The STL files for the motor holders were found online, and the base was packed with foam to keep the motors in place (it got messy).\n\n" +
+      "We got excited about controlling motors with a potentiometer in class and decided to do something silly with it, a 3-legged spider! The walking logic turned out to be really tricky to figure out, and the legs kept being unstable until we layered them up more. After that, all that was left was perfecting the code!",
     tags: ["Servo Motors", "Walking Mechanism"],
     year: "Feb 2026",
     category: "animatronics",
@@ -60,6 +65,11 @@ export const animatronicsProjects: Project[] = [
     tags: ["Silicone Chem", "Sensors"],
     year: "May 2026",
     link: "https://github.com/lamarjambi/terry-alien-jellyfish",
+    designDocLink: "https://docs.google.com/document/d/1AZj4teJtWzufvVeIVAntcKKnQKM12WaZcR91chJMmJc/edit?usp=sharing",
+    designDocImages: ["/img/design-doc/terry-designdoc1.jpg", "/img/design-doc/terry-designdoc2.jpg"],
+    designDocNote:
+      "Terry was built using Ecoflex 00-30 silicone cast in 3D-printed molds, two Arduino air pumps, two solenoid valves, a Time of Flight sensor, and three LEDs. The body and tentacles are all PLA 3D prints spray painted silver, with a repurposed Hello Fresh cardboard box hiding all the electronics inside.\n\n" +
+      "The concept came from the idea that everything is made of atoms, and Terry, one of the Collectors, returns them home by forming real connections with people first, knowing they will come and go forever. The silicone arms were the trickiest part after a mold spill disaster and learning that vaseline was very much needed! Once everything came together with Sil-Poxy sealed tubes and a proximity-reactive LED and pump system, Terry was finally alive.",
     category: "animatronics",
   }
 ];

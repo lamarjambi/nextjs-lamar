@@ -114,6 +114,43 @@ export default async function AnimatronicsDetailPage({
             </div>
           </div>
 
+          {/* design process */}
+          {(project.designDocImages?.length || project.designDocLink) && (
+            <>
+              <hr className="border-[#702C95]/30" />
+              <div>
+                <h2 className="font-press-start text-[#702C95] text-sm mb-4">Design Process</h2>
+                {project.designDocImages && project.designDocImages.length > 0 && (
+                  <div className="grid grid-cols-2 gap-3 mb-4">
+                    {project.designDocImages.map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        alt={`Process ${i + 1}`}
+                        className="w-full rounded-xl border-2 border-[#702C95] object-cover"
+                      />
+                    ))}
+                  </div>
+                )}
+                {project.designDocLink && (
+                  <a
+                    href={project.designDocLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-dokdo text-xl text-[#EC6BA7] underline hover:text-[#547DFD] transition-colors"
+                  >
+                    See the full documentation →
+                  </a>
+                )}
+                {project.designDocNote && (
+                  <p className="font-courier-prime text-md text-[#702C95] leading-relaxed mt-4 whitespace-pre-line">
+                    {project.designDocNote}
+                  </p>
+                )}
+              </div>
+            </>
+          )}
+
           {/* external link */}
           {project.link && (
             <>
