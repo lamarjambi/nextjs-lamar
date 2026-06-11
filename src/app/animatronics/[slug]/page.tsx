@@ -45,13 +45,25 @@ export default async function AnimatronicsDetailPage({
           {project.shortDesc}
         </p>
 
-        {/* image */}
+        {/* video or image */}
         <div className="w-full rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-xl mb-10">
-          <img
-            src={project.img}
-            alt={project.name}
-            className="w-full object-cover"
-          />
+          {project.videoUrl ? (
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                src={project.videoUrl}
+                title={project.name}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          ) : (
+            <img
+              src={project.img}
+              alt={project.name}
+              className="w-full object-cover"
+            />
+          )}
         </div>
 
         {/* details block */}
@@ -103,15 +115,19 @@ export default async function AnimatronicsDetailPage({
           </div>
 
           {/* external link */}
-          <hr className="border-[#702C95]/30" />
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block font-press-start text-xs px-5 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
-          >
-            View Project →
-          </a>
+          {project.link && (
+            <>
+              <hr className="border-[#702C95]/30" />
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block font-press-start text-xs px-5 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+              >
+                View on GitHub →
+              </a>
+            </>
+          )}
 
         </div>
       </main>

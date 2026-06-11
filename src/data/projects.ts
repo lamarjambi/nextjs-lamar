@@ -7,12 +7,13 @@ export type Project = {
   shortDesc: string;
   description: string;
   role: string;
-  link: string;
+  link?: string;
+  videoUrl?: string;
   img: string;
   tags: string[];
   year: string;
   category: ProjectCategory;
-  size?: ProjectSize; 
+  size?: ProjectSize;
   team?: string;
 };
 
