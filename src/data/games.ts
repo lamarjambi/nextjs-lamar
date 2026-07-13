@@ -108,7 +108,7 @@ export const games: Game[] = [
     responsibilities:
       "AI navigation and camera system.",
     team: "Gordon Rose + Lamar Jambi",
-    link: "https://github.com/lamarjambi/expelled",
+    link: "https://playlamar.itch.io/expelled",
     designDocImages: ["/img/design-doc/expelled-doc1.png", "/img/design-doc/expelled-doc2.png"],
     designDocLink: "https://docs.google.com/document/d/1EBdyv-dwliLy8J3fwEh8dIvezmnrDliF6fx3UxqrrFk/edit?usp=sharing",
     designDocNote:
