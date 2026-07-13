@@ -178,7 +178,7 @@ export default async function AnimatronicsDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 06/10/2026
+          last updated 07/12/2026
         </p>
       </footer>
     </div>

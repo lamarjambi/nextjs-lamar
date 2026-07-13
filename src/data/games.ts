@@ -5,7 +5,8 @@ export type Game = {
   description: string;
   role: string;
   responsibilities?: string;
-  link: string;
+  link?: string;
+  github?: string;
   status: "In Progress" | "Completed" | "Paused";
   tags: string[];
   year: string;
@@ -70,6 +71,7 @@ export const games: Game[] = [
     responsibilities:
       "Implemented the flashlight system, inspect and pickup interactions, puzzle system, item collection, and inventory management.",
     link: "https://playlamar.itch.io/requiem-forest",
+    github: "https://github.com/lamarjambi/cosmic-thread",
     designDocImages: ["/img/design-doc/rf-doc1.jpg", "/img/design-doc/rf-doc2.jpg"],
     designDocLink: "https://docs.google.com/document/d/1WMXf-jLXO7RdH3_mPw1on5GzrjLOd_pMquyiJbHiwn4/edit?usp=sharing",
     designDocNote:
@@ -109,6 +111,7 @@ export const games: Game[] = [
       "AI navigation and camera system.",
     team: "Gordon Rose + Lamar Jambi",
     link: "https://playlamar.itch.io/expelled",
+    github: "https://github.com/lamarjambi/expelled",
     designDocImages: ["/img/design-doc/expelled-doc1.png", "/img/design-doc/expelled-doc2.png"],
     designDocLink: "https://docs.google.com/document/d/1EBdyv-dwliLy8J3fwEh8dIvezmnrDliF6fx3UxqrrFk/edit?usp=sharing",
     designDocNote:
@@ -137,6 +140,7 @@ export const games: Game[] = [
     responsibilities:
       "Sole developer; 2D asset creation, level design, goal system, pickup and inspection mechanics, and overall game logic.",
     link: "https://playlamar.itch.io/fog-city-shadows",
+    github: "https://github.com/lamarjambi/fog-city-shadows",
     designDocImages: ["/img/design-doc/fcs-doc1.png", "/img/design-doc/fcs-doc2.png"],
     designDocNote:
     "Fog City Shadows grew out of a real experience! The intro scene was directly inspired by the office " +
@@ -163,6 +167,7 @@ export const games: Game[] = [
     responsibilities:
       "Sole developer; game logic, platformer mechanics, 2D asset creation, animations, and sound design.",
     link: "https://oppr.org/s/iYpolLEj",
+    github: "https://github.com/lamarjambi/Super-Adrenaline-Junkies",
     video: "/videos/SAJ-demo-game.mp4",
     status: "Completed",
     tags: ["P5.js", "Web", "Platformer"],
@@ -180,7 +185,7 @@ export const games: Game[] = [
     role: "Indie Developer, Gameplay Programmer, 2D Artist",
     responsibilities:
       "Sole developer; game logic, puzzle design, 2D asset creation, animations, and sound design.",
-    link: "https://github.com/lamarjambi/hues-quest.git",
+    github: "https://github.com/lamarjambi/hues-quest.git",
     video: "/videos/huesQuest-gameplay.mp4",
     status: "Paused",
     tags: ["GameMaker", "Puzzle", "RPG-like"],

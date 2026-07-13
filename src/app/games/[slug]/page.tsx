@@ -179,19 +179,34 @@ export default async function GameDetailPage({
             </>
           )}
 
-          {/* play button */}
-          {game.link !== "#" && (
+          {/* Actions Container */}
+          {(game.github !== "#" || game.link !== "#") && (
             <>
               <hr className="border-[#702C95]/30" />
-              <div className="flex justify-center">
-                <a
-                  href={game.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
-                >
-                  Play →
-                </a>
+              <div className="flex flex-row justify-center items-center gap-4 mt-4">
+                {/* GitHub Button (Left) */}
+                {game.github !== "#" && (
+                  <a
+                    href={game.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                  >
+                    Github →
+                  </a>
+                )}
+
+                {/* Play Button (Right) */}
+                {game.link !== "#" && (
+                  <a
+                    href={game.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                  >
+                    Play →
+                  </a>
+                )}
               </div>
             </>
           )}
@@ -208,7 +223,7 @@ export default async function GameDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 04/09/2026
+          last updated 07/12/2026
         </p>
       </footer>
     </div>
