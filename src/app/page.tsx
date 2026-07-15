@@ -729,7 +729,7 @@ export default function Home() {
             play.lmjambi@gmail.com
           </a>
           <p className="font-dokdo text-[#702C95]/60 text-md">
-            last updated 07/12/2026
+            last updated 07/14/2026
           </p>
         </footer>
 

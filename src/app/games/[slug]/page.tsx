@@ -179,13 +179,13 @@ export default async function GameDetailPage({
             </>
           )}
 
-          {/* Actions Container */}
-          {(game.github !== "#" || game.link !== "#") && (
+          {/* button containers */}
+          {((game.github && game.github !== "#") || (game.link && game.link !== "#")) && (
             <>
               <hr className="border-[#702C95]/30" />
               <div className="flex flex-row justify-center items-center gap-4 mt-4">
-                {/* GitHub Button (Left) */}
-                {game.github !== "#" && (
+                {/* github */}
+                {game.github && game.github !== "#" && (
                   <a
                     href={game.github}
                     target="_blank"
@@ -196,8 +196,8 @@ export default async function GameDetailPage({
                   </a>
                 )}
 
-                {/* Play Button (Right) */}
-                {game.link !== "#" && (
+                {/* play */}
+                {game.link && game.link !== "#" && (
                   <a
                     href={game.link}
                     target="_blank"
@@ -223,7 +223,7 @@ export default async function GameDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 07/12/2026
+          last updated 07/14/2026
         </p>
       </footer>
     </div>

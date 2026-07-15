@@ -33,6 +33,7 @@ export const games: Game[] = [
     role: "Indie Developer, Gameplay Programmer, 2D Artist",
     responsibilities: "Sole developer; story bible, game design, 2D art, C# programming, and sound design.",
     link: "https://playlamar.itch.io/cosmic-thread",
+    github: "https://github.com/lamarjambi/cosmic-thread",
     designDocImages: ["/img/design-doc/ct-doc1.png", "/img/design-doc/ct-doc2.png"],
     designDocLink: "https://docs.google.com/document/d/10PTx2B1-a93PUcojfPPzS05c84deABsPt6IaGAMRuwE/edit?usp=sharing",
     designDocNote: "In Cosmic Thread, players act as an " 
@@ -71,7 +72,6 @@ export const games: Game[] = [
     responsibilities:
       "Implemented the flashlight system, inspect and pickup interactions, puzzle system, item collection, and inventory management.",
     link: "https://playlamar.itch.io/requiem-forest",
-    github: "https://github.com/lamarjambi/cosmic-thread",
     designDocImages: ["/img/design-doc/rf-doc1.jpg", "/img/design-doc/rf-doc2.jpg"],
     designDocLink: "https://docs.google.com/document/d/1WMXf-jLXO7RdH3_mPw1on5GzrjLOd_pMquyiJbHiwn4/edit?usp=sharing",
     designDocNote:
