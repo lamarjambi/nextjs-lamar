@@ -537,8 +537,8 @@ export default function Home() {
               I study Integrated Design & Media at NYU Tandon, minor in Game Design!
               Grew up in Jeddah, Saudi Arabia; based in Brooklyn, NY :P
               <br /><br />
-              I played Flash games and Halo 3 on the floor with my siblings as a kid,
-              and I want to recreate that feeling for new generations :]
+              Playing Flash games and Halo 3 on the floor with my siblings as a kid was a time that 
+              I will never forget, and I want to recreate that feeling of enterning new worlds for everyone :]
             </p>
           </div>
           <div className="flex justify-center">
@@ -626,9 +626,9 @@ export default function Home() {
                 currently based in Brooklyn, NY :P
                 <br></br>
                 <br></br>
-                I played Flash games and Halo 3 as a kid with my siblings and cousins, laying
-                on the floor, and I want to recreate that feeling to new generations! I enjoy
-                playing console games, and that&apos;s what I&apos;m focusing on :]
+                Playing Flash games and Halo 3 on the floor with my siblings as a kid was a time that 
+                I will never forget, and I want to recreate that feeling of enterning new worlds for everyone :] 
+                I create and build console games!
               </p>
             </div>
             <div className="flex gap-3 items-center pb-1">
