@@ -123,7 +123,7 @@ export const games: Game[] = [
       "grid movement, isometric camera, one weapon, and one enemy AI. Week two expands the weapon set. " +
       "Built with an isometric character controller, 3D tilemap, and Unity NavMesh for enemy pathfinding.",
     video: "/videos/expelled-gameplay.mp4",
-    status: "In Progress",
+    status: "Completed",
     tags: ["Unity", "C#", "3D", "Isometric", "Combat"],
     year: "Apr 2026",
   },
