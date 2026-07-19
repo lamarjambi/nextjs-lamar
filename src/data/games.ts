@@ -173,6 +173,25 @@ export const games: Game[] = [
     year: "Mar 2026",
   },
   {
+    name: "[DragonJar Studios] Yokai: Unleashed",
+    slug: "dragonjar",
+    featured: false,
+    shortDesc: "Physics-based puzzle with silly written hints",
+    description:
+    "",
+    role: "Programmer Intern",
+    responsibilities:
+      "Programmed puzzle mechanic",
+    designDocImages: ["/img/design-doc/dragonjar-doc1.png", "/img/design-doc/dragonjar-doc2.png", "/img/design-doc/dragonjar-doc3.png"],
+    designDocNote:
+    "nmnmn",
+    results: "nmnmnm",
+    video: "/videos/dragonjar-gameplay.mp4",
+    status: "In Progress",
+    tags: ["Unreal Engine  5", "3D", "Puzzle", "Adventure"],
+    year: "Mar 2026",
+  },
+  {
     name: "Fog City Shadows",
     slug: "fog-city-shadows",
     featured: false,
