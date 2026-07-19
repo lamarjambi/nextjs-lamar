@@ -139,7 +139,7 @@ export const games: Game[] = [
     "move around, and hold left-shift and left click the blueprints to connect them based on the given prompt :p",
     role: "Gameplay Designer, Programmer, 2D Artist",
     responsibilities:
-      "Programmed and designed the blueprints replica mechanics; created 2D assets",
+      "Programmed and designed game mechanics; created 2D assets",
     team: "Lamar Jambi + Kaylie Stuteville",
     link: "https://playlamar.itch.io/it-was-working-yesterday",
     github: "https://github.com/lamarjambi/GameJam25",
