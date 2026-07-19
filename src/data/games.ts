@@ -178,17 +178,38 @@ export const games: Game[] = [
     featured: false,
     shortDesc: "Physics-based puzzle with silly written hints",
     description:
-    "",
+      "Developed during my time as a Programmer Intern at DragonJar Studios, this project task features a physics-based " +
+      "puzzle system built entirely in Unreal Engine 5. Players must interact with physics objects and navigate " +
+      "cryptic and silly hints to figure out the correct combination. This puzzle includes true victories, deceptive traps, " +
+      "and dynamic puzzle resets!!",
     role: "Programmer Intern",
     responsibilities:
-      "Programmed puzzle mechanic",
+      "Programmed puzzle mechanics using object-oriented programming concepts",
     designDocImages: ["/img/design-doc/dragonjar-doc1.png", "/img/design-doc/dragonjar-doc2.png", "/img/design-doc/dragonjar-doc3.png"],
     designDocNote:
-    "nmnmn",
-    results: "nmnmnm",
+      "Yokai: Unleashed utilizes strict object-oriented inheritance in Unreal Engine 5 to handle modular puzzle mechanics. " +
+      "The core system dictates a three-outcome structure: a True Win, a False Win ('Fool's Gold'), and a standard Fail state. " +
+      "To achieve this cleanly, I established an architecture relying on a central Puzzle Manager alongside dedicated parent blueprints " +
+      "for the components—BP_Block_Parent and BP_Pressure_Plate_Parent—allowing child blueprints to inherit core collision " +
+      "and checking behaviors while easily differentiating individual assets.\n\n" +
+      
+      "As shown in the logic, the pressure plate utilizes component overlaps to cast to the parent block class, using explicit Actor Tags " +
+      "(such as BlockA and BlockC) to evaluate real-time states and communicate success conditions back to the manager. " +
+      "If a player triggers the False Win, the system opens a deceptive door that seamlessly teleports them back to the start, " +
+      "clearing the boards and calling a randomization function to shift the solution states, ensuring they can't simply guess their way through.",
+    results:
+      "The initial implementation satisfied the functional parameters of the prompt, but relying on strict actor tags created " +
+      "a hardcoded relationship between specific plates and blocks. Code review and playtesting feedback highlighted that this approach " +
+      "limited structural scalability. If a designer wanted to change the puzzle layout or scale up the requirements, the hardcoded blueprint " +
+      "nodes would have to be manually rewired.\n\n" +
+
+      "To address this, I refactored the system to move away from static actor-tag checks. By implementing a dynamic array of hints " +
+      "within the Puzzle Manager, the system was upgraded to evaluate solutions procedurally. Based on whichever hint is actively generated, " +
+      "the required plate-and-block pairings update dynamically. This drastically decoupled the logic, leaving the project with a highly adaptable, " +
+      "designer-friendly toolset capable of supporting a vast sequence of unique physics puzzles.",
     video: "/videos/dragonjar-gameplay.mp4",
     status: "In Progress",
-    tags: ["Unreal Engine  5", "3D", "Puzzle", "Adventure"],
+    tags: ["Unreal Engine 5", "3D", "Puzzle", "Blueprints"],
     year: "Mar 2026",
   },
   {
