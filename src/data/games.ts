@@ -109,7 +109,7 @@ export const games: Game[] = [
     role: "Gameplay Programmer + UI",
     responsibilities:
       "AI navigation and camera system.",
-    team: "Gordon Rose + Lamar Jambi",
+    team: "Lamar Jambi + Gordon Rose",
     link: "https://playlamar.itch.io/expelled",
     github: "https://github.com/lamarjambi/expelled",
     designDocImages: ["/img/design-doc/expelled-doc1.png", "/img/design-doc/expelled-doc2.png"],
@@ -140,11 +140,32 @@ export const games: Game[] = [
     role: "Gameplay Designer, Programmer, 2D Artist",
     responsibilities:
       "Programmed and designed the blueprints replica mechanics; created 2D assets",
+    team: "Lamar Jambi + Kaylie Stuteville",
     link: "https://playlamar.itch.io/it-was-working-yesterday",
     github: "https://github.com/lamarjambi/GameJam25",
-    designDocImages: ["/img/design-doc/iwwy-doc1.png", "/img/design-doc/iwwy-doc2.png"],
+    designDocImages: ["/img/design-doc/iwwy-doc1.png", "/img/design-doc/iwwy-doc2.png", "/img/design-doc/iwwy-doc3.png"],
     designDocNote:
-    "It Was Working Yesterday (IWWY)",
+      "It Was Working Yesterday (IWWY) uses procedural representation to express the stress of debugging " +
+      "Unreal Engine 5's blueprint systems under a tight deadline. Players play as panicked developers trying " +
+      "to fix broken node system for a 'Ghost King' boss before a countdown timer hits zero. Built in Unity, " +
+      "the game replicates a node-based blueprint interface where players drag nodes and use Shift+Click to link " +
+      "them into a valid logic graph.\n\n" +
+      
+      "To heighten the psychological horror of a looming deadline, the game features a strict 3-strike fail condition. " +
+      "Incorrect configurations increase screen tension, causing the Ghost King to slowly materialize on screen. " +
+      "Failing completely triggers a sudden jumpscare and shuffles the nodes for a complete reset, while success rewards " +
+      "the player with a humorous, self-aware 'Thank you :P' from the functioning ghost.",
+    results:
+      "Playtesting feedback provided valuable insights for improving clarity and game feel. " +
+      "While players praised the blueprint puzzle concept, the major instruction friction was confusion in the blueprint prompt " +
+      "that implied an arbitrary order of operations ('jump and play sound'), whereas the evaluation system strictly required " +
+      "a specific sequence, leading to initial confusion. Additionally, a critical bug in the instructions misstated " +
+      "the node-linking controls, and an overlapping audio loop occurred upon losing.\n\n" +
+
+      "To improve the game's as a vignette, future iterations will replace the placeholder actor images " +
+      "with context-driven assets like error pop-ups or brutal playtester comments. We also plan to lean into " +
+      "the 'sweating bullets' game jam narrative by adding features like complex conditional (if/else) nodes, " +
+      "obtuse naming conventions, and ambient background banter from other jammers bragging about their perfect builds.",
     video: "/videos/iwwy-gameplay.mp4",
     status: "Completed",
     tags: ["Unity", "2D", "Comedy", "GameJam"],
