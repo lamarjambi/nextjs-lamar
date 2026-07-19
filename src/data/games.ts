@@ -209,7 +209,7 @@ export const games: Game[] = [
       "designer-friendly toolset capable of supporting a vast sequence of unique physics puzzles.",
     video: "/videos/dragonjar-gameplay.mp4",
     status: "In Progress",
-    tags: ["Unreal Engine 5", "3D", "Puzzle", "Blueprints"],
+    tags: ["Unreal Engine 5", "C++", "Puzzle", "Blueprints"],
     year: "Mar 2026",
   },
   {
