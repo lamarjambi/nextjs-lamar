@@ -144,6 +144,7 @@ export const games: Game[] = [
     link: "https://playlamar.itch.io/it-was-working-yesterday",
     github: "https://github.com/lamarjambi/GameJam25",
     designDocImages: ["/img/design-doc/iwwy-doc1.png", "/img/design-doc/iwwy-doc2.png", "/img/design-doc/iwwy-doc3.png"],
+    designDocLink: "https://docs.google.com/document/d/1t-hBDsdDkUZLj6W4JTPfs6GEbfsKdZmquC97Pbkn0lg/edit?usp=sharing",
     designDocNote:
       "It Was Working Yesterday (IWWY) uses procedural representation to express the stress of debugging " +
       "Unreal Engine 5's blueprint systems under a tight deadline. Players play as panicked developers trying " +
