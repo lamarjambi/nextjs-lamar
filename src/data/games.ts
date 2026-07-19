@@ -104,7 +104,7 @@ export const games: Game[] = [
     description:
       "Expelled is a 3D isometric combat game where the player accidentally falls through a rift into a foreign realm. " +
       "Their very existence is an anomaly, and the realm's immune system, monsters, hunts them down instinctively. " +
-      "The player isn't evil. They just don't belong. Navigate a grid-based world, fight back with weapons, and survive " +
+      "The player isn't evil. The player just doesn't belong. Navigate a grid-based world, fight back with weapons, and survive " +
       "a realm that wants you gone.",
     role: "Gameplay Programmer + UI",
     responsibilities:
@@ -126,6 +126,29 @@ export const games: Game[] = [
     status: "Completed",
     tags: ["Unity", "C#", "3D", "Isometric", "Combat"],
     year: "Apr 2026",
+  },
+  {
+    name: "It Was Working Yesterday",
+    slug: "it-was-working",
+    featured: false,
+    shortDesc: "Can you debug this???",
+    description:
+    "It Was Working Yesterday is a collab work inspired by my teammate and I's experience in ScreamJam 2025, " + 
+    "where UE5 stopped working and kept crashing on us under the gamejam's deadline. IWWY is a puzzle, comedy game, and " +
+    "its mechanics are pretty simple because it mimics UE5's blueprints; use your mouse's scroller to zoom in/out, hold right click to " +
+    "move around, and hold left-shift and left click the blueprints to connect them based on the given prompt :p",
+    role: "Gameplay Designer, Programmer, 2D Artist",
+    responsibilities:
+      "Programmed and designed the blueprints replica mechanics; created 2D assets",
+    link: "https://playlamar.itch.io/it-was-working-yesterday",
+    github: "https://github.com/lamarjambi/GameJam25",
+    designDocImages: ["/img/design-doc/iwwy-doc1.png", "/img/design-doc/iwwy-doc2.png"],
+    designDocNote:
+    "It Was Working Yesterday (IWWY)",
+    video: "/videos/iwwy-gameplay.mp4",
+    status: "Completed",
+    tags: ["Unity", "2D", "Comedy", "GameJam"],
+    year: "Mar 2026",
   },
   {
     name: "Fog City Shadows",

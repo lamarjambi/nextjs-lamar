@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 * {
-  cursor: url('/img/pink-cursor.PNG'), auto;
+  cursor: url('/img/pink-cursor.PNG') 20 12, auto;
 }
 
 :root {
