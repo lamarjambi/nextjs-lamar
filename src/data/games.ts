@@ -130,7 +130,7 @@ export const games: Game[] = [
   {
     name: "It Was Working Yesterday",
     slug: "it-was-working",
-    featured: false,
+    featured: true,
     shortDesc: "Can you debug this???",
     description:
     "It Was Working Yesterday is a collab work inspired by my teammate and I's experience in ScreamJam 2025, " + 
@@ -175,7 +175,7 @@ export const games: Game[] = [
   {
     name: "[DragonJar Studios] Yokai: Unleashed",
     slug: "dragonjar",
-    featured: false,
+    featured: true,
     shortDesc: "Physics-based puzzle with silly written hints",
     description:
       "Developed during my time as a Programmer Intern at DragonJar Studios, this project task features a physics-based " +
@@ -215,7 +215,7 @@ export const games: Game[] = [
   {
     name: "Pest Control",
     slug: "pest-control",
-    featured: false,
+    featured: true,
     shortDesc: "Hold your ground, alien!!!",
     description:
       "Pest Control is a third-person shooter game that plays on the Earth, alien invaders cliché theme where humans are invading a foreign plants!! " + 
