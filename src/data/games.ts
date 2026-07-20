@@ -213,6 +213,38 @@ export const games: Game[] = [
     year: "Mar 2026",
   },
   {
+    name: "Pest Control",
+    slug: "pest-control",
+    featured: false,
+    shortDesc: "Hold your ground, alien!!!",
+    description:
+      "Pest Control is a third-person shooter game that plays on the Earth, alien invaders cliché theme where humans are invading a foreign plants!! " + 
+      "The player plays as the alien who's defending their plent. Pest Control is also a commentary game about how wealthy humans looove to stick their noses " +
+      "into things that aren't their business ):<\n\n" +
+
+      "We should save our planet and stop destroying other creatures' homes!!",
+    role: "Sole developer, gameplay programmer",
+    responsibilities:
+      "Built the game from end-to-finish; programmed shooting and weapons system",
+    designDocImages: ["/img/design-doc/pestcontrol-doc1.png", "/img/design-doc/pestcontrol-doc2.png"],
+    designDocNote:
+      "Pest Control utilizes Unreal Engine 5's gameplay framework to create a foundational, tightly responsive third-person shooter loop. " +
+      "Architecturally, the project balances performance and visual feedback by splitting tasks between character locomotion " +
+      "and weapon behavior. The character setup manipulates camera booms with dynamic over-the-shoulder socket offsets and uses procedural " +
+      "transform modifiers to handle real-time spine blending for realistic up-and-down vertical aim offsets.\n\n" +
+      
+      "The shooting loop relies on fully automatic firing logic paired with specialized line tracing (raycasting). " +
+      "Instead of running generic traces against basic bounding boxes, I established a custom 'Hit Scan' trace channel. " +
+      "The character's master capsule component is configured to explicitly ignore this channel, while the target mesh blocking presets " +
+      "are explicitly set to block it. This ensures pinpoint accuracy, allowing shots to organically pass between a target's legs " +
+      "or over their shoulders without triggering false collisions. Upon a valid impact, an automated 'Apply Damage' pipeline triggers " +
+      "health calculation branches, culminating in a systemic ragdoll simulation via physics blending and collision swaps once health drops to zero.",
+    video: "/videos/pestcontrol-gameplay.mp4",
+    status: "In Progress",
+    tags: ["Unreal Engine 5", "C++", "Third-person shooter", "Blueprints"],
+    year: "July 2026",
+  },
+  {
     name: "Fog City Shadows",
     slug: "fog-city-shadows",
     featured: false,
