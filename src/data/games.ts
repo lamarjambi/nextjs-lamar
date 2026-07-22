@@ -161,7 +161,7 @@ export const games: Game[] = [
       "Unreal Engine 5's blueprint systems under a tight deadline. Players play as panicked developers trying " +
       "to fix broken node system for a 'Ghost King' boss before a countdown timer hits zero. Built in Unity, " +
       "the game replicates a node-based blueprint interface where players drag nodes and use Shift+Click to link " +
-      "them into a valid logic graph\n\n" +
+      "them into a valid logic graph.\n\n" +
       
       "To heighten the psychological horror of a looming deadline, the game features a strict 3-strike fail condition. " +
       "Incorrect configurations increase screen tension, causing the Ghost King to slowly materialize on screen. " +

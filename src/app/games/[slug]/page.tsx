@@ -84,7 +84,7 @@ export default async function GameDetailPage({
           {/* description */}
           <div>
             <h2 className="font-press-start text-[#702C95] text-sm mb-3">About</h2>
-            <p className="font-courier-prime text-md text-[#702C95] leading-relaxed">
+            <p className="font-courier-prime text-md text-[#702C95] leading-relaxed whitespace-pre-line">
               {game.description}
             </p>
           </div>
@@ -172,7 +172,7 @@ export default async function GameDetailPage({
               <hr className="border-[#702C95]/30" />
               <div>
                 <h2 className="font-press-start text-[#702C95] text-sm mb-3">Results</h2>
-                <p className="font-courier-prime text-md text-[#702C95] leading-relaxed">
+                <p className="font-courier-prime text-md text-[#702C95] leading-relaxed whitespace-pre-line">
                   {game.results}
                 </p>
               </div>
