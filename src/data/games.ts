@@ -301,13 +301,30 @@ export const games: Game[] = [
       "across hand-crafted levels full of junk-pile hazards and tight corridors.",
     role: "Indie Developer, Gameplay Programmer, 2D Artist",
     responsibilities:
-      "Sole developer; game logic, platformer mechanics, 2D asset creation, animations, and sound design.",
+      "Sole developer",
     link: "https://oppr.org/s/iYpolLEj",
     github: "https://github.com/lamarjambi/Super-Adrenaline-Junkies",
     video: "/videos/SAJ-demo-game.mp4",
     status: "Completed",
     tags: ["P5.js", "Web", "Platformer"],
     year: "Jan 2024",
+  },
+  {
+    name: "[NDA] Rewind & Meow",
+    slug: "rewwind-meow",
+    featured: false,
+    shortDesc: "Meow meow.... meow??",
+    description:
+      "Mika gets turned into a cat by a fellow jealous vocaloid, she's now on a journey to bring back her normal form!\n\n" +
+
+      "Tag along with Mika's adventure as she goes talking to humans and fighting the evil force that is Zatsune ):<<<",
+    role: "Game Producer; Instructor",
+    responsibilities:
+      "Guiding developers; building logic block; 2D assets",
+    status: "Completed",
+    img: "/img/rewind&meow.png",
+    tags: ["Construct 3", "Adventure", "RPG-like"],
+    year: "Jul 2026",
   },
   {
     name: "Hue's Quest",
@@ -320,7 +337,7 @@ export const games: Game[] = [
       "one hue at a time.",
     role: "Indie Developer, Gameplay Programmer, 2D Artist",
     responsibilities:
-      "Sole developer; game logic, puzzle design, 2D asset creation, animations, and sound design.",
+      "Sole developer",
     github: "https://github.com/lamarjambi/hues-quest.git",
     video: "/videos/huesQuest-gameplay.mp4",
     status: "Paused",
