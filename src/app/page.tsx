@@ -614,12 +614,17 @@ export default function Home() {
               <h1 className="text-7xl font-bold text-[#702C95] mb-6 font-press-start text-outline">
                 Lamar Jambi
               </h1>
-              <div className="inline-block group">
+              <a
+                href="https://www.instagram.com/playlamar.dev?igsh=MWljNnI5cWMydnkwaA%3D%3D&utm_source=qr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block group hover:opacity-80 transition-opacity"
+              >
                 <p className="text-2xl text-[#702C95] font-semibold font-press-start pb-2">
-                  Gameplay Programmer
+                  Gameplay Designer
                 </p>
                 <div className="wavy-underline w-full"></div>
-              </div>
+              </a>
               <p className="font-dokdo text-[#702C95] text-2xl mt-4 max-w-4xl leading-relaxed">
                 I study Integrated Design & Media major at NYU Tandon, with a minor
                 in Game Design! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I&apos;m
