@@ -30,11 +30,11 @@ export const games: Game[] = [
       "Cosmic Thread is a comedic, 2D puzzle game, where the player takes the role as an intergalactic agent. The gameplay consists of " + 
       "thoroughly reading case files and switching between Inspect and Thread modes. Connect the evidence on the investigation " + 
       "board. Player wins by making the correct connections and identifying the culprit :P",
-    role: "Indie Developer, Gameplay Programmer, 2D Artist",
-    responsibilities: "Sole developer; story bible, game design, 2D art, C# programming, and sound design.",
+    role: "Indie Developer, Gameplay Dersigner, Programmer,  2D Artist",
+    responsibilities: "Sole developer; story bible, game design, 2D art, C# programming, and sound design",
     link: "https://playlamar.itch.io/cosmic-thread",
     github: "https://github.com/lamarjambi/cosmic-thread",
-    designDocImages: ["/img/design-doc/ct-doc1.png", "/img/design-doc/ct-doc2.png"],
+    designDocImages: ["/img/design-doc/ct-doc1.png", "/img/design-doc/ct-doc2.png", "/img/design-doc/ct-doc3.jpg", "/img/design-doc/ct-doc4.png", "/img/design-doc/ct-doc5.png"],
     designDocLink: "https://docs.google.com/document/d/10PTx2B1-a93PUcojfPPzS05c84deABsPt6IaGAMRuwE/edit?usp=sharing",
     designDocNote: "In Cosmic Thread, players act as an " 
     + "intergalactic detective, solving mysteries by reading case files and building evidence " + 
@@ -48,7 +48,7 @@ export const games: Game[] = [
     + "and targeting a Steam release, the game draws " 
     + "aesthetic inspiration from The Case of the Golden Idol with a hand-drawn cosmic art style, corkboard " 
     + "investigation boards, and atmospheric audio reinforcing every interaction.",
-    results: "Playtesting Cosmic Thread V1 proved highly valuable in shaping the current design. With no tutorial " 
+    results: "Playtesting Cosmic Thread V1 proved valuable in shaping the current design. With no tutorial " 
     + "and nearly all investigation content being text-based, players lacked the guidance needed to engage " 
     + "with the mechanics confidently, leading to the addition of a mandatory tutorial scene and a general " 
     + "push toward a stronger game feel. One player also suggested incorporating Animal Crossing-style character " 
@@ -56,7 +56,7 @@ export const games: Game[] = [
     video: "/videos/cosmicThread-gameplay.mp4",
     status: "In Progress",
     tags: ["Unity", "C#", "2D", "Puzzle"],
-    year: "Apr 2025",
+    year: "Apr 2025 - Present",
   },
   {
     name: "Requiem Forest",
@@ -68,11 +68,11 @@ export const games: Game[] = [
       "the player must explore their surroundings, scavenge for clues, and survive the dread that lurks between the trees. " +
       "Navigate using only a flashlight, pick up and inspect objects, solve environmental puzzles, and manage your inventory " +
       "to uncover the truth behind why you were left there.",
-    role: "Gameplay Programmer",
+    role: "Gameplay Designer, Programmer",
     responsibilities:
-      "Implemented the flashlight system, inspect and pickup interactions, puzzle system, item collection, and inventory management.",
+      "Implemented the flashlight system; inspect and pickup interactions; puzzle system (keys); item collection; inventory management",
     link: "https://playlamar.itch.io/requiem-forest",
-    designDocImages: ["/img/design-doc/rf-doc1.jpg", "/img/design-doc/rf-doc2.jpg"],
+    designDocImages: ["/img/design-doc/rf-doc1.jpg", "/img/design-doc/rf-doc2.jpg", "/img/design-doc/rf-doc3.png", "/img/design-doc/rf-doc4.png"],
     designDocLink: "https://docs.google.com/document/d/1WMXf-jLXO7RdH3_mPw1on5GzrjLOd_pMquyiJbHiwn4/edit?usp=sharing",
     designDocNote:
     "Requiem Forest is a psychological horror game where a 12-year-old child is abandoned in a " +
@@ -106,22 +106,33 @@ export const games: Game[] = [
       "Their very existence is an anomaly, and the realm's immune system, monsters, hunts them down instinctively. " +
       "The player isn't evil. The player just doesn't belong. Navigate a grid-based world, fight back with weapons, and survive " +
       "a realm that wants you gone.",
-    role: "Gameplay Programmer + UI",
+    role: "Gameplay Designer, Programmer, UI",
     responsibilities:
-      "AI navigation and camera system.",
+      "Player and enemy behavior + Blend Trees; combat design; AI navigation; camera system",
     team: "Lamar Jambi + Gordon Rose",
     link: "https://playlamar.itch.io/expelled",
     github: "https://github.com/lamarjambi/expelled",
     designDocImages: ["/img/design-doc/expelled-doc1.png", "/img/design-doc/expelled-doc2.png"],
     designDocLink: "https://docs.google.com/document/d/1EBdyv-dwliLy8J3fwEh8dIvezmnrDliF6fx3UxqrrFk/edit?usp=sharing",
     designDocNote:
-      "Expelled is an isometric combat game built in Unity using a 3D tilemap grid system. The player falls through a rift " +
-      "into an alien realm where their presence triggers an automatic hostile response. " +
-      "system, hunting the player on instinct rather than malice.\n\n" +
-      "Combat is directional and grid-based. The player navigates tile-by-tile through dungeon environments, using weapons " +
-      "to fend off enemies that close in from all sides. The first week of development focuses on the core loop: " +
-      "grid movement, isometric camera, one weapon, and one enemy AI. Week two expands the weapon set. " +
-      "Built with an isometric character controller, 3D tilemap, and Unity NavMesh for enemy pathfinding.",
+      "Expelled explores the concept of playing as an 'existential anomaly' hunted by a hostile environment's natural immune system :P " +
+      "The game was built in Unity using a 3D tilemap grid and NavMesh pathfinding, the gameplay focuses on spatial navigation and directional melee combat. " +
+      "Players must maneuver tile-by-tile through dungeon spaces, balancing health management with aggressive encounters against swarming enemies.\n\n" +
+
+      "The core loop centers on tactical movement, directional weapon swings, and resource retrieval. " +
+      "A framing intro cinematic establishes the ultimate escape objective (the exit door), while the level layout pairs " +
+      "enemy encounters with conditional healing mechanics—allowing players to recover resources after surviving high-density combat zones.",
+    results:
+      "Playtestesters praised the cohesive visual presentation, modular dungeon aesthetic, and addition of the framing intro cutscene! " +
+      "However, feedback highlighted key areas for growth in game feel and pacing. Combat state readability suffered from overlapping attack animations " +
+      "and unsynced audio cues, making hit-stuns difficult to read. Additionally, the dramatic arc felt inverted, featuring an overwhelming initial combat " +
+      "encounter followed by a abrupt ending, alongside movement controls that created player friction.\n\n" +
+
+      "To elevate the project into a fully polished combat game, future iterations will focus on telegraphing enemy attack states to create clearer " +
+      "defensive options (such as block or dodge mechanics). We also plan to refine the level design to scale encounter difficulty gradually, " +
+      "re-work the intro camera pan to better contextualize the exit path, and smooth out animation cancellation triggers for cleaner combat feedback.\n\n" +
+      
+      "Would also love to flesh out the mechanics further and implement a weapon-health system, along with an inventory system :]",
     video: "/videos/expelled-gameplay.mp4",
     status: "Completed",
     tags: ["Unity", "C#", "3D", "Isometric", "Combat"],
@@ -139,7 +150,7 @@ export const games: Game[] = [
     "move around, and hold left-shift and left click the blueprints to connect them based on the given prompt :p",
     role: "Gameplay Designer, Programmer, 2D Artist",
     responsibilities:
-      "Programmed and designed game mechanics; created 2D assets",
+      "Designed and prorgammed UE5's blueprints replica system; created game loop ;2D art",
     team: "Lamar Jambi + Kaylie Stuteville",
     link: "https://playlamar.itch.io/it-was-working-yesterday",
     github: "https://github.com/lamarjambi/GameJam25",
@@ -150,7 +161,7 @@ export const games: Game[] = [
       "Unreal Engine 5's blueprint systems under a tight deadline. Players play as panicked developers trying " +
       "to fix broken node system for a 'Ghost King' boss before a countdown timer hits zero. Built in Unity, " +
       "the game replicates a node-based blueprint interface where players drag nodes and use Shift+Click to link " +
-      "them into a valid logic graph.\n\n" +
+      "them into a valid logic graph\n\n" +
       
       "To heighten the psychological horror of a looming deadline, the game features a strict 3-strike fail condition. " +
       "Incorrect configurations increase screen tension, causing the Ghost King to slowly materialize on screen. " +
@@ -182,7 +193,7 @@ export const games: Game[] = [
       "puzzle system built entirely in Unreal Engine 5. Players must interact with physics objects and navigate " +
       "cryptic and silly hints to figure out the correct combination. This puzzle includes true victories, deceptive traps, " +
       "and dynamic puzzle resets!!",
-    role: "Programmer Intern",
+    role: "Programmeing Intern",
     responsibilities:
       "Programmed puzzle mechanics using object-oriented programming concepts",
     designDocImages: ["/img/design-doc/dragonjar-doc1.png", "/img/design-doc/dragonjar-doc2.png", "/img/design-doc/dragonjar-doc3.png"],
@@ -250,22 +261,30 @@ export const games: Game[] = [
     featured: false,
     shortDesc: "Horror 3D/2D game about having a job :P",
     description:
-    "Fog City Shadows is a solo-developed 2.5D horror game inspired by the streets of San Francisco. " +
-    "You play as an office worker navigating a city that feels just a little too quiet, a little too watched. " +
-    "Follow the lights, pick up what you find, and try not to think about the job application chasing you through the dark :3",
-    role: "Sole Developer, Gameplay Programmer, 2D Artist",
+      "Fog City Shadows is a solo-developed 2.5D horror game inspired by the streets of San Francisco. " +
+      "You play as an office worker navigating a city that feels just a little too quiet, a little too watched. " +
+      "Follow the lights, pick up what you find, and try not to think about the job application chasing you through the dark :3",
+    role: "Sole Developer, Gameplay Designer, Programmer, 2D Artist",
     responsibilities:
-      "Sole developer; 2D asset creation, level design, goal system, pickup and inspection mechanics, and overall game logic.",
+      "Sole developer; level design; goal system; pickup and inspection mechanics; 2D asset creation",
     link: "https://playlamar.itch.io/fog-city-shadows",
     github: "https://github.com/lamarjambi/fog-city-shadows",
     designDocImages: ["/img/design-doc/fcs-doc1.png", "/img/design-doc/fcs-doc2.png"],
     designDocNote:
-    "Fog City Shadows grew out of a real experience! The intro scene was directly inspired by the office " +
-    "where I worked over the summer, recreated as hand-drawn 2D sprites staged in 3D space. The game opens " +
-    "with a git terminal." +
-    "Once the intro scene is complete, the actual game begins: the player must follow the lights through " +
-    "fog-drenched environments, but they're not alone. A job application stalks them through the dark, " +
-    "turning the all-too-familiar anxiety of job hunting into something genuinely sinister...",
+      "Fog City Shadows translates real-world post-work burnout and job-hunting anxiety into a 2.5D urban horror experience. " +
+      "The opening scene recreates a personal office environment using hand-drawn 2D sprites staged in 3D space, starting at a git terminal. " +
+      "Core gameplay revolves around inventory management and prompt-based item equipping, requiring players to complete everyday tasks while navigating the fog.\n\n" +
+
+      "To reach safety at home, players must follow street lamps as a waypoint system while avoiding a persistent, stalking 'job application' entity. " +
+      "The game balances task execution—such as locating items and checking off to-do prompts—with environmental awareness, transforming mundane routines into a suspenseful navigation puzzle.",
+    results:
+      "Feedback highlighted the strong original concept, effective 2.5D aesthetic, and creative framing of job anxiety :33 " +
+      "However, playtesting identified clarity issues in level signposting and interaction feedback. Street lamp waypoints suffered from distance visibility " +
+      "and texture flickering, leading to navigation friction when searching for goal objectives like the sushi restaurant. " +
+      "Additionally, re-entering quest triggers reset completed tasks in the UI without clear resolution state triggers upon reaching home, while infinite sprint allowed players to easily bypass the enemy entity.\n\n" +
+
+      "To refine the player experience, future iterations will focus on improving objective lighting and adding localized volumetric cues to key points of interest. " +
+      "Mechanically, plans include rebalancing the enemy entity—such as using safe-zone light mechanics to encourage tactical dashing between street lamps—and adding a map interface or clearer UI feedback for goal completion!",
     video: "/videos/fogcity-gameplay.mp4",
     status: "Completed",
     tags: ["Unity", "2.5D", "Horror"],

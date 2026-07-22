@@ -42,8 +42,8 @@ const courierPrime = Courier_Prime({
 });
 
 export const metadata: Metadata = {
-  title: "J@mbo World",
-  description: "J@mbo (Lamar Jambi) World portfolio :3",
+  title: "L@mar World",
+  description: "L@mar World portfolio :3",
 };
 
 export default function RootLayout({
