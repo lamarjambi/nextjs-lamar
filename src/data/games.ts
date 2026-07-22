@@ -323,6 +323,7 @@ export const games: Game[] = [
       "Guiding developers; building logic block; 2D assets",
     status: "Completed",
     img: "/img/rewind&meow.png",
+    designDocImages: ["/img/design-doc/meow-doc1.png"],
     tags: ["Construct 3", "Adventure", "RPG-like"],
     year: "Jul 2026",
   },
