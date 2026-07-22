@@ -221,7 +221,7 @@ export const games: Game[] = [
     video: "/videos/dragonjar-gameplay.mp4",
     status: "In Progress",
     tags: ["Unreal Engine 5", "C++", "Puzzle", "Blueprints"],
-    year: "Mar 2026",
+    year: "Mar 2026 - Present",
   },
   {
     name: "Pest Control",
