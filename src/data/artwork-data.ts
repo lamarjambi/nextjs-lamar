@@ -183,6 +183,15 @@ export const artworks: Artwork[] = [
     imageSrc: "/img/helios-1.jpg",
     size: "wide",
   },
+  {
+    id: 19,
+    title: "H@/na/ha/ki",
+    year: "July 2026",
+    medium: "Digital",
+    tags: ["therapy", "portrait"],
+    imageSrc: "/img/hanahaki2.png",
+    size: "medium",
+  },
 ];
 
 export const sizeToGridClass: Record<ArtworkSize, string> = {
