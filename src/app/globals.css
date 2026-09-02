@@ -41,6 +41,14 @@
   font-family: var(--font-courier-prime), monospace;
 }
 
+.font-kavoon {
+  font-family: var(--font-kavoon), ui-sans-serif;
+}
+
+.font-sketch {
+  font-family: var(--font-sketch), ui-sans-serif;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);

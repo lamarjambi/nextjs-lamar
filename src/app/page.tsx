@@ -533,7 +533,7 @@ export default function Home() {
               <p className="font-press-start text-[#702C95] text-[10px] pb-1">Gameplay Programmer</p>
               <div className="wavy-underline w-full" />
             </div>
-            <p className="font-dokdo text-[#702C95] text-lg leading-relaxed text-left mt-3">
+            <p className="font-courier-prime text-[#702C95] text-lg leading-relaxed text-left mt-3">
               I study Integrated Design & Media at NYU Tandon, minor in Game Design!
               Grew up in Jeddah, Saudi Arabia; based in Brooklyn, NY :P
               <br /><br />
@@ -625,7 +625,7 @@ export default function Home() {
                 </p>
                 <div className="wavy-underline w-full"></div>
               </a>
-              <p className="font-dokdo text-[#702C95] text-2xl mt-4 max-w-4xl leading-relaxed">
+              <p className="font-courier-prime text-[#702C95] text-xl mt-4 max-w-4xl leading-relaxed">
                 I study Integrated Design & Media major at NYU Tandon, with a minor
                 in Game Design! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I&apos;m
                 currently based in Brooklyn, NY :P

@@ -3,6 +3,8 @@ import { Courier_Prime, Geist, Geist_Mono } from "next/font/google";
 import { Press_Start_2P } from "next/font/google";
 import { Dokdo } from "next/font/google";
 import { VT323 } from "next/font/google";
+import { Kavoon } from "next/font/google";
+import { Cabin_Sketch } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,6 +29,18 @@ const dokdo = Dokdo({
   weight: "400",
   subsets: ["latin"],
   variable: "--font-dokdo",
+});
+
+const kavoon = Kavoon({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-kavoon",
+});
+
+const sketch = Cabin_Sketch({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-sketch",
 });
 
 const vt323 = VT323({
@@ -55,7 +69,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} 
-        ${vt323.variable} ${courierPrime.variable} ${dokdo.variable} antialiased`}
+        ${vt323.variable} ${courierPrime.variable} ${dokdo.variable} ${kavoon.variable} ${sketch.variable} antialiased`}
       >
         {children}
       </body>
