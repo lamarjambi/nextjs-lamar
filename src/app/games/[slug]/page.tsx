@@ -53,7 +53,7 @@ export default async function GameDetailPage({
           style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)" }}>
           {game.name}
         </h1>
-        <p className="font-dokdo text-xl text-[#702C95] text-outline text-base mb-8 mx-8">
+        <p className="font-courier-prime text-l text-[#702C95] text-outline text-base mb-8 mx-8">
           {game.shortDesc}
         </p>
 
