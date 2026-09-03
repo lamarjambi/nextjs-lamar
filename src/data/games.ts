@@ -74,6 +74,7 @@ export const games: Game[] = [
     link: "https://playlamar.itch.io/requiem-forest",
     designDocImages: ["/img/design-doc/rf-doc1.jpg", "/img/design-doc/rf-doc2.jpg", "/img/design-doc/rf-doc3.png", "/img/design-doc/rf-doc4.png"],
     designDocLink: "https://docs.google.com/document/d/1WMXf-jLXO7RdH3_mPw1on5GzrjLOd_pMquyiJbHiwn4/edit?usp=sharing",
+    github: "https://github.com/lamarjambi/requiem-forest.git",
     designDocNote:
     "Requiem Forest is a psychological horror game where a 12-year-old child is abandoned in a " +
     "shifting forest as a test of faith. Players navigate a looping, landmark-driven forest across " +
@@ -219,6 +220,7 @@ export const games: Game[] = [
       "the required plate-and-block pairings update dynamically. This drastically decoupled the logic, leaving the project with a highly adaptable, " +
       "designer-friendly toolset capable of supporting a vast sequence of unique physics puzzles.",
     video: "/videos/dragonjar-gameplay.mp4",
+    github: "https://github.com/lamarjambi/yokai-unleashed",
     status: "In Progress",
     tags: ["Unreal Engine 5", "C++", "Puzzle", "Blueprints"],
     year: "Mar 2026 - Present",
@@ -251,6 +253,7 @@ export const games: Game[] = [
       "or over their shoulders without triggering false collisions. Upon a valid impact, an automated 'Apply Damage' pipeline triggers " +
       "health calculation branches, culminating in a systemic ragdoll simulation via physics blending and collision swaps once health drops to zero.",
     video: "/videos/pestcontrol-gameplay.mp4",
+    github: "https://github.com/lamarjambi/pest-control",
     status: "In Progress",
     tags: ["Unreal Engine 5", "C++", "Third-person shooter", "Blueprints"],
     year: "July 2026",
