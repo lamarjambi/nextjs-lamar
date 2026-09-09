@@ -539,6 +539,8 @@ export default function Home() {
               <br /><br />
               Playing Flash games and Halo 3 on the floor with my siblings as a kid was a time that 
               I will never forget, and I want to recreate that feeling of enterning new worlds for everyone :]
+              <br /><br />
+              Skills: 
             </p>
           </div>
           <div className="flex justify-center">
@@ -615,7 +617,6 @@ export default function Home() {
                 Lamar Jambi
               </h1>
               <a
-                href="https://www.instagram.com/playlamar.dev?igsh=MWljNnI5cWMydnkwaA%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block group hover:opacity-80 transition-opacity"
@@ -626,14 +627,20 @@ export default function Home() {
                 <div className="wavy-underline w-full"></div>
               </a>
               <p className="font-courier-prime text-[#702C95] text-xl mt-4 max-w-4xl leading-relaxed">
-                I study Integrated Design & Media major at NYU Tandon, with a minor
-                in Game Design! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I&apos;m
+                I'm a 4th year studying Integrated Design & Media at NYU Tandon, with concentrations
+                in Game Design and Computer Science. Currently working on games with the Real Eaters Club 
+                for gamejams and fun! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I&apos;m
                 currently based in Brooklyn, NY :P
                 <br></br>
                 <br></br>
                 Playing Flash games and Halo 3 on the floor with my siblings as a kid was a time that 
                 I will never forget, and I want to recreate that feeling of enterning new worlds for everyone :] 
                 I create and build console games!
+                <br /><br />
+                {/* no bold feature in this font, so forcing it ): */}
+                <strong className="[text-shadow:_1px_0_0_currentColor]">Skills: UE5 (Blueprints/C++), Unity (C#), OOP/DSA, Git, Perforce</strong>
+                <br />
+                <strong className="[text-shadow:_1px_0_0_currentColor]">Also: team leadership, cross-discipline collaboration</strong>
               </p>
             </div>
             <div className="flex gap-3 items-center pb-1">
@@ -734,7 +741,7 @@ export default function Home() {
             play.lmjambi@gmail.com
           </a>
           <p className="font-dokdo text-[#702C95]/60 text-md">
-            last updated 07/21/2026
+            last updated 09/09/2026
           </p>
         </footer>
 
