@@ -162,6 +162,18 @@ export default async function GameDetailPage({
                     {game.designDocNote}
                   </p>
                 )}
+                {game.problem && (
+                  <p className="font-courier-prime text-md text-[#702C95] leading-relaxed mt-4 whitespace-pre-line">
+                    <strong className="[text-shadow:_1px_0_0_currentColor]">Problem: </strong>
+                    {game.problem}
+                  </p>
+                )}
+                {game.solution && (
+                  <p className="font-courier-prime text-md text-[#702C95] leading-relaxed mt-4">
+                    <strong className="[text-shadow:_1px_0_0_currentColor]">Solution: </strong>
+                    {game.solution}
+                  </p>
+                )}
               </div>
             </>
           )}
