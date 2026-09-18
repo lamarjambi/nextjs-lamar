@@ -68,7 +68,7 @@ export const games: Game[] = [
     + "finish. Alongside that, I'm continuing to push on game feel, the hand-drawn cosmic art, the "
     + "audio, and the comedic beats, so the investigation board feels alive rather than like a wall "
     + "of text!",
-    video: "/videos/cosmicThread-gameplay.mp4",
+    video: "/videos/CT-gameplay.mp4",
     status: "In Progress",
     tags: ["Unity", "C#", "2D", "Puzzle"],
     year: "Apr 2025 - Present",
