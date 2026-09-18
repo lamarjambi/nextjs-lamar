@@ -13,6 +13,7 @@ export type Game = {
   team?: string;
   video?: string;
   img?: string;
+  thumbnail?: string;
   featured?: boolean;
   designDocImages?: string[];
   designDocLink?: string;
@@ -68,6 +69,7 @@ export const games: Game[] = [
     + "finish. Alongside that, I'm continuing to push on game feel, the hand-drawn cosmic art, the "
     + "audio, and the comedic beats, so the investigation board feels alive rather than like a wall "
     + "of text!",
+    thumbnail: "/img/thumbnail/ct-thumbnail.png",
     video: "/videos/CT-gameplay.mp4",
     status: "In Progress",
     tags: ["Unity", "C#", "2D", "Puzzle"],
@@ -177,6 +179,7 @@ export const games: Game[] = [
       
       "Would also love to flesh out the mechanics further and implement a weapon-health system, along with an inventory system :]",
     video: "/videos/expelled-gameplay.mp4",
+    thumbnail: "/img/thumbnail/expelled-thumbnail.png",
     status: "Completed",
     tags: ["Unity", "C#", "3D", "Isometric", "Combat"],
     year: "Apr 2026",

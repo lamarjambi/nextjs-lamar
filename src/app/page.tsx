@@ -45,12 +45,17 @@ function ProjectThumbnail({ project }: { project: Project }) {
 
 function GameThumbnail({ game }: { game: Game }) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const thumb = game.thumbnail ?? game.img;
 
   const handleMouseEnter = () => {
-    videoRef.current?.play();
+    const played = videoRef.current?.play();
+    if (played) played.then(() => setPlaying(true)).catch(() => {});
+    else setPlaying(true);
   };
 
   const handleMouseLeave = () => {
+    setPlaying(false);
     if (videoRef.current) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
@@ -70,19 +75,32 @@ function GameThumbnail({ game }: { game: Game }) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* media */}
-      {"video" in game && game.video ? (
-        <video
-          ref={videoRef}
-          src={game.video}
-          muted
-          loop
-          playsInline
-          className="w-full h-full object-cover"
-        />
+      {/* media — thumbnail sits on top until the video actually starts playing */}
+      {game.video ? (
+        <>
+          <video
+            ref={videoRef}
+            src={game.video}
+            poster={thumb}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover"
+          />
+          {thumb && (
+            <img
+              src={thumb}
+              alt={game.name}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+                playing ? "opacity-0" : "opacity-100"
+              }`}
+            />
+          )}
+        </>
       ) : (
         <img
-          src={(game as { img: string }).img}
+          src={thumb}
           alt={game.name}
           className="w-full h-full object-cover"
         />
@@ -257,8 +275,8 @@ function MobileGameCard({ game }: { game: Game }) {
       className="flex items-center gap-3 p-3 rounded-xl border-2 border-[#702C95] bg-[#FAF0DD]/90 active:scale-[0.98] transition-transform"
     >
       <div className="w-20 h-14 rounded-lg overflow-hidden border-2 border-[#702C95] shrink-0 bg-[#702C95]/10">
-        {game.img ? (
-          <img src={game.img} alt={game.name} className="w-full h-full object-cover" />
+        {(game.thumbnail ?? game.img) ? (
+          <img src={game.thumbnail ?? game.img} alt={game.name} className="w-full h-full object-cover" />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
             <span className="text-[#702C95]/40 text-lg">▶</span>
