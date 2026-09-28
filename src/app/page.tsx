@@ -43,6 +43,12 @@ function ProjectThumbnail({ project }: { project: Project }) {
   );
 }
 
+const GAME_STATUS_COLORS: Record<string, string> = {
+  "In Progress": "bg-[#FDD23B] text-[#702C95]",
+  Completed: "bg-[#81C950] text-[#702C95]",
+  Paused: "bg-[#75C2DF] text-[#702C95]",
+};
+
 function GameThumbnail({ game }: { game: Game }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
@@ -60,12 +66,6 @@ function GameThumbnail({ game }: { game: Game }) {
       videoRef.current.pause();
       videoRef.current.currentTime = 0;
     }
-  };
-
-  const statusColors: Record<string, string> = {
-    "In Progress": "bg-[#FDD23B] text-[#702C95]",
-    Completed: "bg-[#81C950] text-[#702C95]",
-    Paused: "bg-[#75C2DF] text-[#702C95]",
   };
 
   return (
@@ -108,20 +108,67 @@ function GameThumbnail({ game }: { game: Game }) {
 
       {/* status badge */}
       <span
-        className={`absolute top-3 right-3 text-sm font-dokdo px-2 py-0.5 rounded-full font-bold ${statusColors[game.status] ?? "bg-white text-[#702C95]"}`}
+        className={`absolute top-3 right-3 text-sm font-dokdo px-2 py-0.5 rounded-full font-bold ${GAME_STATUS_COLORS[game.status] ?? "bg-white text-[#702C95]"}`}
       >
         {game.status}
       </span>
 
-      {/* hover overlay */}
-      <div className="absolute inset-0 bg-[#702C95]/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-        <h2 className="font-press-start text-white text-xs mb-2 leading-relaxed">
+      {/* hover overlay — the thumbnail is the door into the case study */}
+      <div className="absolute inset-0 bg-[#702C95]/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-5">
+        <span className="font-press-start text-white text-[10px] px-4 py-2 rounded-full bg-[#EC6BA7] border-2 border-white shadow-lg">
+          View more →
+        </span>
+      </div>
+    </a>
+  );
+}
+
+/** one game per row — thumbnail on one side, bullets on the other, alternating */
+function GameRow({ game, flip }: { game: Game; flip: boolean }) {
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+
+      {/* thumbnail */}
+      <div className={flip ? "lg:order-2" : "lg:order-1"}>
+        <GameThumbnail game={game} />
+      </div>
+
+      {/* bullets + vital info */}
+      <div
+        className={`bg-[#FAF0DD]/90 border-4 border-[#702C95] rounded-2xl p-6 shadow-lg ${
+          flip ? "lg:order-1" : "lg:order-2"
+        }`}
+      >
+        <h3 className="font-press-start text-[#702C95] text-sm leading-relaxed">
           {game.name}
-        </h2>
-        <p className="font-courier-prime text-white/90 text-xs mb-3 leading-snug">
+        </h3>
+
+        <p className="font-dokdo text-[#EC6BA7] text-xl mt-1 leading-none">
+          {game.year}
+          {game.team ? ` · ${game.team}` : ""}
+        </p>
+
+        <p className="font-courier-prime text-[#702C95]/80 text-sm mt-2 leading-snug">
           {game.shortDesc}
         </p>
-        <div className="flex flex-wrap gap-1">
+
+        <div className="my-4 h-0.5 bg-[#702C95]/20 rounded-full" />
+
+        <p className="font-press-start text-[#702C95] text-[10px] mb-1">Role</p>
+        <p className="font-courier-prime text-[#702C95] text-sm leading-snug">{game.role}</p>
+
+        {game.highlights && (
+          <ul className="mt-4 space-y-2">
+            {game.highlights.map((point) => (
+              <li key={point} className="flex gap-2 font-courier-prime text-[#702C95] text-sm leading-snug">
+                <span className="text-[#EC6BA7] shrink-0">▸</span>
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <div className="flex flex-wrap gap-1.5 mt-5">
           {game.tags.map((tag) => (
             <span
               key={tag}
@@ -132,7 +179,7 @@ function GameThumbnail({ game }: { game: Game }) {
           ))}
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
@@ -501,6 +548,7 @@ export default function Home() {
 
   const featuredGames = games.filter((g) => g.featured);
   const extraGames = games.filter((g) => !g.featured);
+  const visibleGames = showMoreGames ? [...featuredGames, ...extraGames] : featuredGames;
 
   const toggleFilter = (cat: ProjectCategory) => {
     setFilters((prev) => {
@@ -674,12 +722,9 @@ export default function Home() {
             <div className="mb-5">
               <h2 className="font-press-start text-black text-xl mb-1 text-outline-purple">Games + Demos</h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {featuredGames.map((game) => (
-                <GameThumbnail key={game.name} game={game} />
-              ))}
-              {showMoreGames && extraGames.map((game) => (
-                <GameThumbnail key={game.name} game={game} />
+            <div className="space-y-10">
+              {visibleGames.map((game, i) => (
+                <GameRow key={game.name} game={game} flip={i % 2 === 1} />
               ))}
             </div>
             {extraGames.length > 0 && (

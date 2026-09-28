@@ -2,6 +2,8 @@ export type Game = {
   name: string;
   slug: string;
   shortDesc: string;
+  /** short bullets shown next to the thumbnail on the home page */
+  highlights?: string[];
   description: string;
   role: string;
   responsibilities?: string;
@@ -29,6 +31,12 @@ export const games: Game[] = [
     slug: "cosmic-thread",
     featured: true,
     shortDesc: "In a far-away galaxy, you're the universal agent solving Xaltarian mysteries >:3",
+    highlights: [
+      "Solo dev: game design, C# systems, hand-drawn 2D art, and sound",
+      "Two-mode investigation loop--Inspect to examine, Thread to link evidence",
+      "Built a cinematic tutorial level after playtests showed new players stalling",
+      "3 unlocking cases, ~30-45 min runtime, aiming for a Steam release",
+    ],
     description:
       "Cosmic Thread is a comedic, 2D puzzle game, where the player takes the role as an intergalactic agent. The gameplay consists of " + 
       "thoroughly reading case files and switching between Inspect and Thread modes. Connect the evidence on the investigation " + 
@@ -80,6 +88,12 @@ export const games: Game[] = [
     slug: "requiem-forest",
     featured: true,
     shortDesc: "A ScreamJam 2025 entry--what would you do if your parents abandoned you at a forest?",
+    highlights: [
+      "ScreamJam 2025 entry, built in Unreal Engine 5.4 on a jam deadline",
+      "Owned the flashlight, inspect/pickup, key puzzles, and inventory systems",
+      "Tag-based narrative manager fires per-zone monologue that shifts with the trial",
+      "Tension carried by audio--heartbeat proximity read better than any HUD",
+    ],
     description:
       "Requiem Forest is a horror game made for ScreamJam 2025. Stranded alone in a dark, foreboding forest after being abandoned, " +
       "the player must explore their surroundings, scavenge for clues, and survive the dread that lurks between the trees. " +
@@ -132,6 +146,12 @@ export const games: Game[] = [
     slug: "expelled",
     featured: true,
     shortDesc: "You don't belong here, and the realm knows it.",
+    highlights: [
+      "3D isometric combat on a tilemap grid with NavMesh pathfinding",
+      "Owned player + enemy behavior, blend trees, combat, AI nav, and camera",
+      "Ran integration too--pulled and debugged my teammate's branch to ship",
+      "Playtests praised the cohesive look; next pass is telegraphed enemy states",
+    ],
     description:
       "Expelled is a 3D isometric combat game where the player accidentally falls through a rift into a foreign realm. " +
       "Their very existence is an anomaly, and the realm's immune system, monsters, hunts them down instinctively. " +
@@ -189,6 +209,12 @@ export const games: Game[] = [
     slug: "dragonjar",
     featured: false,
     shortDesc: "Physics-based puzzle with silly written hints",
+    highlights: [
+      "Programming intern work on Yokai: Unleashed in Unreal Engine 5",
+      "Physics puzzle with three outcomes--true win, Fool's Gold trap, and fail",
+      "Parent blueprints for blocks and plates so children inherit collision logic",
+      "Refactored hardcoded actor tags into a dynamic hint array designers can extend",
+    ],
     description:
       "Developed during my time as a Programmer Intern at DragonJar Studios, this project task features a physics-based " +
       "puzzle system built entirely in Unreal Engine 5. Players must interact with physics objects and navigate " +
