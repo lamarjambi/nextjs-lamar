@@ -89,7 +89,7 @@ export const games: Game[] = [
     featured: true,
     shortDesc: "A ScreamJam 2025 entry--what would you do if your parents abandoned you at a forest?",
     highlights: [
-      "Shipped a complete horror game for ScreamJam 2025 in Unreal Engine 5.4, on a jam deadline",
+      "Shipped a complete horror game for ScreamJam 2025 in Unreal Engine 5.4 on a jam deadline",
       "Programmed the flashlight, inspect/pickup, key puzzle, and inventory systems",
       "Built a tag-based narrative manager firing per-zone monologue that shifts tone as the trial progresses",
       "Collaborated with level design and programming teams; coordinated file ownership",
@@ -148,15 +148,14 @@ export const games: Game[] = [
     shortDesc: "You don't belong here, and the realm knows it.",
     highlights: [
       "Programmed player and enemy behavior, blend trees, melee combat, AI navigation, and the camera in Unity (C#)",
-      "Built 3D isometric combat on a tilemap grid with NavMesh pathfinding",
+      "Built 3D isometric combat on a tilemap grid with NavMesh pathfinding; implemented attach combos",
       "Restructured a stalled 2-person project into clearly owned systems to realign the design",
-      "Owned integration--pulled and debugged my teammate's branch to get the game shipped",
       "Ran playtests that surfaced combat-readability and pacing fixes, now scoped for the next iteration",
     ],
     description:
       "Expelled is a 3D isometric combat game where the player accidentally falls through a rift into a foreign realm. " +
       "Their very existence is an anomaly, and the realm's immune system, monsters, hunts them down instinctively. " +
-      "The player isn't evil. The player just doesn't belong. Navigate a grid-based world, fight back with weapons, and survive " +
+      "The player just doesn't belong. Navigate a grid-based world, fight back with weapons, and survive " +
       "a realm that wants you gone.",
     role: "Gameplay Designer, Programmer, UI",
     responsibilities:
@@ -213,7 +212,7 @@ export const games: Game[] = [
       "Programmed a physics-based puzzle system in Unreal Engine 5 as a Programming Intern at DragonJar Studios",
       "Implemented a three-outcome structure--true win, a Fool's Gold trap, and a fail state with randomized reset",
       "Architected parent blueprints for blocks and pressure plates so child actors inherit collision and check logic",
-      "Refactored hardcoded actor tags into a dynamic hint array, giving designers a rewire-free puzzle toolset",
+      "Refactored hardcoded actor tags into a dynamic hint array in C++, giving designers a rewire-free puzzle toolset",
     ],
     description:
       "Developed during my time as a Programmer Intern at DragonJar Studios, this project task features a physics-based " +
