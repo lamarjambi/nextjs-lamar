@@ -516,7 +516,7 @@ function SocialIcons() {
     <div className="flex gap-3 items-center">
       <div className="relative group">
         <span className="absolute -top-7 left-1/2 -translate-x-1/2 text-xs font-courier-prime text-[#547DFD] bg-[#FAF0DD] px-2 py-0.5 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">Resume</span>
-        <a href="/files/lamar_jambi_resume.pdf" target="_blank" rel="noopener noreferrer">
+        <a href="/files/lamar_sep26_resume.pdf" target="_blank" rel="noopener noreferrer">
           <div className="w-10 h-10 bg-[#EC6BA7] rounded-full flex items-center justify-center hover:scale-110 hover:bg-[#547DFD] transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
               <path d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2z"/>
