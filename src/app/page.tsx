@@ -178,6 +178,39 @@ function GameRow({ game, flip }: { game: Game; flip: boolean }) {
             </span>
           ))}
         </div>
+
+        {/* button containers */}
+          {((game.github && game.github !== "#") || (game.link && game.link !== "#")) && (
+            <>
+              <hr className="border-[#702C95]/30 mt-6" />
+              <div className="flex flex-row justify-center items-center gap-4 mt-4">
+                {/* github */}
+                {game.github && game.github !== "#" && (
+                  <a
+                    href={game.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                  >
+                    Github →
+                  </a>
+                )}
+
+                {/* play */}
+                {game.link && game.link !== "#" && (
+                  <a
+                    href={game.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                  >
+                    Play →
+                  </a>
+                )}
+              </div>
+            </>
+          )}
+
       </div>
     </div>
   );
@@ -596,7 +629,7 @@ export default function Home() {
               Lamar Jambi
             </h1>
             <div className="inline-block group mb-4">
-              <p className="font-press-start text-[#702C95] text-[10px] pb-1">Gameplay Programmer</p>
+              <p className="font-press-start text-[#702C95] text-[10px] pb-1">Gameplay Designer</p>
               <div className="wavy-underline w-full" />
             </div>
             <p className="font-courier-prime text-[#702C95] text-lg leading-relaxed text-left mt-3">
@@ -804,7 +837,7 @@ export default function Home() {
             play.lmjambi@gmail.com
           </a>
           <p className="font-dokdo text-[#702C95]/60 text-md">
-            last updated 09/09/2026
+            last updated 09/29/2026
           </p>
         </footer>
 
