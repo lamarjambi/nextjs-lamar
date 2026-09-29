@@ -139,7 +139,7 @@ function GameRow({ game, flip }: { game: Game; flip: boolean }) {
           flip ? "lg:order-1" : "lg:order-2"
         }`}
       >
-        <h3 className="font-press-start text-[#702C95] text-sm leading-relaxed">
+        <h3 className="font-press-start text-[#702C95] text-m leading-relaxed">
           {game.name}
         </h3>
 
@@ -148,19 +148,19 @@ function GameRow({ game, flip }: { game: Game; flip: boolean }) {
           {game.team ? ` · ${game.team}` : ""}
         </p>
 
-        <p className="font-courier-prime text-[#702C95]/80 text-sm mt-2 leading-snug">
+        <p className="font-courier-prime text-[#702C95] text-m mt-2 leading-snug">
           {game.shortDesc}
         </p>
 
         <div className="my-4 h-0.5 bg-[#702C95]/20 rounded-full" />
 
-        <p className="font-press-start text-[#702C95] text-[10px] mb-1">Role</p>
-        <p className="font-courier-prime text-[#702C95] text-sm leading-snug">{game.role}</p>
+        <p className="font-press-start text-[#702C95] text-m mb-1">Role</p>
+        <p className="font-courier-prime text-[#702C95] text-lg leading-snug ">{game.role}</p>
 
         {game.highlights && (
           <ul className="mt-4 space-y-2">
             {game.highlights.map((point) => (
-              <li key={point} className="flex gap-2 font-courier-prime text-[#702C95] text-sm leading-snug">
+              <li key={point} className="flex gap-2 font-courier-prime text-[#702C95] text-m leading-snug">
                 <span className="text-[#EC6BA7] shrink-0">▸</span>
                 <span>{point}</span>
               </li>
@@ -172,7 +172,7 @@ function GameRow({ game, flip }: { game: Game; flip: boolean }) {
           {game.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs px-2 py-0.5 bg-[#EC6BA7] text-white rounded-full font-courier-prime"
+              className="text-s px-2 py-0.5 bg-[#EC6BA7] text-white rounded-full font-courier-prime"
             >
               {tag}
             </span>
@@ -190,7 +190,7 @@ function GameRow({ game, flip }: { game: Game; flip: boolean }) {
                     href={game.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                    className="inline-block font-dokdo text-xl px-5 py-2 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
                   >
                     Github →
                   </a>
@@ -202,7 +202,7 @@ function GameRow({ game, flip }: { game: Game; flip: boolean }) {
                     href={game.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                    className="inline-block font-dokdo text-xl px-5 py-2 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
                   >
                     Play →
                   </a>

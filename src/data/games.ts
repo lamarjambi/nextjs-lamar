@@ -32,16 +32,16 @@ export const games: Game[] = [
     featured: true,
     shortDesc: "In a far-away galaxy, you're the universal agent solving Xaltarian mysteries >:3",
     highlights: [
-      "Solo dev: game design, C# systems, hand-drawn 2D art, and sound",
-      "Two-mode investigation loop--Inspect to examine, Thread to link evidence",
-      "Built a cinematic tutorial level after playtests showed new players stalling",
-      "3 unlocking cases, ~30-45 min runtime, aiming for a Steam release",
+      "Developed the entire gameplay cycle in Unity (C#); prototyped 5+ mechanics before landing on the final",
+      "Designed a two-mode investigation loop: Inspect to examine evidence, Thread to link it on the board",
+      "Improved game feel; implemented tutorial level after playtests showed new players stalling on the core mechanics",
+      "Shipped game demos on itch.io and Steam",
     ],
     description:
       "Cosmic Thread is a comedic, 2D puzzle game, where the player takes the role as an intergalactic agent. The gameplay consists of " + 
       "thoroughly reading case files and switching between Inspect and Thread modes. Connect the evidence on the investigation " + 
       "board. Player wins by making the correct connections and identifying the culprit :P",
-    role: "Indie Developer, Gameplay Dersigner, Programmer,  2D Artist",
+    role: "Indie Developer, Gameplay Dersigner",
     responsibilities: "Sole developer; story bible, game design, 2D art, C# programming, and sound design",
     link: "https://playlamar.itch.io/cosmic-thread",
     github: "https://github.com/lamarjambi/cosmic-thread",
@@ -80,7 +80,7 @@ export const games: Game[] = [
     thumbnail: "/img/thumbnail/ct-thumbnail.png",
     video: "/videos/CT-gameplay.mp4",
     status: "In Progress",
-    tags: ["Unity", "C#", "2D", "Puzzle"],
+    tags: ["Unity", "C#", "Puzzle", "Indie"],
     year: "Apr 2025 - Present",
   },
   {
@@ -89,17 +89,17 @@ export const games: Game[] = [
     featured: true,
     shortDesc: "A ScreamJam 2025 entry--what would you do if your parents abandoned you at a forest?",
     highlights: [
-      "ScreamJam 2025 entry, built in Unreal Engine 5.4 on a jam deadline",
-      "Owned the flashlight, inspect/pickup, key puzzles, and inventory systems",
-      "Tag-based narrative manager fires per-zone monologue that shifts with the trial",
-      "Tension carried by audio--heartbeat proximity read better than any HUD",
+      "Shipped a complete horror game for ScreamJam 2025 in Unreal Engine 5.4, on a jam deadline",
+      "Programmed the flashlight, inspect/pickup, key puzzle, and inventory systems",
+      "Built a tag-based narrative manager firing per-zone monologue that shifts tone as the trial progresses",
+      "Collaborated with level design and programming teams; coordinated file ownership",
     ],
     description:
       "Requiem Forest is a horror game made for ScreamJam 2025. Stranded alone in a dark, foreboding forest after being abandoned, " +
       "the player must explore their surroundings, scavenge for clues, and survive the dread that lurks between the trees. " +
       "Navigate using only a flashlight, pick up and inspect objects, solve environmental puzzles, and manage your inventory " +
       "to uncover the truth behind why you were left there.",
-    role: "Gameplay Designer, Programmer",
+    role: "Gameplay Designer, Gameplay Programmer",
     responsibilities:
       "Implemented the flashlight system; inspect and pickup interactions; puzzle system (keys); item collection; inventory management",
     link: "https://playlamar.itch.io/requiem-forest",
@@ -138,7 +138,7 @@ export const games: Game[] = [
     "story beats from overlapping during active chases.",
     img: "/img/screamjam2025.png",
     status: "Completed",
-    tags: ["Unreal 5", "Horror", "Game Jam", "Blueprint"],
+    tags: ["Unreal 5", "Blueprint", "Horror", "Gamejam"],
     year: "Oct 2025",
   },
   {
@@ -147,10 +147,11 @@ export const games: Game[] = [
     featured: true,
     shortDesc: "You don't belong here, and the realm knows it.",
     highlights: [
-      "3D isometric combat on a tilemap grid with NavMesh pathfinding",
-      "Owned player + enemy behavior, blend trees, combat, AI nav, and camera",
-      "Ran integration too--pulled and debugged my teammate's branch to ship",
-      "Playtests praised the cohesive look; next pass is telegraphed enemy states",
+      "Programmed player and enemy behavior, blend trees, melee combat, AI navigation, and the camera in Unity (C#)",
+      "Built 3D isometric combat on a tilemap grid with NavMesh pathfinding",
+      "Restructured a stalled 2-person project into clearly owned systems to realign the design",
+      "Owned integration--pulled and debugged my teammate's branch to get the game shipped",
+      "Ran playtests that surfaced combat-readability and pacing fixes, now scoped for the next iteration",
     ],
     description:
       "Expelled is a 3D isometric combat game where the player accidentally falls through a rift into a foreign realm. " +
@@ -160,7 +161,6 @@ export const games: Game[] = [
     role: "Gameplay Designer, Programmer, UI",
     responsibilities:
       "Player and enemy behavior + Blend Trees; combat design; AI navigation; camera system",
-    team: "Lamar Jambi + Gordon Rose",
     link: "https://playlamar.itch.io/expelled",
     github: "https://github.com/lamarjambi/expelled",
     designDocImages: ["/img/design-doc/expelled-doc1.png", "/img/design-doc/expelled-doc2.png"],
@@ -201,8 +201,8 @@ export const games: Game[] = [
     video: "/videos/expelled-gameplay.mp4",
     thumbnail: "/img/thumbnail/expelled-thumbnail.png",
     status: "Completed",
-    tags: ["Unity", "C#", "3D", "Isometric", "Combat"],
-    year: "Apr 2026",
+    tags: ["Unity", "C#", "Attack Combo", "Teamwork"],
+    year: "Mar 2026 - Apr 2026",
   },
   {
     name: "[DragonJar Studios] Yokai: Unleashed",
@@ -210,10 +210,10 @@ export const games: Game[] = [
     featured: false,
     shortDesc: "Physics-based puzzle with silly written hints",
     highlights: [
-      "Programming intern work on Yokai: Unleashed in Unreal Engine 5",
-      "Physics puzzle with three outcomes--true win, Fool's Gold trap, and fail",
-      "Parent blueprints for blocks and plates so children inherit collision logic",
-      "Refactored hardcoded actor tags into a dynamic hint array designers can extend",
+      "Programmed a physics-based puzzle system in Unreal Engine 5 as a Programming Intern at DragonJar Studios",
+      "Implemented a three-outcome structure--true win, a Fool's Gold trap, and a fail state with randomized reset",
+      "Architected parent blueprints for blocks and pressure plates so child actors inherit collision and check logic",
+      "Refactored hardcoded actor tags into a dynamic hint array, giving designers a rewire-free puzzle toolset",
     ],
     description:
       "Developed during my time as a Programmer Intern at DragonJar Studios, this project task features a physics-based " +
@@ -250,7 +250,7 @@ export const games: Game[] = [
     video: "/videos/dragonjar-gameplay.mp4",
     github: "https://github.com/lamarjambi/yokai-unleashed",
     status: "In Progress",
-    tags: ["Unreal Engine 5", "C++", "Puzzle", "Blueprints"],
+    tags: ["Unreal Engine 5", "C++", "Blueprint", "Puzzle"],
     year: "Mar 2026 - Present",
   }
 ];
