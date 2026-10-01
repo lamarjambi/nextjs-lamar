@@ -46,19 +46,19 @@ export default async function GameDetailPage({
         </span>
       </header>
 
-      <main className="px-12 py-12 max-w-5xl mx-auto">
+      <main className="px-4 sm:px-12 py-8 sm:py-12 max-w-5xl mx-auto">
 
         {/* title */}
-        <h1 className="font-press-start text-[#702C95] text-outline mb-2 mx-8"
+        <h1 className="font-press-start text-[#702C95] text-outline mb-2 sm:mx-8"
           style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)" }}>
           {game.name}
         </h1>
-        <p className="font-courier-prime text-l text-[#702C95] text-outline text-base mb-8 mx-8">
+        <p className="font-courier-prime text-l text-[#702C95] text-outline text-base mb-8 sm:mx-8">
           {game.shortDesc}
         </p>
 
         {/* media — centered, top of content */}
-        <div className="rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-xl mb-10 mx-8">
+        <div className="rounded-2xl overflow-hidden border-4 border-[#702C95] shadow-xl mb-10 sm:mx-8">
           {game.video ? (
             <video
               src={game.video}
@@ -79,7 +79,7 @@ export default async function GameDetailPage({
         </div>
 
         {/* details block */}
-        <div className="bg-[#FAF0DD]/90 border-2 border-[#702C95] rounded-2xl p-8 space-y-8 mx-8">
+        <div className="bg-[#FAF0DD]/90 border-2 border-[#702C95] rounded-2xl p-5 sm:p-8 space-y-8 sm:mx-8">
 
           {/* description */}
           <div>
@@ -89,8 +89,8 @@ export default async function GameDetailPage({
             </p>
           </div>
 
-          {/* tools & year — two labeled columns */}
-          <div className="grid grid-cols-2 gap-6">
+          {/* tools & year — two labeled columns (stacked on mobile) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <p className="font-press-start text-[#702C95] text-xs mb-3">Tools & Tech</p>
               <div className="flex flex-wrap gap-2">
@@ -110,8 +110,8 @@ export default async function GameDetailPage({
             </div>
           </div>
 
-          {/* role & responsibilities — two labeled columns */}
-          <div className="grid grid-cols-2 gap-6">
+          {/* role & responsibilities — two labeled columns (stacked on mobile) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <p className="font-press-start text-[#702C95] text-xs mb-1">Role</p>
               <p className="font-courier-prime text-[#702C95]">{game.role}</p>
@@ -136,13 +136,14 @@ export default async function GameDetailPage({
               <div>
                 <h2 className="font-press-start text-[#702C95] text-sm mb-4">Design Process</h2>
                 {game.designDocImages && game.designDocImages.length > 0 && (
-                  <div className="grid grid-cols-2 gap-3 mb-4">
+                  // swipeable row on mobile, 2-col grid on desktop
+                  <div className="flex sm:grid sm:grid-cols-2 gap-3 mb-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-2 sm:pb-0">
                     {game.designDocImages.map((src, i) => (
                       <img
                         key={i}
                         src={src}
                         alt={`Design doc ${i + 1}`}
-                        className="w-full rounded-xl border-2 border-[#702C95] object-cover"
+                        className="w-[80%] sm:w-full shrink-0 snap-center rounded-xl border-2 border-[#702C95] object-cover"
                       />
                     ))}
                   </div>
@@ -202,7 +203,7 @@ export default async function GameDetailPage({
                     href={game.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                    className="flex-1 sm:flex-none text-center whitespace-nowrap inline-block font-dokdo text-2xl px-4 sm:px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
                   >
                     Github →
                   </a>
@@ -214,7 +215,7 @@ export default async function GameDetailPage({
                     href={game.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block font-dokdo text-2xl px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
+                    className="flex-1 sm:flex-none text-center whitespace-nowrap inline-block font-dokdo text-2xl px-4 sm:px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
                   >
                     Play →
                   </a>
@@ -227,7 +228,7 @@ export default async function GameDetailPage({
       </main>
 
       {/* footer */}
-      <footer className="px-34 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] flex items-center justify-between gap-4 flex-wrap mt-12">
+      <footer className="px-6 sm:px-34 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-1 sm:gap-4 text-center mt-12">
         <a
           href="mailto:play.lmjambi@gmail.com"
           className="font-dokdo text-[#702C95] text-md hover:text-[#EC6BA7] transition-colors"
@@ -235,7 +236,7 @@ export default async function GameDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 09/09/2026
+          last updated 09/30/2026
         </p>
       </footer>
     </div>

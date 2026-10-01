@@ -37,7 +37,7 @@ export default async function ProjectDetailPage({
         </span>
       </header>
 
-      <main className="px-12 py-12 max-w-5xl mx-auto">
+      <main className="px-4 sm:px-12 py-8 sm:py-12 max-w-5xl mx-auto">
 
         {/* title */}
         <h1 className="font-press-start text-[#702C95] text-outline mb-2"
@@ -58,7 +58,7 @@ export default async function ProjectDetailPage({
         </div>
 
         {/* details block */}
-        <div className="bg-[#FAF0DD]/90 border-2 border-[#702C95] rounded-2xl p-8 space-y-8">
+        <div className="bg-[#FAF0DD]/90 border-2 border-[#702C95] rounded-2xl p-5 sm:p-8 space-y-8">
 
           {/* description */}
           <div>
@@ -120,7 +120,7 @@ export default async function ProjectDetailPage({
       </main>
 
       {/* footer */}
-      <footer className="px-34 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] flex items-center justify-between gap-4 flex-wrap mt-12">
+      <footer className="px-6 sm:px-34 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-1 sm:gap-4 text-center mt-12">
         <a
           href="mailto:play.lmjambi@gmail.com"
           className="font-dokdo text-[#702C95] text-md hover:text-[#EC6BA7] transition-colors"
@@ -128,7 +128,7 @@ export default async function ProjectDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 07/21/2026
+          last updated 09/30/2026
         </p>
       </footer>
     </div>
