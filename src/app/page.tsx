@@ -489,7 +489,7 @@ function MobileAccordionSection({
     <div>
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-5 py-4 rounded-2xl font-press-start text-[10px] text-[#FAF0DD] shadow-[0_5px_0_0_#4a1a6e] active:shadow-[0_2px_0_0_#4a1a6e] active:translate-y-[3px] transition-all"
+        className="w-full flex items-center justify-between px-5 py-4 rounded-2xl font-press-start text-[10px] text-[#FAF0DD] active:brightness-90 transition-all"
         style={{ backgroundColor: accent ?? "#702C95" }}
       >
         <span className="tracking-wide leading-relaxed">{label}</span>
@@ -633,13 +633,11 @@ export default function Home() {
               <div className="wavy-underline w-full" />
             </div>
             <p className="font-courier-prime text-[#702C95] text-lg leading-relaxed text-left mt-3">
-              I study Integrated Design & Media at NYU Tandon, minor in Game Design!
+              I study Integrated Design & Media at NYU Tandon, concentration in Game Design!
               Grew up in Jeddah, Saudi Arabia; based in Brooklyn, NY :P
               <br /><br />
-              Playing Flash games and Halo 3 on the floor with my siblings as a kid was a time that 
-              I will never forget, and I want to recreate that feeling of enterning new worlds for everyone :]
-              <br /><br />
-              Skills: 
+              I make solo and team games in <strong>UE5(C++ & Blueprints)</strong> and <strong>Unity (C#)</strong>
+              about aliens a lot of the time with alternative controllers!
             </p>
           </div>
           <div className="flex justify-center">
@@ -702,7 +700,7 @@ export default function Home() {
           >
             play.lmjambi@gmail.com
           </a>
-          <p className="font-dokdo text-[#702C95]/60 text-md mt-1">last updated 04/09/2026</p>
+          <p className="font-dokdo text-[#702C95]/60 text-md mt-1">last updated 09/30/2026</p>
         </footer>
       </div>
 
@@ -733,8 +731,8 @@ export default function Home() {
                 <br></br>
                 <br></br>
                 Playing Flash games and Halo 3 on the floor with my siblings as a kid was a time that 
-                I will never forget, and I want to recreate that feeling of enterning new worlds for everyone :] 
-                I create and build console games!
+                I will never forget, and I want to recreate that feeling belonging in a world for everyone :] 
+                I create and build console games (alternative controllers)!
                 <br /><br />
                 {/* no bold feature in this font, so forcing it ): */}
                 <strong className="[text-shadow:_1px_0_0_currentColor]">Skills: UE5 (Blueprints/C++), Unity (C#), OOP/DSA, Git, Perforce</strong>
@@ -783,8 +781,8 @@ export default function Home() {
                     onClick={() => toggleFilter(cat)}
                     className={`flex items-center gap-2 px-3 py-1.5 rounded-full border-2 font-courier-prime text-sm transition-all ${
                       filters[cat]
-                        ? "border-[#702C95] bg-[#702C95] text-white hover:border-[#EC6BA7] hover:bg-[#EC6BA7] hover:scale-105"
-                        : "border-[#702C95]/40 bg-transparent text-[#702C95]/60 hover:border-[#EC6BA7]/70"
+                        ? "border-[#EC6BA7] bg-[#EC6BA7] text-white hover:scale-105"
+                        : "border-[#702C95] bg-[#702C95] text-white hover:bg-[#EC6BA7] hover:border-[#EC6BA7] hover:scale-105"
                     }`}
                   >
                     <span className={`w-3.5 h-3.5 rounded-sm border-2 flex items-center justify-center shrink-0 transition-colors ${
@@ -792,7 +790,7 @@ export default function Home() {
                     }`}>
                       {filters[cat] && (
                         <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                          <path d="M1 4l2 2 4-4" stroke="#702C95" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M1 4l2 2 4-4" stroke="#EC6BA7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       )}
                     </span>
@@ -837,7 +835,7 @@ export default function Home() {
             play.lmjambi@gmail.com
           </a>
           <p className="font-dokdo text-[#702C95]/60 text-md">
-            last updated 09/29/2026
+            last updated 09/30/2026
           </p>
         </footer>
 
