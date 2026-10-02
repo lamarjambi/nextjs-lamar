@@ -208,6 +208,7 @@ export const games: Game[] = [
     slug: "dragonjar",
     featured: false,
     shortDesc: "Physics-based puzzle with silly written hints",
+    thumbnail: "/img/thumbnail/yokai-thumbnail.png",
     highlights: [
       "Programmed a physics-based puzzle system in Unreal Engine 5 as a Programming Intern at DragonJar Studios",
       "Implemented a three-outcome structure--true win, a Fool's Gold trap, and a fail state with randomized reset",
