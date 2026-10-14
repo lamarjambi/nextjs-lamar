@@ -26,7 +26,7 @@ export const otherProjects: Project[] = [
     slug: "doodle-noodle",
     shortDesc: "A GenAI-free artist prompt generator with an inspo board!",
     description:
-      "Amidst a long art block period, I decided to make a browser app for inspo that was not consistent of AI generted pieces nor " +
+      "Amidst a long art block period, I decided to make a browser app for inspo that didn't consist of AI-generated pieces or " +
       "ads, so Doodle Noodle was that! " + 
       "Users are greeted by what type of art they are looking to make and pick out genres to work with. " + 
       "Hitting 'Generate' gives the user a prompt made of aesthetic and general tone, along with a board of inspo images from " + 

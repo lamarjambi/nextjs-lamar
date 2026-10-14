@@ -41,7 +41,7 @@ export const games: Game[] = [
       "Cosmic Thread is a comedic, 2D puzzle game, where the player takes the role as an intergalactic agent. The gameplay consists of " + 
       "thoroughly reading case files and switching between Inspect and Thread modes. Connect the evidence on the investigation " + 
       "board. Player wins by making the correct connections and identifying the culprit :P",
-    role: "Indie Developer, Gameplay Dersigner",
+    role: "Indie Developer, Gameplay Designer",
     responsibilities: "Sole developer; story bible, game design, 2D art, C# programming, and sound design",
     link: "https://playlamar.itch.io/cosmic-thread",
     github: "https://github.com/lamarjambi/cosmic-thread",
@@ -51,11 +51,11 @@ export const games: Game[] = [
     + "intergalactic detective, solving mysteries by reading case files and building evidence " + 
     "connections on an investigation board. Using two modes: Inspect (click items to examine them) " 
     + "and Thread (Shift+Click to link items with red string), players must " 
-    + "correctly map all connections and identify the culprit to complete each case. There's no fail" 
+    + "correctly map all connections and identify the culprit to complete each case. There's no fail " 
     + "state for wrong connections, but a time limit adds mild pressure.\n\n"
 
     + "The game features three sequentially unlocked cases of increasing difficulty, each taking 5-15 " 
-    + "minutes, for a total runtime of about 30-45 minutes. Case 1 doubles as a tutoria. Built in Unity " 
+    + "minutes, for a total runtime of about 30-45 minutes. Case 1 doubles as a tutorial. Built in Unity " 
     + "and targeting a Steam release, the game draws " 
     + "aesthetic inspiration from The Case of the Golden Idol with a hand-drawn cosmic art style, corkboard " 
     + "investigation boards, and atmospheric audio reinforcing every interaction.\n\n",
@@ -109,7 +109,7 @@ export const games: Game[] = [
     designDocNote:
     "Requiem Forest is a psychological horror game where a 12-year-old child is abandoned in a " +
     "shifting forest as a test of faith. Players navigate a looping, landmark-driven forest across " +
-    "six zones: graveyard, tall grass, shed/church, and an altar gate. Player collect three keys to " +
+    "six zones: graveyard, tall grass, shed/church, and an altar gate. Players collect three keys to " +
     "escape purgatory while evading a guilt-manifested monster. Tension is driven entirely through " +
     "audio and visual cues.\n\n" +
 
@@ -148,7 +148,7 @@ export const games: Game[] = [
     shortDesc: "You don't belong here, and the realm knows it.",
     highlights: [
       "Programmed player and enemy behavior, blend trees, melee combat, AI navigation, and the camera in Unity (C#)",
-      "Built 3D isometric combat on a tilemap grid with NavMesh pathfinding; implemented attach combos",
+      "Built 3D isometric combat on a tilemap grid with NavMesh pathfinding; implemented attack combos",
       "Restructured a stalled 2-person project into clearly owned systems to realign the design",
       "Ran playtests that surfaced combat-readability and pacing fixes, now scoped for the next iteration",
     ],
@@ -187,10 +187,10 @@ export const games: Game[] = [
       "it made me a lot more deliberate about aligning on a single vision before writing code.",
 
     results:
-      "Playtestesters praised the cohesive visual presentation, modular dungeon aesthetic, and addition of the framing intro cutscene! " +
+      "Playtesters praised the cohesive visual presentation, modular dungeon aesthetic, and addition of the framing intro cutscene! " +
       "However, feedback highlighted key areas for growth in game feel and pacing. Combat state suffered from overlapping attack animations " +
       "and unsynced audio cues, making hit-stuns difficult to read. Additionally, the dramatic arc felt inverted, featuring an overwhelming initial combat " +
-      "encounter followed by a abrupt ending, alongside movement controls that created player friction.\n\n" +
+      "encounter followed by an abrupt ending, alongside movement controls that created player friction.\n\n" +
 
       "To elevate the project into a fully polished combat game, future iterations will focus on telegraphing enemy attack states to create clearer " +
       "defensive options (such as block or dodge mechanics). We also plan to refine the level design to scale encounter difficulty gradually, " +
@@ -216,11 +216,11 @@ export const games: Game[] = [
       "Refactored hardcoded actor tags into a dynamic hint array in C++, giving designers a rewire-free puzzle toolset",
     ],
     description:
-      "Developed during my time as a Programmer Intern at DragonJar Studios, this project task features a physics-based " +
+      "Developed during my time as a Programming Intern at DragonJar Studios, this project task features a physics-based " +
       "puzzle system built entirely in Unreal Engine 5. Players must interact with physics objects and navigate " +
       "cryptic and silly hints to figure out the correct combination. This puzzle includes true victories, deceptive traps, " +
       "and dynamic puzzle resets!!",
-    role: "Programmeing Intern",
+    role: "Programming Intern",
     responsibilities:
       "Programmed puzzle mechanics using object-oriented programming concepts",
     designDocImages: ["/img/design-doc/dragonjar-doc1.png", "/img/design-doc/dragonjar-doc2.png", "/img/design-doc/dragonjar-doc3.png"],

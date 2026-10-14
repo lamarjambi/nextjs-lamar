@@ -192,7 +192,7 @@ function GameRow({ game, flip }: { game: Game; flip: boolean }) {
                     rel="noopener noreferrer"
                     className="inline-block font-dokdo text-xl px-5 py-2 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
                   >
-                    Github →
+                    GitHub →
                   </a>
                 )}
 
@@ -636,7 +636,7 @@ export default function Home() {
               I study Integrated Design & Media at NYU Tandon, concentration in Game Design!
               Grew up in Jeddah, Saudi Arabia; based in Brooklyn, NY :P
               <br /><br />
-              I make solo and team games in <strong>UE5(C++ & Blueprints)</strong> and <strong>Unity (C#)</strong>
+              I make solo and team games in <strong>UE5 (C++ & Blueprints)</strong> and <strong>Unity (C#) </strong>
               about aliens a lot of the time with alternative controllers!
             </p>
           </div>
@@ -692,7 +692,7 @@ export default function Home() {
 
         </main>
 
-        {/* mobile footer footer */}
+        {/* mobile footer */}
         <footer className="px-6 py-4 bg-[#FAF0DD]/90 border-t-2 border-[#702C95] text-center">
           <a
             href="mailto:play.lmjambi@gmail.com"
@@ -726,12 +726,12 @@ export default function Home() {
               <p className="font-courier-prime text-[#702C95] text-xl mt-4 max-w-4xl leading-relaxed">
                 I'm a 4th year studying Integrated Design & Media at NYU Tandon, with concentrations
                 in Game Design and Computer Science. Currently working on games with the Real Eaters Club 
-                for gamejams and fun! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I&apos;m
+                for game jams and fun! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I&apos;m
                 currently based in Brooklyn, NY :P
                 <br></br>
                 <br></br>
                 Playing Flash games and Halo 3 on the floor with my siblings as a kid was a time that 
-                I will never forget, and I want to recreate that feeling belonging in a world for everyone :] 
+                I will never forget, and I want to recreate that feeling of belonging in a world for everyone :] 
                 I create and build console games (alternative controllers)!
                 <br /><br />
                 {/* no bold feature in this font, so forcing it ): */}

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 
 // add documentation/ideation 
-// pdf? a coupleof images? we'll see
+// pdf? a couple of images? we'll see
 // might be better to post videos on youtube?
 
 export function generateStaticParams() {
@@ -205,7 +205,7 @@ export default async function GameDetailPage({
                     rel="noopener noreferrer"
                     className="flex-1 sm:flex-none text-center whitespace-nowrap inline-block font-dokdo text-2xl px-4 sm:px-8 py-3 bg-[#702C95] text-white rounded-xl hover:bg-[#EC6BA7] transition-colors"
                   >
-                    Github →
+                    GitHub →
                   </a>
                 )}
 

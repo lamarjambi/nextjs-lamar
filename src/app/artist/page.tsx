@@ -143,7 +143,7 @@ export default function ArtistPage() {
             >
               {/*
                 Bento grid: 3 columns, auto rows of 140px.
-                Items span based on their `size` field in artworks-data.ts.
+                Items span based on their `size` field in artwork-data.ts.
                 grid-auto-flow: dense fills gaps automatically.
               */}
               <div

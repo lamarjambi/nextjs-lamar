@@ -1,4 +1,4 @@
-// artworks-data.ts
+// artwork-data.ts
 
 export type ArtworkSize = "small" | "medium" | "large" | "wide" | "tall";
 
@@ -76,7 +76,7 @@ export const artworks: Artwork[] = [
     title: "Alien Smar",
     year: "May 2025",
     medium: "Digital",
-    tags: ["alienaficiation", "portrait"],
+    tags: ["alienification", "portrait"],
     imageSrc: "/img/alien-us.PNG",
     size: "medium",
   },
@@ -140,7 +140,7 @@ export const artworks: Artwork[] = [
     id: 14,
     title: "H@/na/ha/ki",
     year: "March 2023",
-    medium: "A5 Sketcchbook",
+    medium: "A5 Sketchbook",
     tags: ["therapy", "environment"],
     imageSrc: "/img/hanahaki-1.jpg",
     size: "tall",

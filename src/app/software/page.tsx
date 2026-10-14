@@ -43,8 +43,8 @@ interface Card {
       category: "Projects",
       color: "bg-gradient-to-br from-[#75C2DF] to-[#75C2DF] hover:from-[#75C2DF] hover:to-[#FAF0DD]",
       items: [
-        { name: "Doodle Noodle", desc: "A GenAI-free artist prompt generator with an inspo board!", link: "https://www.doodlenoodle.dev", video: "/img/doodle-noodle.png", date: "Completed", tags: ["TypeScript", "next.js", "API", "AWS"] },
-        { name: "WEBTOYS OS", desc: "Collaborative desktop for users to create apps and games", date: "Completed", img:"/img/webtoys-os.png", tags: ["TypeScript", "next.js"] },
+        { name: "Doodle Noodle", desc: "A GenAI-free artist prompt generator with an inspo board!", link: "https://www.doodlenoodle.dev", video: "/img/doodle-noodle.png", date: "Completed", tags: ["TypeScript", "Next.js", "API", "AWS"] },
+        { name: "WEBTOYS OS", desc: "Collaborative desktop for users to create apps and games", date: "Completed", img:"/img/webtoys-os.png", tags: ["TypeScript", "Next.js"] },
         { name: "Script Doctor", desc: "AI puzzle solver agent", date: "Completed", link:"https://github.com/lamarjambi/ScriptDoctor-Python" , img:"/img/script-doctor.png", tags: ["A*", "GPT-4", "Python", "JavaScript"] },
         { name: "HSRN Virtual Meetup App", desc: "NYU IT X HSRN Data Center Robot meeting platform", date: "Completed", img:"/img/hsrn.png", tags: ["React", "JavaScript", "API", "Figma"] },
       ]
@@ -54,7 +54,7 @@ interface Card {
       category: "Experience",
       color: "bg-gradient-to-br from-[#FDD23B] to-[#FDD23B] hover:from-[#FDD23B] hover:to-[#C9A0DF]",
       items: [
-        { name: "Game Innovation Lab", desc: "Researh Intern", link: "https://game.engineering.nyu.edu/", date: "Nov 24 - Feb 25" },
+        { name: "Game Innovation Lab", desc: "Research Intern", link: "https://game.engineering.nyu.edu/", date: "Nov 24 - Feb 25" },
         { name: "Robotics Club @ NYU", desc: "Vice President + Software Engineer", link:"https://instagram.com/nyurobotics" , date: "Sep 24 - Apr 25", img:"/img/robotics.png" },
       ]
     },
@@ -105,8 +105,8 @@ interface Card {
       {/* background animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* cards */}
-        <div className="absolute left-[10%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-1"></div>
-        <div className="absolute left-[30%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-2"></div>
+        <div className="absolute left-[10%] w-24 h-24 bg-[#965DB4] rounded-lg opacity-0 fall-1"></div>
+        <div className="absolute left-[30%] w-24 h-24 bg-[#965DB4] rounded-lg opacity-0 fall-2"></div>
         <div className="absolute left-[50%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-3"></div>
         <div className="absolute left-[70%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-4"></div>
         <div className="absolute left-[90%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-5"></div>
@@ -383,7 +383,7 @@ interface Card {
                 ))}
               </div>
 
-              {/* instrution text */}
+              {/* instruction text */}
               <div className="absolute text-xl -bottom-12 text-purple-900 
               font-semibold translate-y-[12vh] translate-x-[0vw] font-vt323">
                 <p>* Click a card to explore</p>

@@ -44,10 +44,10 @@ interface Card {
       color: "bg-gradient-to-br from-[#75C2DF] to-[#75C2DF] hover:from-[#75C2DF] hover:to-[#FAF0DD]",
       items: [
         { name: "Cosmic Thread", desc: "In a far-away galaxy, you're the universal agent who's solving Xaltarian mysteries", link: "https://playlamar.itch.io/cosmic-thread", video: "/videos/cosmicThread-gameplay.mp4", date: "In Progress", tags: ["Unity", "C#", "2D", "Puzzle"] },
-        { name: "Fog City Shadows", desc: "Horror 3D/2D game about having job :P", link: "https://github.com/lamarjambi/fog-city-shadows", video: "/videos/fogcity-gameplay.mp4", date: "Completed", tags: ["Unity", "2.5D", "Horror"] },
-        { name: "Poly-0: The Saga", desc: "You're Poly-0 trying to retrieve humanity's memory discs to combat OVERMIND, an evil AI ", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4", date: "Completed", tags: ["GameMaker", "2D", "Adventure"] },
-        { name: "Typing Rush", desc: "Silly typing game :3", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif", tags: ["P5.js", "Web", "Typing"], date: "Completed" },
-        { name: "Super Adrenaline Junkies", desc: "Rini tries to escape the junkyard with Garbo chasing her", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4", tags: ["P5.js", "Web" ,"Platformer"], date: "Completed" }, 
+        { name: "Fog City Shadows", desc: "Horror 3D/2D game about having a job :P", link: "https://github.com/lamarjambi/fog-city-shadows", video: "/videos/fogcity-gameplay.mp4", date: "Completed", tags: ["Unity", "2.5D", "Horror"] },
+        { name: "Poly-0: The Saga", desc: "You're Poly-0 trying to retrieve humanity's memory discs to combat OVERMIND, an evil AI", link: "https://github.com/lamarjambi/poly-0-the-saga.git", video: "/videos/poly0-gameplay.mp4", date: "Completed", tags: ["GameMaker", "2D", "Adventure"] },
+        { name: "Typing Rush", desc: "Silly typing game :3", link: "oppr.org/s/3HMXmh9U", img: "/videos/typing-rush-game.gif", tags: ["p5.js", "Web", "Typing"], date: "Completed" },
+        { name: "Super Adrenaline Junkies", desc: "Rini tries to escape the junkyard with Garbo chasing her", link: "oppr.org/s/iYpolLEj", video: "/videos/SAJ-demo-game.mp4", tags: ["p5.js", "Web" ,"Platformer"], date: "Completed" }, 
         { name: "Hue's Quest", desc: "Rini, a newcomer to the town, tries to solve the mystery behind the monochromity of the town", link: "https://github.com/lamarjambi/hues-quest.git", video: "/videos/huesQuest-gameplay.mp4", date: "Paused", tags: ["GameMaker", "Puzzle", "RPG-like"] },
       ]
     },
@@ -56,7 +56,7 @@ interface Card {
       category: "Experience",
       color: "bg-gradient-to-br from-[#FDD23B] to-[#FDD23B] hover:from-[#FDD23B] hover:to-[#C9A0DF]",
       items: [
-        { name: "Dragonjar Studios", desc: "Player movement + NPC AI", link: "https://dragonjarstudios.com/", date: "Mar 2026" },
+        { name: "DragonJar Studios", desc: "Player movement + NPC AI", link: "https://dragonjarstudios.com/", date: "Mar 2026" },
         { name: "Real Eaters Club", desc: "Gameplay systems + AI Navigation", link: "https://www.linkedin.com/real-eaters-club", date: "Oct 2025" },
         { name: "ScreamJam2025", desc: "Game mechanics (inventory and interaction systems) + UI", link: "https://playlamar.itch.io/requiem-forest", img:"/img/screamjam2025.png", date: "Oct 2025" },
         { name: "WEBTOYS OS", desc: "Lead Product Designer", date: "Sep 2025", img:"/img/webtoys-os.png" },
@@ -111,8 +111,8 @@ interface Card {
       {/* background animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* cards */}
-        <div className="absolute left-[10%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-1"></div>
-        <div className="absolute left-[30%] w-24 h-24 32-[#965DB4] rounded-lg opacity-0 fall-2"></div>
+        <div className="absolute left-[10%] w-24 h-24 bg-[#965DB4] rounded-lg opacity-0 fall-1"></div>
+        <div className="absolute left-[30%] w-24 h-24 bg-[#965DB4] rounded-lg opacity-0 fall-2"></div>
         <div className="absolute left-[50%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-3"></div>
         <div className="absolute left-[70%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-4"></div>
         <div className="absolute left-[90%] w-24 h-32 bg-[#965DB4] rounded-lg opacity-0 fall-5"></div>
@@ -199,7 +199,7 @@ interface Card {
             {/* desc */}
             <div className="space-y-4 text-[#FDD23B]">
               <p className="text-lg leading-relaxed font-dokdo">
-                The 3DS XL was the first gaming console I ever <i>personaly</i> owned-I got it as a present from my parents,
+                The 3DS XL was the first gaming console I ever <i>personally</i> owned—I got it as a present from my parents,
                 and I&apos;ve been chasing that high over and over again by giving people fun experiences :]
               </p>
             </div>
@@ -387,7 +387,7 @@ interface Card {
                 ))}
               </div>
 
-              {/* instrution text */}
+              {/* instruction text */}
               <div className="absolute text-xl -bottom-12 text-purple-900 
               font-semibold translate-y-[12vh] translate-x-[0vw] font-vt323">
                 <p>* Click a card to explore</p>

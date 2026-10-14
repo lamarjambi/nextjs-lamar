@@ -23,7 +23,7 @@ export const animatronicsProjects: Project[] = [
       "A 3-legged spider animatronic built using a 3D-printed base and motor holders reinforced with foam. " +
       "The creature features layered wooden dowel legs powered by three matching TowerPro servo motors, " +
       "with its walking logic dynamically controlled via a potentiometer.",
-    role: "Mechanical Designeer & 3D Modeler",
+    role: "Mechanical Designer & 3D Modeler",
     videoUrl: "https://www.youtube.com/embed/vZVIeXQa6X8",
     img: "/img/amputee-spider.jpg",
     designDocImages: ["/img/design-doc/spider-designdoc1.jpg"],
@@ -38,7 +38,7 @@ export const animatronicsProjects: Project[] = [
   {
     name: "Wormy...",
     slug: "wormy",
-    shortDesc: "Experimental animatronic immitation of a real worm",
+    shortDesc: "Experimental animatronic imitation of a real worm",
     description:
     "An experimental worm animatronic engineered with a flexible pipe body to mimic organic, worm-like movement. " +
     "The structure is supported and kept upright by a system of structural threads, with its dynamic motion " +
