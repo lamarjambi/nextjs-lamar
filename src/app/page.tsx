@@ -725,8 +725,8 @@ export default function Home() {
               </a>
               <p className="font-courier-prime text-[#702C95] text-xl mt-4 max-w-4xl leading-relaxed">
                 I'm a 4th year studying Integrated Design & Media at NYU Tandon, with concentrations
-                in Game Design and Computer Science. Currently working on games with the Real Eaters Club 
-                for game jams and fun! I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I&apos;m
+                in Game Design and Computer Science. Currently working on <strong>Dance, Dance, Die</strong> with the Real Eaters Club!  
+                I grew up in the mermaid capital that is Jeddah, Saudi Arabia, and I&apos;m
                 currently based in Brooklyn, NY :P
                 <br></br>
                 <br></br>
