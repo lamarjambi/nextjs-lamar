@@ -149,11 +149,10 @@ export const games: Game[] = [
     featured: true,
     shortDesc: "You showed up to a Halloween party in Bushwick. The door locked behind you. Now DANCE!!",
     highlights: [
-      "Building a first-person rhythm horror game in Unreal Engine 5.4, with jumpscares as the fail state",
-      "Built a custom Python tool that converts community Clone Hero charts into lane-encoded Audition marker CSVs for UE",
-      "Drove note spawning off MetaSound cue points, reading each marker's label to pick the lane(s) per beat",
-      "Designed a miss system that escalates with every mistake (camera shake, blackouts, heartbeat) before the jumpscare",
-      "Partnered with a level designer on a two-person team, owning game design and all gameplay development",
+      "Developed a first-person rhythm horror game in Unreal Engine 5.4",
+      "Built a custom Python tool that converts community charts into lane-encoded Audition marker CSVs for UE",
+      "Drove note spawning off MetaSound cue points; designed a miss system",
+      "Collaborated with a level designer; owning game design and all gameplay development",
     ],
     description:
       "Dance, Dance, Die (3Ds) is a first-person rhythm horror game set in New York City. On Halloween night, the player heads " +
