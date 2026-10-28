@@ -6,6 +6,26 @@ import Link from "next/link";
 // pdf? a couple of images? we'll see
 // might be better to post videos on youtube?
 
+/** inline-links the first occurrence of link.text inside the solution copy */
+function renderSolution(text: string, link?: { text: string; href: string }) {
+  const i = link ? text.indexOf(link.text) : -1;
+  if (!link || i === -1) return text;
+  return (
+    <>
+      {text.slice(0, i)}
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[#EC6BA7] underline hover:text-[#547DFD] transition-colors"
+      >
+        {link.text}
+      </a>
+      {text.slice(i + link.text.length)}
+    </>
+  );
+}
+
 export function generateStaticParams() {
   return games.map((g) => ({ slug: g.slug }));
 }
@@ -170,9 +190,9 @@ export default async function GameDetailPage({
                   </p>
                 )}
                 {game.solution && (
-                  <p className="font-courier-prime text-md text-[#702C95] leading-relaxed mt-4">
+                  <p className="font-courier-prime text-md text-[#702C95] leading-relaxed mt-4 whitespace-pre-line">
                     <strong className="[text-shadow:_1px_0_0_currentColor]">Solution: </strong>
-                    {game.solution}
+                    {renderSolution(game.solution, game.solutionLink)}
                   </p>
                 )}
               </div>
@@ -236,7 +256,7 @@ export default async function GameDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 10/14/2026
+          last updated 10/28/2026
         </p>
       </footer>
     </div>
