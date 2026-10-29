@@ -204,6 +204,7 @@ export const games: Game[] = [
       "loop. The current focus is polishing game feel, building out the club in a night-city map, and layering in the tension " +
       "effects (blackouts, heartbeat audio, the escalating misses) before external playtests with rhythm and horror fans.",
     img: "/img/thumbnail/3ds-thumbnail.PNG",
+    video: "/videos/3ds-gameplay.mp4",
     thumbnail: "/img/thumbnail/3ds-thumbnail.PNG",
     status: "In Progress",
     tags: ["Unreal 5", "C++", "Blueprint", "Python", "Rhythm", "Horror"],
