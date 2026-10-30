@@ -29,6 +29,73 @@ export type Game = {
 
 export const games: Game[] = [
   {
+    name: "Dance, Dance, Die (3Ds)",
+    slug: "dance-dance-die",
+    featured: true,
+    shortDesc: "You showed up to a Halloween party in Bushwick. The door locked behind you. Now DANCE!!",
+    highlights: [
+      "Developed a first-person rhythm horror game in Unreal Engine 5.4",
+      "Built a custom Python tool that converts community charts into lane-encoded Audition marker CSVs for UE",
+      "Drove note spawning off MetaSound cue points; designed a miss system",
+      "Collaborated with a level designer; owning game design and all gameplay development",
+    ],
+    description:
+      "Dance, Dance, Die (3Ds) is a first-person rhythm horror game set in New York City. On Halloween night, the player heads " +
+      "to a party at a club in Bushwick, but no one is there. The door closes behind them, the music rolls in, and the only way " +
+      "out is to dance. Hit the notes to survive. Miss too many and you get a jumpscare >:3",
+    role: "Game Designer, Gameplay Programmer",
+    responsibilities:
+      "Game design and development; rhythm system and charting pipeline; miss/tension effects; animation blueprints; custom Python tool (teammate handled level design)",
+    github: "https://github.com/lamarjambi/DanceDanceDie",
+    designDocImages: ["/img/design-doc/3ds-doc1.png", "/img/design-doc/3ds-doc2.png", "/img/design-doc/3ds-doc3.png"],
+    designDocLink: "https://docs.google.com/document/d/1tTtxZwsyKF8KON_052Dtuo76aP4wTwPmAEXqh4nasIY/edit?usp=sharing",
+    designDocNote:
+      "3Ds is built around the jam theme 'Helpless.' The player is trapped in a haunted club with no way out except to dance. " +
+      "The fail loop is jumpscare, then restart the song: no retry button, no escape to a menu, the club just throws you back on " +
+      "the floor. Each miss is meant to make things a little harder (flickering lights, jittery arrows, distorted music, a shrinking " +
+      "hit window) so the player feels control slipping away right before the jumpscare.\n\n" +
+
+      "Notes scroll toward a hit zone in time with the music, each mapped to one of four directions: arrow keys on keyboard or " +
+      "△ ○ □ ✕ on a controller, with every direction tied to its own dance move. The full game is three songs played in order, " +
+      "each one a level with a faster tempo, denser patterns, and a tighter miss threshold than the last. Clearing Song 3 opens " +
+      "the club door. The MVP is one fully playable song, and the game is built in Blueprints first, with C++ to follow.",
+
+    problem: "The rhythm system is driven by MetaSound cue points: UE reads markers baked into the audio and spawns a note on " +
+      "each one. The catch is that every marker has to be placed by hand in Adobe Audition, which is slow, hard to keep on beat, " +
+      "and only tells you when a note happens, not which lane it belongs to. Charting three full songs that way, and then " +
+      "re-charting every time a song felt too dense in playtesting, wasn't going to work.\n\n" +
+
+      "The harder problem was the misses themselves. In 3Ds, every missed note is supposed to make the next one harder to " +
+      "hit: the camera shakes, the lights black out, a heartbeat creeps in under the music, and it all keeps building until " +
+      "the jumpscare. Getting that to feel right was tough to write. Each effect had to stack on top of the last without " +
+      "fighting the others, stay locked to the song, and reset cleanly when the song restarts, and if it piled on too fast, " +
+      "the game stopped feeling tense and just felt unfair.",
+
+    solution: "For charting, I built RhythmChart, a custom Python tool that takes community-made Clone Hero .chart files and converts them " +
+      "into Adobe Audition marker CSVs that fit the blueprint. It reads the chart's resolution, offset, and every BPM change " +
+      "to convert ticks into exact timestamps, maps the guitar frets onto my four lanes, and drops notes closer than a set gap " +
+      "so the chart stays playable. The lane data rides along in the marker name itself (N12_L0 is note 12 on lane 0, N13_L02 " +
+      "is a chord on lanes 0 and 2), so UE just reads the MetaSound Wave Player's Cue Point Label and knows exactly which " +
+      "arrows to spawn. Swapping difficulty or retuning density is now one config change and a re-run.\n\n" +
+
+      "For the misses, I split the escalation into separate pieces: a camera shake on each miss, a building tension shake, " +
+      "a blackout overlay, and the heartbeat audio, all driven off the same miss count so they ramp up together and clear " +
+      "together on a restart. Keeping them as their own assets meant I could tune each one on its own until the slide from " +
+      "'I'm fine' to 'oh no' felt gradual instead of sudden.",
+    solutionLink: { text: "RhythmChart", href: "https://github.com/lamarjambi/RhythmChart" },
+
+    results: "3Ds is still in active development. The core loop is working: a real song with real markers, multiple lanes, " +
+      "arrows instead of placeholder spheres, a new character with her own dance animations, and the miss-to-jumpscare " +
+      "loop. The current focus is polishing game feel, building out the club in a night-city map, and layering in the tension " +
+      "effects (blackouts, heartbeat audio, the escalating misses) before external playtests with rhythm and horror fans.",
+    img: "/img/thumbnail/3ds-thumbnail.PNG",
+    video: "/videos/3ds-gameplay.mp4",
+    thumbnail: "/img/thumbnail/3ds-thumbnail.PNG",
+    status: "In Progress",
+    tags: ["Unreal 5", "C++", "Blueprint", "Python", "Rhythm", "Horror"],
+    year: "Oct 2026 - Present",
+  },
+  {
     name: "Cosmic Thread",
     slug: "cosmic-thread",
     featured: true,
@@ -142,73 +209,6 @@ export const games: Game[] = [
     status: "Completed",
     tags: ["Unreal 5", "Blueprint", "Horror", "Gamejam"],
     year: "Oct 2025",
-  },
-  {
-    name: "Dance, Dance, Die (3Ds)",
-    slug: "dance-dance-die",
-    featured: true,
-    shortDesc: "You showed up to a Halloween party in Bushwick. The door locked behind you. Now DANCE!!",
-    highlights: [
-      "Developed a first-person rhythm horror game in Unreal Engine 5.4",
-      "Built a custom Python tool that converts community charts into lane-encoded Audition marker CSVs for UE",
-      "Drove note spawning off MetaSound cue points; designed a miss system",
-      "Collaborated with a level designer; owning game design and all gameplay development",
-    ],
-    description:
-      "Dance, Dance, Die (3Ds) is a first-person rhythm horror game set in New York City. On Halloween night, the player heads " +
-      "to a party at a club in Bushwick, but no one is there. The door closes behind them, the music rolls in, and the only way " +
-      "out is to dance. Hit the notes to survive. Miss too many and you get a jumpscare >:3",
-    role: "Game Designer, Gameplay Programmer",
-    responsibilities:
-      "Game design and development; rhythm system and charting pipeline; miss/tension effects; animation blueprints; custom Python tool (teammate handled level design)",
-    github: "https://github.com/lamarjambi/DanceDanceDie",
-    designDocImages: ["/img/design-doc/3ds-doc1.png", "/img/design-doc/3ds-doc2.png", "/img/design-doc/3ds-doc3.png"],
-    designDocLink: "https://docs.google.com/document/d/1tTtxZwsyKF8KON_052Dtuo76aP4wTwPmAEXqh4nasIY/edit?usp=sharing",
-    designDocNote:
-      "3Ds is built around the jam theme 'Helpless.' The player is trapped in a haunted club with no way out except to dance. " +
-      "The fail loop is jumpscare, then restart the song: no retry button, no escape to a menu, the club just throws you back on " +
-      "the floor. Each miss is meant to make things a little harder (flickering lights, jittery arrows, distorted music, a shrinking " +
-      "hit window) so the player feels control slipping away right before the jumpscare.\n\n" +
-
-      "Notes scroll toward a hit zone in time with the music, each mapped to one of four directions: arrow keys on keyboard or " +
-      "△ ○ □ ✕ on a controller, with every direction tied to its own dance move. The full game is three songs played in order, " +
-      "each one a level with a faster tempo, denser patterns, and a tighter miss threshold than the last. Clearing Song 3 opens " +
-      "the club door. The MVP is one fully playable song, and the game is built in Blueprints first, with C++ to follow.",
-
-    problem: "The rhythm system is driven by MetaSound cue points: UE reads markers baked into the audio and spawns a note on " +
-      "each one. The catch is that every marker has to be placed by hand in Adobe Audition, which is slow, hard to keep on beat, " +
-      "and only tells you when a note happens, not which lane it belongs to. Charting three full songs that way, and then " +
-      "re-charting every time a song felt too dense in playtesting, wasn't going to work.\n\n" +
-
-      "The harder problem was the misses themselves. In 3Ds, every missed note is supposed to make the next one harder to " +
-      "hit: the camera shakes, the lights black out, a heartbeat creeps in under the music, and it all keeps building until " +
-      "the jumpscare. Getting that to feel right was tough to write. Each effect had to stack on top of the last without " +
-      "fighting the others, stay locked to the song, and reset cleanly when the song restarts, and if it piled on too fast, " +
-      "the game stopped feeling tense and just felt unfair.",
-
-    solution: "For charting, I built RhythmChart, a custom Python tool that takes community-made Clone Hero .chart files and converts them " +
-      "into Adobe Audition marker CSVs that fit the blueprint. It reads the chart's resolution, offset, and every BPM change " +
-      "to convert ticks into exact timestamps, maps the guitar frets onto my four lanes, and drops notes closer than a set gap " +
-      "so the chart stays playable. The lane data rides along in the marker name itself (N12_L0 is note 12 on lane 0, N13_L02 " +
-      "is a chord on lanes 0 and 2), so UE just reads the MetaSound Wave Player's Cue Point Label and knows exactly which " +
-      "arrows to spawn. Swapping difficulty or retuning density is now one config change and a re-run.\n\n" +
-
-      "For the misses, I split the escalation into separate pieces: a camera shake on each miss, a building tension shake, " +
-      "a blackout overlay, and the heartbeat audio, all driven off the same miss count so they ramp up together and clear " +
-      "together on a restart. Keeping them as their own assets meant I could tune each one on its own until the slide from " +
-      "'I'm fine' to 'oh no' felt gradual instead of sudden.",
-    solutionLink: { text: "RhythmChart", href: "https://github.com/lamarjambi/RhythmChart" },
-
-    results: "3Ds is still in active development. The core loop is working: a real song with real markers, multiple lanes, " +
-      "arrows instead of placeholder spheres, a new character with her own dance animations, and the miss-to-jumpscare " +
-      "loop. The current focus is polishing game feel, building out the club in a night-city map, and layering in the tension " +
-      "effects (blackouts, heartbeat audio, the escalating misses) before external playtests with rhythm and horror fans.",
-    img: "/img/thumbnail/3ds-thumbnail.PNG",
-    video: "/videos/3ds-gameplay.mp4",
-    thumbnail: "/img/thumbnail/3ds-thumbnail.PNG",
-    status: "In Progress",
-    tags: ["Unreal 5", "C++", "Blueprint", "Python", "Rhythm", "Horror"],
-    year: "Oct 2026 - Present",
   },
   {
     name: "Expelled",
