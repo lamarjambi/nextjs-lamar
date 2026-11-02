@@ -86,7 +86,7 @@ export const games: Game[] = [
 
     results: "3Ds is still in active development. The core loop is working: a real song with real markers, multiple lanes, " +
       "arrows instead of placeholder spheres, a new character with her own dance animations, and the miss-to-jumpscare " +
-      "loop. The current focus is polishing game feel, building out the club in a night-city map, and layering in the tension " +
+      "loop. The current focus is polishing   game feel, building out the club in a night-city map, and layering in the tension " +
       "effects (blackouts, heartbeat audio, the escalating misses) before external playtests with rhythm and horror fans.",
     img: "/img/thumbnail/3ds-thumbnail.PNG",
     video: "/videos/3ds-gameplay.mp4",
