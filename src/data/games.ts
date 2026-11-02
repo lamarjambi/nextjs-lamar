@@ -88,9 +88,9 @@ export const games: Game[] = [
       "arrows instead of placeholder spheres, a new character with her own dance animations, and the miss-to-jumpscare " +
       "loop. The current focus is polishing   game feel, building out the club in a night-city map, and layering in the tension " +
       "effects (blackouts, heartbeat audio, the escalating misses) before external playtests with rhythm and horror fans.",
-    img: "/img/thumbnail/3ds-thumbnail2.png",
+    img: "/img/thumbnail/3ds-thumbnail2.PNG",
     video: "/videos/3ds-gameplay.mp4",
-    thumbnail: "/img/thumbnail/3ds-thumbnail2.png]",
+    thumbnail: "/img/thumbnail/3ds-thumbnail2.PNG",
     status: "In Progress",
     tags: ["Unreal 5", "C++", "Blueprint", "Python", "Rhythm", "Horror"],
     year: "Oct 2026 - Present",
