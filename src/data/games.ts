@@ -47,7 +47,7 @@ export const games: Game[] = [
     responsibilities:
       "Game design and development; rhythm system and charting pipeline; miss/tension effects; animation blueprints; C++ systems (intro chat, loading screen, NPC dialogue); PS1 shader and performance; two custom Python tools (teammate handled level design)",
     github: "https://github.com/lamarjambi/DanceDanceDie",
-    designDocImages: ["/img/design-doc/3ds-doc1.png", "/img/design-doc/3ds-doc2.png", "/img/design-doc/3ds-doc3.png"],
+    designDocImages: ["/img/design-doc/3ds-doc1.png", "/img/design-doc/3ds-doc2.png", "/img/design-doc/3ds-doc3.png", "/img/design-doc/3ds-doc4.png"],
     designDocLink: "https://docs.google.com/document/d/1tTtxZwsyKF8KON_052Dtuo76aP4wTwPmAEXqh4nasIY/edit?usp=sharing",
     designDocNote:
       "3Ds is built around the jam theme 'Helpless.' The player is trapped in a haunted club with no way out except to dance. " +
@@ -96,7 +96,7 @@ export const games: Game[] = [
       "playtests, the arrows are bigger, the hold tails are easier to see, and Song 1 is now an original track by RiVER. " +
       "Next up: the cliffhanger ending, more horror in the maps, and packaging the demo for release >:3",
     img: "/img/thumbnail/3ds-thumbnail2.PNG",
-    video: "/videos/3ds-gameplay.mp4",
+    video: "/videos/3ds-gameplay.mov",
     thumbnail: "/img/thumbnail/3ds-thumbnail2.PNG",
     status: "In Progress",
     tags: ["Unreal 5", "C++", "Blueprint", "Python", "Rhythm", "Horror"],
