@@ -7,23 +7,35 @@ import Link from "next/link";
 // might be better to post videos on youtube?
 
 /** inline-links the first occurrence of link.text inside the solution copy */
-function renderSolution(text: string, link?: { text: string; href: string }) {
-  const i = link ? text.indexOf(link.text) : -1;
-  if (!link || i === -1) return text;
-  return (
-    <>
-      {text.slice(0, i)}
+type SolutionLink = { text: string; href: string };
+
+function renderSolution(text: string, link?: SolutionLink | SolutionLink[]) {
+  const links = (link ? (Array.isArray(link) ? link : [link]) : [])
+    .map((l) => ({ ...l, i: text.indexOf(l.text) }))
+    .filter((l) => l.i !== -1)
+    .sort((a, b) => a.i - b.i);
+  if (links.length === 0) return text;
+
+  const parts: React.ReactNode[] = [];
+  let pos = 0;
+  for (const l of links) {
+    if (l.i < pos) continue;
+    parts.push(text.slice(pos, l.i));
+    parts.push(
       <a
-        href={link.href}
+        key={l.href}
+        href={l.href}
         target="_blank"
         rel="noopener noreferrer"
         className="text-[#EC6BA7] underline hover:text-[#547DFD] transition-colors"
       >
-        {link.text}
+        {l.text}
       </a>
-      {text.slice(i + link.text.length)}
-    </>
-  );
+    );
+    pos = l.i + l.text.length;
+  }
+  parts.push(text.slice(pos));
+  return <>{parts}</>;
 }
 
 export function generateStaticParams() {
@@ -256,7 +268,7 @@ export default async function GameDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 10/30/2026
+          last updated 11/12/2026
         </p>
       </footer>
     </div>
