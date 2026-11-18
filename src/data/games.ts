@@ -96,7 +96,7 @@ export const games: Game[] = [
       "playtests, the arrows are bigger, the hold tails are easier to see, and Song 1 is now an original track by RiVER. " +
       "Next up: the cliffhanger ending, more horror in the maps, and packaging the demo for release >:3",
     img: "/img/thumbnail/3ds-thumbnail2.PNG",
-    video: "/videos/3ds-gameplay.mov",
+    video: "/videos/3ds-demo-gameplay.mp4",
     thumbnail: "/img/thumbnail/3ds-thumbnail2.PNG",
     status: "In Progress",
     tags: ["Unreal 5", "C++", "Blueprint", "Python", "Rhythm", "Horror"],
