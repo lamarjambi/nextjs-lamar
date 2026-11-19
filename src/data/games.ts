@@ -47,7 +47,7 @@ export const games: Game[] = [
     responsibilities:
       "Game design and development; rhythm system and charting pipeline; miss/tension effects; animation blueprints; C++ systems (intro chat, loading screen, NPC dialogue); PS1 shader and performance; two custom Python tools (teammate handled level design)",
     github: "https://github.com/lamarjambi/DanceDanceDie",
-    designDocImages: ["/img/design-doc/3ds-doc1.png", "/img/design-doc/3ds-doc2.png", "/img/design-doc/3ds-doc3.png", "/img/design-doc/3ds-doc4.png", "/img/design-doc/3ds-doc5-jpg"],
+    designDocImages: ["/img/design-doc/3ds-doc1.png", "/img/design-doc/3ds-doc2.png", "/img/design-doc/3ds-doc3.png", "/img/design-doc/3ds-doc4.png", "/img/design-doc/3ds-doc5.jpg"],
     designDocLink: "https://docs.google.com/document/d/1tTtxZwsyKF8KON_052Dtuo76aP4wTwPmAEXqh4nasIY/edit?usp=sharing",
     designDocNote:
       "3Ds is built around the jam theme 'Helpless': you're trapped in a haunted club, and the only way out is to dance. " +
