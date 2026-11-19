@@ -40,27 +40,23 @@ export const games: Game[] = [
       "Collaborated with a level designer and music composer; owning game design and all gameplay development",
     ],
     description:
-      "Dance, Dance, Die (3Ds) is a first-person rhythm horror game set in New York City. On Halloween night, the player heads " +
-      "to a party at a club in Bushwick, but no one is there. The door closes behind them, the music rolls in, and the only way " +
-      "out is to dance. Hit the notes to survive. Miss too many and you get a jumpscare >:3",
+      "Dance, Dance, Die (3Ds) is a first-person rhythm horror game set in Bushwick on Halloween night. You show up to a club " +
+      "party, but no one is there. The door locks, the music starts, and the only way out is to dance. Hit the notes to survive. " +
+      "Miss three and you get a jumpscare >:3",
     role: "Game Designer, Gameplay Programmer",
     responsibilities:
       "Game design and development; rhythm system and charting pipeline; miss/tension effects; animation blueprints; C++ systems (intro chat, loading screen, NPC dialogue); PS1 shader and performance; two custom Python tools (teammate handled level design)",
     github: "https://github.com/lamarjambi/DanceDanceDie",
-    designDocImages: ["/img/design-doc/3ds-doc1.png", "/img/design-doc/3ds-doc2.png", "/img/design-doc/3ds-doc3.png", "/img/design-doc/3ds-doc4.png"],
+    designDocImages: ["/img/design-doc/3ds-doc1.png", "/img/design-doc/3ds-doc2.png", "/img/design-doc/3ds-doc3.png", "/img/design-doc/3ds-doc4.png", "/img/design-doc/3ds-doc5-jpg"],
     designDocLink: "https://docs.google.com/document/d/1tTtxZwsyKF8KON_052Dtuo76aP4wTwPmAEXqh4nasIY/edit?usp=sharing",
     designDocNote:
-      "3Ds is built around the jam theme 'Helpless.' The player is trapped in a haunted club with no way out except to dance. " +
-      "The fail loop is jumpscare, then restart the song: no retry button, no escape to a menu, the club just throws you back on " +
-      "the floor. You get two misses, and the third one is the jumpscare. Each miss is meant to make things a little harder " +
-      "(flickering lights, jittery arrows, distorted music, a shrinking hit window) so the player feels control slipping away " +
-      "right before it hits.\n\n" +
+      "3Ds is built around the jam theme 'Helpless': you're trapped in a haunted club, and the only way out is to dance. " +
+      "You get two misses. The third is a jumpscare, and the song restarts. No retry button, no checkpoints, no pausing.\n\n" +
 
-      "Notes scroll toward a hit zone in time with the music, each mapped to one of four directions: arrow keys on keyboard or " +
-      "△ ○ □ ✕ on a controller, with every direction tied to its own dance move. Long notes are hold notes, with a tail you " +
-      "hold until it runs out. The full game is three songs played in order, each one faster and denser than the last, but v1 " +
-      "ships with Song 1 only, trimmed to about 45 seconds. The rhythm system doesn't care which song it's playing, so Songs 2 " +
-      "and 3 just need a chart, the audio, and a room.",
+      "Notes scroll down four lanes to a hit zone in time with the music: arrow keys on keyboard, △ ○ □ ✕ on a controller. " +
+      "Long notes are hold notes, with a tail you hold until it runs out. The demo is one 45-second song that ends on a " +
+      "cliffhanger. The full version is planned for 4-5 songs, each faster and denser than the last. The rhythm system is " +
+      "song-agnostic, so a new song only needs a chart, its audio, and a room.",
 
     problem: "The rhythm system is driven by MetaSound cue points: UE reads markers baked into the audio and spawns a note on " +
       "each one. The catch is that every marker has to be placed by hand in Adobe Audition, which is slow, hard to keep on beat, " +
