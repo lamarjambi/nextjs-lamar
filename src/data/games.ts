@@ -94,6 +94,7 @@ export const games: Game[] = [
     img: "/img/thumbnail/3ds-thumbnail2.PNG",
     video: "/videos/3ds-demo-gameplay.mp4",
     thumbnail: "/img/thumbnail/3ds-thumbnail2.PNG",
+    link: "https://playlamar.itch.io/dance-dance-die",
     status: "In Progress",
     tags: ["Unreal 5", "C++", "Blueprint", "Python", "Rhythm", "Horror"],
     year: "Oct 2026 - Present",
