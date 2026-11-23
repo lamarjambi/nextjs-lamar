@@ -101,13 +101,12 @@ export const artworks: Artwork[] = [
   
   {
     id: 10,
-    title: "Lil Dancey Dance",
-    year: "June 2021",
+    title: "Pills & Poison",
+    year: "Oct 2026",
     medium: "Digital",
-    tags: ["character design", "environment"],
-    imageSrc: "/img/lil-dancy-dance.jpg",
+    tags: ["therapy", "portrait"],
+    imageSrc: "/img/pills.png",
     size: "large",
-    featured: true,
   },
   {
     id: 11,
@@ -191,6 +190,16 @@ export const artworks: Artwork[] = [
     tags: ["therapy", "portrait"],
     imageSrc: "/img/hanahaki2.png",
     size: "medium",
+  },
+  {
+    id: 20,
+    title: "Lil Dancey Dance",
+    year: "June 2021",
+    medium: "Digital",
+    tags: ["character design", "environment"],
+    imageSrc: "/img/lil-dancy-dance.jpg",
+    size: "small",
+    featured: true,
   },
 ];
 

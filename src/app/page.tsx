@@ -271,7 +271,7 @@ function IllustrationGrid({ items }: { items: Artwork[] }) {
               />
               <div className="absolute bottom-0 left-0 right-0 bg-[#FAF0DD] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
                 <p className="font-bold text-black font-vt323 text-xl leading-tight">{artwork.title}</p>
-                <p className="text-[#547DFD] text-sm font-courier-prime">{artwork.medium} · {artwork.year}</p>
+                <p className="text-[#547DFD] text-sm font-courier-prime">{artwork.medium} - {artwork.year}</p>
                 <div className="flex flex-wrap gap-1 mt-1">
                   {artwork.tags.map((tag) => (
                     <span key={tag} className="px-1.5 py-0.5 bg-[#EC6BA7]/20 rounded-full text-[#EC6BA7] text-xs font-courier-prime">{tag}</span>
@@ -700,7 +700,7 @@ export default function Home() {
           >
             play.lmjambi@gmail.com
           </a>
-          <p className="font-dokdo text-[#702C95]/60 text-md mt-1">last updated 11/18/2026</p>
+          <p className="font-dokdo text-[#702C95]/60 text-md mt-1">last updated 11/23/2026</p>
         </footer>
       </div>
 
@@ -835,7 +835,7 @@ export default function Home() {
             play.lmjambi@gmail.com
           </a>
           <p className="font-dokdo text-[#702C95]/60 text-md">
-            last updated 11/18/2026
+            last updated 11/23/2026
           </p>
         </footer>
 

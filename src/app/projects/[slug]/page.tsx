@@ -128,7 +128,7 @@ export default async function ProjectDetailPage({
           play.lmjambi@gmail.com
         </a>
         <p className="font-dokdo text-[#702C95]/60 text-md">
-          last updated 11/18/2026
+          last updated 11/23/2026
         </p>
       </footer>
     </div>
